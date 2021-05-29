@@ -27,8 +27,8 @@ public class Main extends Application{
 		fxmlLoader.setController(naisu);
 		
 		Parent root = fxmlLoader.load();
-		naisu.loadProgressBar();
-		Scene scene = new Scene(root,450,600);
+		naisu.loadInterface();
+		Scene scene = new Scene(root,450,620);
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Naisu Shopping");

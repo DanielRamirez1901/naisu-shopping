@@ -43,7 +43,7 @@ public class NaisuShoppingUI implements Initializable{
 
 
 
-	public void loadProgressBar () throws IOException {
+	public void loadInterface () throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadingInterface.fxml"));
 		
 		fxmlLoader.setController(this);
@@ -57,11 +57,11 @@ public class NaisuShoppingUI implements Initializable{
 		 
 	}
 	public void updateBar() {
-		txtPercent.setText((progressB.getProgressLevel()/2)+"%");
+		txtPercent.setText((int)(progressB.getProgressLevel()/(2.12))+"%");
 		 progressBar.setWidth(progressB.getProgressLevel());
 		 if(progressB.isActive()==false) {
 			 try {
-				loadLogin();
+				loadCreateAccountInterface();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -70,7 +70,7 @@ public class NaisuShoppingUI implements Initializable{
 		
 	}
 	
-	private void loadLogin() throws IOException {
+	private void loadCreateAccountInterface() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAccountInterface.fxml"));
 		
 		fxmlLoader.setController(this);
@@ -81,7 +81,7 @@ public class NaisuShoppingUI implements Initializable{
     	mainBorderPane.setCenter(loginPane);
     	Stage st = (Stage)
     	loginPane.getScene().getWindow();
-    	st.setHeight(620);
+    	st.setHeight(650);
     	st.setWidth(460);
 		
 	}
