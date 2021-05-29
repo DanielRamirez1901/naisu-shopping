@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="709.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="367.0" fitWidth="823.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/addAccessories.png" />
+         </image>
+      </ImageView>
+      <TextField layoutX="31.0" layoutY="389.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the product name" />
+      <TextField layoutX="31.0" layoutY="435.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the product code" />
+      <Button layoutX="305.0" layoutY="525.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="99.0" style="-fx-background-color: #3498db;" text="Save" textFill="WHITE" />
+      <TextField layoutX="31.0" layoutY="484.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the product mark" />
+      <TextField layoutX="416.0" layoutY="389.0" prefHeight="30.0" prefWidth="187.0" promptText="Enter the price" />
+      <TextField layoutX="416.0" layoutY="435.0" prefHeight="30.0" prefWidth="187.0" promptText="Select a photo" />
+      <TextField layoutX="416.0" layoutY="484.0" prefHeight="30.0" prefWidth="187.0" promptText="Enter the type of fabric" />
+   </children>
+</Pane>
