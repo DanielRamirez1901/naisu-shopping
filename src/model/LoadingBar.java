@@ -1,14 +1,14 @@
 package model;
 
-public class ProgressBar {
+public class LoadingBar {
 	
 	
-	public final static int MAX = 212;
+	public final static int MAXSYZE = 212;
 	private int progressLevel;
 	private boolean active;
 	
 	
-	public ProgressBar() {
+	public LoadingBar() {
 		progressLevel = 0;
 		active = true;
 	}
@@ -20,7 +20,7 @@ public class ProgressBar {
 	
 
 	public void advance() {
-		if(progressLevel>=MAX) {
+		if(progressLevel>=MAXSYZE) {
 			active = false;
 		}else {			
 			progressLevel++;

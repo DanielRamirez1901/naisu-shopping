@@ -25,6 +25,6 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Rectangle fx:id="progressBar" arcHeight="5.0" arcWidth="5.0" fill="#3498db" height="25.0" layoutX="105.0" layoutY="345.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle fx:id="loadBarShape" arcHeight="5.0" arcWidth="5.0" fill="#3498db" height="25.0" layoutX="105.0" layoutY="345.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>

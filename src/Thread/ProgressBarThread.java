@@ -1,22 +1,22 @@
 package Thread;
 
 import javafx.application.Platform;
-import model.ProgressBar;
+import model.LoadingBar;
 import ui.NaisuShoppingUI;
 
 public class ProgressBarThread extends Thread{
 	
-	private ProgressBar progressbar;
+	private LoadingBar loadBar;
 	private NaisuShoppingUI naisu;
 	
-	public ProgressBarThread(ProgressBar progressB, NaisuShoppingUI naisuS) {
-		progressbar = progressB;
+	public ProgressBarThread(LoadingBar loadB, NaisuShoppingUI naisuS) {
+		loadBar = loadB;
 		naisu = naisuS;
 	}
 	
 	public void run() {
-		while (progressbar.isActive()) {
-			progressbar.advance();
+		while (loadBar.isActive()) {
+			loadBar.advance();
 			Platform.runLater(new Thread() {
 				public void run() {
 					naisu.updateBar();

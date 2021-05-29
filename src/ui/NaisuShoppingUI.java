@@ -14,18 +14,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import model.NaisuShopping;
-import model.ProgressBar;
+import model.LoadingBar;
 
 public class NaisuShoppingUI implements Initializable{
 	
-	private ProgressBar progressB;
+	private LoadingBar loadBar;
 	private NaisuShopping ns;
 	//Loading Interface attributes
 	 @FXML
 	    private BorderPane mainBorderPane;
 
 	    @FXML
-	    private Rectangle progressBar;
+	    private Rectangle loadBarShape;
 
 	    @FXML
 	    private Label txtPercent;
@@ -38,7 +38,7 @@ public class NaisuShoppingUI implements Initializable{
 
 	public NaisuShoppingUI(NaisuShopping nsh) {
 		ns = nsh;
-		progressB = new ProgressBar();
+		loadBar = new LoadingBar();
 	}
 
 
@@ -52,14 +52,14 @@ public class NaisuShoppingUI implements Initializable{
 		
 		mainBorderPane.getChildren().clear();
     	mainBorderPane.setCenter(progressPane); 	
-    	 progressB.setActive(true);
-		 new ProgressBarThread(progressB,this).start();
+    	 loadBar.setActive(true);
+		 new ProgressBarThread(loadBar,this).start();
 		 
 	}
 	public void updateBar() {
-		txtPercent.setText((int)(progressB.getProgressLevel()/(2.12))+"%");
-		 progressBar.setWidth(progressB.getProgressLevel());
-		 if(progressB.isActive()==false) {
+		txtPercent.setText((int)(loadBar.getProgressLevel()/(2.12))+"%");
+		 loadBarShape.setWidth(loadBar.getProgressLevel());
+		 if(loadBar.isActive()==false) {
 			 try {
 				loadCreateAccountInterface();
 			} catch (IOException e) {
