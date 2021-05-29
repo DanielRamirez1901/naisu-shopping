@@ -11,10 +11,12 @@ public class Market {
         user = new ArrayList<User>();
     }
     
-    public void addBuyer( Buyer buyer){
+    public void addBuyer(Buyer buyer){
         user.add(buyer);
     }
     
-    
+    public void addSeller(Seller seller){
+        user.add(seller);
+    }
     
 }
