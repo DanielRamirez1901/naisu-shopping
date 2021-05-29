@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="529.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label contentDisplay="CENTER" layoutX="293.0" layoutY="26.0" prefHeight="43.0" prefWidth="159.0" style="-fx-background-color: #3498db; -fx-border-color: #3498db;" text="INFORMATION" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="274.0" layoutY="114.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Name" />
+      <Label layoutX="274.0" layoutY="164.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Lastname" />
+      <Label layoutX="274.0" layoutY="216.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Email" />
+      <ImageView fitHeight="187.0" fitWidth="167.0" layoutX="47.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/notImage.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="469.0" layoutY="295.0" prefHeight="33.0" prefWidth="46.0" style="-fx-border-color: #3498db;" text="Log out" />
+   </children>
+</Pane>
