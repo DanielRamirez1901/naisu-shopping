@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="578.0" fitWidth="446.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/LoadingInterfaceImage.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="42.0" layoutY="238.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/loading-1.gif" />
+               </image>
+            </ImageView>
+            <Label layoutX="138.0" layoutY="101.0" text="LOADING..." textFill="#fffdfd">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <BorderPane layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</Pane>
