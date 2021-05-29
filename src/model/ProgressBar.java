@@ -3,7 +3,7 @@ package model;
 public class ProgressBar {
 	
 	
-	public final static int MAX = 300;
+	public final static int MAX = 212;
 	private int progressLevel;
 	private boolean active;
 	

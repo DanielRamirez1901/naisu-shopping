@@ -3,8 +3,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
@@ -14,20 +14,17 @@
             <Image url="@../../images/LoadingInterfaceImage.png" />
          </image>
       </ImageView>
-      <Pane layoutX="42.0" layoutY="238.0" prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="100.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../images/loading-1.gif" />
-               </image>
-            </ImageView>
-            <Label layoutX="138.0" layoutY="101.0" text="LOADING..." textFill="#fffdfd">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <BorderPane fx:id="mainBorderPane" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="171.0" layoutY="289.0" text="Loading..." textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="25.0" layoutX="104.0" layoutY="346.0" stroke="BLACK" strokeType="INSIDE" width="211.0" />
+      <Label fx:id="txtPercent" layoutX="323.0" layoutY="348.0" text="0 %" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="progressBar" arcHeight="5.0" arcWidth="5.0" fill="#3498db" height="25.0" layoutX="105.0" layoutY="345.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </Pane>

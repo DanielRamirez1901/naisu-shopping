@@ -23,7 +23,7 @@ public class ProgressBarThread extends Thread{
 				}
 			});
 			try {
-				Thread.sleep(7);
+				Thread.sleep(8);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
