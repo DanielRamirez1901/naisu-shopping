@@ -17,16 +17,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import model.NaisuShopping;
-import model.Seller;
-import model.LoadingBar;
-import model.Market;
+import model.*;
 
 public class NaisuShoppingUI implements Initializable{
 	
 	private LoadingBar loadBar;
 	private Market market;
 	private Seller seller;
+	private Buyer buyer;
 	//Loading Interface attributes
 	 @FXML
 	    private BorderPane mainBorderPane;
@@ -59,8 +57,42 @@ public class NaisuShoppingUI implements Initializable{
 
 	    @FXML
 	    private TextField txtSellerUsername;
-
 	    
+	    //AddBuyerAttributes
+	    @FXML
+	    private TextField txtBuyerName;
+
+	    @FXML
+	    private TextField txtBuyerLastname;
+
+	    @FXML
+	    private TextField txtBuyerDocument;
+
+	    @FXML
+	    private TextField txtBuyerEmail;
+
+	    @FXML
+	    private TextField txtBuyerPassword;
+
+	    @FXML
+	    private TextField txtBuyerRePassword;
+
+	    @FXML
+	    private TextField txtBuyerUser;
+
+	    //LoginWithPasswordSeller Attributes
+	    @FXML
+	    private TextField txtSellerUsernameLogin;
+
+	    @FXML
+	    private TextField txtSellerPasswordLogin;
+
+	    //LoginWithPasswordBuyer Attributes
+	    @FXML
+	    private TextField txtBuyerUserLogin;
+
+	    @FXML
+	    private TextField txtBuyerPasswordLogin;
 	    
 	    
 	@Override
@@ -89,6 +121,39 @@ public class NaisuShoppingUI implements Initializable{
 			youNeedToFillTextFields(event);
 		}
 	}
+	
+	public void addBuyer(ActionEvent event) {
+		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("")) {
+			if(txtBuyerPassword.getText().equalsIgnoreCase(txtBuyerRePassword.getText())) {
+				buyer = new Buyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText());
+				market.addBuyer(buyer);
+				userSuccesfullyRegistered(event);
+			}else {
+				areTheSamePassword(event);
+			}
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void loginSeller(ActionEvent event) throws IOException {
+		if(!txtSellerUsernameLogin.getText().equals("") && !txtSellerPasswordLogin.getText().equals("")) {
+			betaVersionAlert(event);
+			loadWhatDoYouWantToDo(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void loginBuyer(ActionEvent event) throws IOException {
+		if(!txtBuyerUserLogin.getText().equals("") && !txtBuyerPasswordLogin.getText().equals("")) {
+			betaVersionAlert(event);
+			loadWhatDoYouWantToDo(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
 	
 	public void loadInterface () throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadingInterface.fxml"));
