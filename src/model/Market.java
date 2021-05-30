@@ -15,8 +15,25 @@ public class Market {
         user.add(buyer);
     }
     
+    public void deleteBuyer(Buyer buyer) {
+    	
+    }
+    
+    public void searchBuyer(Buyer buyer) {
+    	
+    }
+    
     public void addSeller(Seller seller){
         user.add(seller);
     }
+    
+    public void deleteSeller(Seller seller) {
+    	
+    }
+    
+    public void searchSeller(Seller seller) {
+    	
+    }
+    
     
 }
