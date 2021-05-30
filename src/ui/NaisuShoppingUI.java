@@ -165,6 +165,38 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtTrouserStyle;
 
+	    //Accessories attributes
+	    @FXML
+	    private TextField txtAccessoryName;
+
+	    @FXML
+	    private TextField txtAccessoryCode;
+
+	    @FXML
+	    private TextField txtAccessoryMark;
+
+	    @FXML
+	    private TextField txtAccesoryPrice;
+
+	    @FXML
+	    private TextField txtAccessoryPathImage;
+
+	    @FXML
+	    private TextField txtAccessoryType;
+	    
+	    //Glasses Attributes
+	    @FXML
+	    private TextField txtGlassesColor;
+
+	    @FXML
+	    private TextField txtGlassesSize;
+
+	    @FXML
+	    private TextField txtGlassesFrame;
+
+	    @FXML
+	    private TextField txtGlassesLens;
+
 	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -252,6 +284,28 @@ public class NaisuShoppingUI implements Initializable{
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void addAccessory(ActionEvent event) throws IOException {
+		if(!txtAccessoryName.getText().equals("") && !txtAccessoryCode.getText().equals("") && !txtAccessoryMark.getText().equals("") && !txtAccesoryPrice.getText().equals("") && !txtAccessoryPathImage.getText().equals("") && !txtAccessoryType.getText().equals("")) {
+			if(txtAccessoryType.getText().equalsIgnoreCase("glasses") || txtAccessoryType.getText().equalsIgnoreCase("jewels")) {
+				if(txtAccessoryType.getText().equalsIgnoreCase("glasses")) {
+					betaVersionAlert(event);
+					loadAddAccessoriesGlasses(event);
+				}else if(txtAccessoryType.getText().equalsIgnoreCase("jewels")) {
+					betaVersionAlert(event);
+					loadAddAccessoriesJewels(event);
+				}
+			}else {
+				selectCorrectAccesoryType(event);
+			}
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void addAccesoryGlasses(ActionEvent event) {
+		
 	}
 	
 	public void loginSeller(ActionEvent event) throws IOException {
@@ -724,6 +778,17 @@ public class NaisuShoppingUI implements Initializable{
     }
 	
 	@FXML
+    public void selectCorrectAccesoryType(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("You must write only the two types of accessories allowed, these are:\n"
+        		+ "-glasses\r\n"
+        		+ "-jewels");
+        alert.showAndWait();
+    }
+	
+	@FXML
     public void browsePathProfilePictureBuyer(ActionEvent event) {
 		FileChooser fileChooser = new FileChooser();
     	fileChooser.setTitle("Buscar imagen");
@@ -765,6 +830,21 @@ public class NaisuShoppingUI implements Initializable{
     		txtClothePathImage.setText(fileChooser.showOpenDialog(null).getName());
     	}catch(NullPointerException npe) {
     		txtClothePathImage.setText("images/icons/clothe.PNG");
+    	}
+	}
+	
+	@FXML
+    public void browsePathAccesoryImage(ActionEvent event) {
+		FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Buscar imagen");
+ 
+    	File theDirectory = new File("images/AccessoriesImages");
+    	
+    	fileChooser.setInitialDirectory(theDirectory);
+    	try {
+    		txtAccessoryPathImage.setText(fileChooser.showOpenDialog(null).getName());
+    	}catch(NullPointerException npe) {
+    		txtAccessoryPathImage.setText("images/icons/accessory.PNG");
     	}
 	}
 }

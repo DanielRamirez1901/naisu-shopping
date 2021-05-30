@@ -13,15 +13,17 @@
             <Image url="@../../images/addAccessories.png" />
          </image>
       </ImageView>
-      <TextField layoutX="223.0" layoutY="384.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the glasses color" />
-      <TextField layoutX="223.0" layoutY="436.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the glasses size" />
+      <TextField fx:id="txtGlassesColor" layoutX="223.0" layoutY="384.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the glasses color" />
+      <TextField fx:id="txtGlassesSize" layoutX="223.0" layoutY="436.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the glasses size" />
       <Button layoutX="405.0" layoutY="524.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="99.0" style="-fx-background-color: #3498db;" text="Post Product" textFill="WHITE" />
-      <TextField layoutX="223.0" layoutY="487.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the frame design" />
-      <TextField layoutX="465.0" layoutY="384.0" prefHeight="133.0" prefWidth="222.0" promptText="Enter the lens description" />
+      <TextField fx:id="txtGlassesFrame" layoutX="223.0" layoutY="487.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the frame design" />
+      <TextField fx:id="txtGlassesLens" layoutX="465.0" layoutY="384.0" prefHeight="133.0" prefWidth="222.0" promptText="Enter the lens description" />
       <ImageView fitHeight="158.0" fitWidth="170.0" layoutX="28.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/notImage.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAddAccessories" prefHeight="23.0" prefWidth="69.0" style="-fx-background-color: #3498db;" text="prev" textFill="WHITE" />
+      <Button layoutX="626.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAddAccessoriesJewels" prefHeight="23.0" prefWidth="69.0" style="-fx-background-color: #3498db;" text="next" textFill="WHITE" />
    </children>
 </Pane>
