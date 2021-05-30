@@ -27,6 +27,7 @@ public class NaisuShoppingUI implements Initializable{
 	private Market market;
 	private Seller seller;
 	private Buyer buyer;
+	
 	//Loading Interface attributes
 	 @FXML
 	    private BorderPane mainBorderPane;
@@ -137,9 +138,18 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtClothesColor;
 	    
+	    //Clothes foot wear Attributes
+	    @FXML
+	    private TextField txtFootwearFabricType;
+
+	    @FXML
+	    private TextField txtFootwearType;
+
+	    @FXML
+	    private TextField txtFootwearDescription;
+	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -178,9 +188,22 @@ public class NaisuShoppingUI implements Initializable{
 		}
 	}
 	
-	public void addClothe(ActionEvent event) {
-		if(!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals(event) && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
-			betaVersionAlert(event);
+	public void addClothe(ActionEvent event) throws IOException {
+		if(!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals("") && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
+			if(txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("trousers")) {
+				if(txtClothesType.getText().equalsIgnoreCase("footwear")) {
+					betaVersionAlert(event);
+					loadAddClothesFootwear(event);
+				}else if(txtClothesType.getText().equalsIgnoreCase("shirt")) {
+					betaVersionAlert(event);
+					loadAddClothesShirt(event);
+				}else if(txtClothesType.getText().equalsIgnoreCase("trousers")) {
+					betaVersionAlert(event);
+					loadAddClothesShirt(event);
+				}
+			}else {
+				selectCorrectClotheType(event);
+			}
 		}else {
 			youNeedToFillTextFields(event);
 		}
@@ -226,7 +249,6 @@ public class NaisuShoppingUI implements Initializable{
 			 try {
 				loadCreateAccountInterface();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		 }
@@ -641,6 +663,18 @@ public class NaisuShoppingUI implements Initializable{
         alert.setTitle("Alert");
         alert.setHeaderText(null);
         alert.setContentText("Passwords do not match");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void selectCorrectClotheType(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("You must write only the three types of clothing allowed, these are:\n"
+        		+ "-footwear\r\n"
+        		+ "-shirt\n"
+        		+ "-trousers");
         alert.showAndWait();
     }
 	
