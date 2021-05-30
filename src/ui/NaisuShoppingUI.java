@@ -205,6 +205,126 @@ public class NaisuShoppingUI implements Initializable{
     	st.setHeight(640);
     	st.setWidth(756);
 	}
+	
+	public void loadSeeProductsOffered(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("seeProductsOffered.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(450);
+    	st.setWidth(640);
+	}
+	
+	public void loadSeeProductsToSale(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("seeProductsToSale.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(450);
+    	st.setWidth(640);
+	}
+	
+	public void loadSeeShoppingCart(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("seeShoppingCart.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(450);
+    	st.setWidth(640);
+	}
+	
+	public void loadSeeShoppingHistory(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("seeShoppingHistory.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(450);
+    	st.setWidth(640);
+	}
+	
+	public void loadSeeSoldProducts(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("seeSoldProducts.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(450);
+    	st.setWidth(640);
+	}
+	
+	public void loadSelectProductType(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SelectProductType.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(525);
+    	st.setWidth(755);
+	}
+	
+	public void loadUserInformation(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userInformation.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(420);
+    	st.setWidth(575);
+	}
+	
+	public void loadWhatDoYouWantToDo(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDo.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(500);
+    	st.setWidth(805);
+	}
 }
 	
 
