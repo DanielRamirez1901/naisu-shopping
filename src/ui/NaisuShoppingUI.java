@@ -40,9 +40,7 @@ public class NaisuShoppingUI implements Initializable{
 	public NaisuShoppingUI(NaisuShopping nsh) {
 		ns = nsh;
 		loadBar = new LoadingBar();
-	}
-
-
+	}	
 
 	public void loadInterface () throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadingInterface.fxml"));
@@ -57,6 +55,7 @@ public class NaisuShoppingUI implements Initializable{
 		 new ProgressBarThread(loadBar,this).start();
 		 
 	}
+	
 	public void updateBar() {
 		txtPercent.setText((int)(loadBar.getProgressLevel()/(2.12))+"%");
 		 loadBarShape.setWidth(loadBar.getProgressLevel());
@@ -72,6 +71,21 @@ public class NaisuShoppingUI implements Initializable{
 	}
 	
 	private void loadCreateAccountInterface() throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAccountInterface.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(650);
+    	st.setWidth(460);
+	}
+	
+	public void loadSecondaryCreateAccountInterface() throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("createAccountInterface.fxml"));
 		
 		fxmlLoader.setController(this);
@@ -324,6 +338,81 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(500);
     	st.setWidth(805);
+	}
+	
+	public void loadAddSeller(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addSeller.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(580);
+    	st.setWidth(455);
+	}
+	
+	public void loadAddBuyer(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addBuyer.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(580);
+    	st.setWidth(455);
+	}
+	
+	public void loadLoginWithPasswordBuyer(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginWithPasswordBuyer.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(580);
+    	st.setWidth(455);
+	}
+	
+	public void loadLoginWithPasswordSeller(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loginWithPasswordSeller.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(580);
+    	st.setWidth(455);
+	}
+	
+	public void loadAlreadyHaveAccount(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("alreadyHaveAccount.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(620);
+    	st.setWidth(455);
 	}
 }
 	

@@ -14,12 +14,12 @@
             <Image url="@../../images/selectionClientType.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="289.0" layoutY="189.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Seller" textFill="WHITE">
+      <Button layoutX="289.0" layoutY="189.0" mnemonicParsing="false" onAction="#loadAddSeller" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Seller" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="289.0" layoutY="287.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Buyer" textFill="WHITE">
+      <Button layoutX="289.0" layoutY="287.0" mnemonicParsing="false" onAction="#loadAddBuyer" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Buyer" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
@@ -29,5 +29,6 @@
             <Font size="32.0" />
          </font>
       </Label>
+      <Button layoutX="14.0" layoutY="369.0" mnemonicParsing="false" onAction="#loadSecondaryCreateAccountInterface" style="-fx-background-color: #3498db;" text="back" textFill="WHITE" />
    </children>
 </Pane>

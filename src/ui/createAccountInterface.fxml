@@ -18,7 +18,7 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button layoutX="57.0" layoutY="431.0" mnemonicParsing="false" style="-fx-background-color: #00000000;" text="Already have an account?" textFill="WHITE">
+      <Button layoutX="57.0" layoutY="431.0" mnemonicParsing="false" onAction="#loadAlreadyHaveAccount" style="-fx-background-color: #00000000;" text="Already have an account?" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
