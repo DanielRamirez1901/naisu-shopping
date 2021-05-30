@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import Thread.ProgressBarThread;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -83,10 +84,128 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(650);
     	st.setWidth(460);
-		
 	}
+	
+	public void loadSelectClientType(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SelectClientType.fxml"));
 		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(490);
+    	st.setWidth(810);
 	}
+	
+	public void loadAddAccessories(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addAccessories_1.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(760);
+	}
+	
+	public void loadAddAccessoriesGlasses(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addAccessories_glasses.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(760);
+	}
+	
+	public void loadAddAccessoriesJewels(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addAccessories_jewels.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(760);
+	}
+	
+	public void loadAddClothes(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClothes_1.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(756);
+	}
+	
+	public void loadAddClothesFootwear(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClothes_footwear.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(756);
+	}
+	
+	public void loadAddClothesShirt(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClothes_shirt.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(756);
+	}
+	
+	public void loadAddClothesTrousers(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addClothes_trousers.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(640);
+    	st.setWidth(756);
+	}
+}
 	
 
 
