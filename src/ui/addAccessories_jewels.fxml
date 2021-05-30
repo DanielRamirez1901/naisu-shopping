@@ -13,13 +13,14 @@
             <Image url="@../../images/addAccessories.png" />
          </image>
       </ImageView>
-      <TextField layoutX="328.0" layoutY="384.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the fabrication material" />
-      <TextField layoutX="328.0" layoutY="433.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the target gender" />
-      <Button layoutX="390.0" layoutY="489.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="99.0" style="-fx-background-color: #3498db;" text="Post Product" textFill="WHITE" />
+      <TextField fx:id="txtJewelsMaterial" layoutX="328.0" layoutY="384.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the fabrication material" />
+      <TextField fx:id="txtJewelsGender" layoutX="328.0" layoutY="433.0" prefHeight="30.0" prefWidth="222.0" promptText="Enter the target gender" />
+      <Button layoutX="390.0" layoutY="489.0" mnemonicParsing="false" onAction="#addAccessoriesJewels" prefHeight="37.0" prefWidth="99.0" style="-fx-background-color: #3498db;" text="Post Product" textFill="WHITE" />
       <ImageView fitHeight="158.0" fitWidth="170.0" layoutX="78.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/notImage.jpg" />
          </image>
       </ImageView>
+      <Button layoutX="14.0" layoutY="542.0" mnemonicParsing="false" onAction="#loadAddAccessoriesGlasses" prefHeight="15.0" prefWidth="69.0" style="-fx-background-color: #3498db;" text="prev" textFill="WHITE" />
    </children>
 </Pane>

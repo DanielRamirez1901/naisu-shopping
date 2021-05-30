@@ -197,6 +197,12 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtGlassesLens;
 
+	    //Jewels Attributes
+	    @FXML
+	    private TextField txtJewelsMaterial;
+
+	    @FXML
+	    private TextField txtJewelsGender;
 	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -304,8 +310,22 @@ public class NaisuShoppingUI implements Initializable{
 		}
 	}
 	
-	public void addAccesoryGlasses(ActionEvent event) {
-		
+	public void addAccesoryGlasses(ActionEvent event) throws IOException {
+		if(!txtGlassesColor.getText().equals("") && !txtGlassesSize.getText().equals("") && !txtGlassesFrame.getText().equals("") && !txtGlassesLens.getText().equals("")) {
+			betaVersionAlert(event);
+			loadAddAccessories(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void addAccessoriesJewels(ActionEvent event) throws IOException {
+		if(!txtJewelsGender.getText().equals("") && !txtJewelsMaterial.getText().equals("")) {
+			betaVersionAlert(event);
+			loadAddAccessories(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
 	}
 	
 	public void loginSeller(ActionEvent event) throws IOException {
