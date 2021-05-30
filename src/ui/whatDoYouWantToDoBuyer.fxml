@@ -14,12 +14,12 @@
             <Image url="@../../images/whatDoYouWantToDoImage.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="53.0" layoutY="190.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Products for sale" textFill="WHITE">
+      <Button layoutX="53.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSelectProductType" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Products for sale" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="283.0" layoutY="190.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Shopping history" textFill="WHITE">
+      <Button layoutX="283.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeShoppingHistory" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Shopping history" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -29,17 +29,17 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Button layoutX="515.0" layoutY="190.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Shopping Cart" textFill="WHITE">
+      <Button layoutX="515.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeShoppingCart" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Shopping Cart" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="58.0" style="-fx-background-color: #3498db;" text="Home" textFill="WHITE">
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadSelectClientType" prefHeight="18.0" prefWidth="58.0" style="-fx-background-color: #3498db;" text="Home" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="623.0" layoutY="14.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3498db;" text="Info Personal" textFill="WHITE">
+      <Button layoutX="623.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadUserInformationBuyer" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3498db;" text="Info Personal" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

@@ -147,7 +147,7 @@ public class NaisuShoppingUI implements Initializable{
 	public void loginBuyer(ActionEvent event) throws IOException {
 		if(!txtBuyerUserLogin.getText().equals("") && !txtBuyerPasswordLogin.getText().equals("")) {
 			betaVersionAlert(event);
-			loadWhatDoYouWantToDo(event);
+			loadWhatDoYouWantToDoBuyer(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
@@ -437,8 +437,38 @@ public class NaisuShoppingUI implements Initializable{
     	st.setWidth(575);
 	}
 	
+	public void loadUserInformationBuyer(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userInformationBuyer.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(420);
+    	st.setWidth(575);
+	}
+	
 	public void loadWhatDoYouWantToDo(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDo.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(500);
+    	st.setWidth(805);
+	}
+	
+	public void loadWhatDoYouWantToDoBuyer(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDoBuyer.fxml"));
 		
 		fxmlLoader.setController(this);
 		
