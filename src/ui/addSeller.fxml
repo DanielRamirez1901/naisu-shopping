@@ -55,7 +55,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="152.0" layoutY="384.0" mnemonicParsing="false" onAction="#addSeller" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
+      <Button layoutX="152.0" layoutY="418.0" mnemonicParsing="false" onAction="#addSeller" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -75,5 +75,11 @@
             <Font size="14.0" />
          </font>
       </Button>
+      <TextField fx:id="txtPathImageSeller" layoutX="189.0" layoutY="372.0" prefHeight="32.0" prefWidth="157.0" promptText="path" style="-fx-border-color: #3498db;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Button layoutX="54.0" layoutY="375.0" mnemonicParsing="false" onAction="#browsePathProfilePictureSeller" style="-fx-background-color: #3498db;" text="Select your photo" textFill="WHITE" />
    </children>
 </Pane>

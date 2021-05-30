@@ -1,5 +1,6 @@
 package ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.*;
 
@@ -58,6 +60,9 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtSellerUsername;
 	    
+	    @FXML
+	    private TextField txtPathImageSeller;
+	    
 	    //AddBuyerAttributes
 	    @FXML
 	    private TextField txtBuyerName;
@@ -79,6 +84,9 @@ public class NaisuShoppingUI implements Initializable{
 
 	    @FXML
 	    private TextField txtBuyerUser;
+	    
+	    @FXML
+	    private TextField txtPathImageBuyer;
 
 	    //LoginWithPasswordSeller Attributes
 	    @FXML
@@ -108,9 +116,9 @@ public class NaisuShoppingUI implements Initializable{
 	}	
 
 	public void addSeller(ActionEvent event) {
-		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("")) {
+		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
-				seller = new Seller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText());
+				seller = new Seller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText(),txtPathImageSeller.getText());
 				market.addSeller(seller);
 				userSuccesfullyRegistered(event);
 			}else {
@@ -119,12 +127,13 @@ public class NaisuShoppingUI implements Initializable{
 		}else {
 			youNeedToFillTextFields(event);
 		}
+		
 	}
 	
 	public void addBuyer(ActionEvent event) {
-		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("")) {
+		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("") && !txtPathImageBuyer.getText().equals("")) {
 			if(txtBuyerPassword.getText().equalsIgnoreCase(txtBuyerRePassword.getText())) {
-				buyer = new Buyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText());
+				buyer = new Buyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText(),txtPathImageBuyer.getText());
 				market.addBuyer(buyer);
 				userSuccesfullyRegistered(event);
 			}else {
@@ -592,6 +601,36 @@ public class NaisuShoppingUI implements Initializable{
         alert.setContentText("Passwords do not match");
         alert.showAndWait();
     }
+	
+	@FXML
+    public void browsePathProfilePictureBuyer(ActionEvent event) {
+		FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Buscar imagen");
+ 
+    	File theDirectory = new File("images/UsersImage");
+    	
+    	fileChooser.setInitialDirectory(theDirectory);
+    	try {
+    		txtPathImageBuyer.setText(fileChooser.showOpenDialog(null).getName());
+    	}catch(NullPointerException npe) {
+    		txtPathImageBuyer.setText("images/icons/people.PNG");
+    	}
+	}
+	
+	@FXML
+    public void browsePathProfilePictureSeller(ActionEvent event) {
+		FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Buscar imagen");
+ 
+    	File theDirectory = new File("images/UsersImage");
+    	
+    	fileChooser.setInitialDirectory(theDirectory);
+    	try {
+    		txtPathImageSeller.setText(fileChooser.showOpenDialog(null).getName());
+    	}catch(NullPointerException npe) {
+    		txtPathImageSeller.setText("images/icons/people.PNG");
+    	}
+	}
 }
 	
 

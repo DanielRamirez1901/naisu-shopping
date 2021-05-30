@@ -10,13 +10,14 @@ public class User {
     private String nameUser;
     private String picture;
 
-    public User(String name, String lastName, String id, String email, String password, String nameUser) {
+    public User(String name, String lastName, String id, String email, String password, String nameUser, String picture) {
         this.name = name;
         this.lastName = lastName;
         this.id = id;
         this.email = email;
         this.password = password;
         this.nameUser = nameUser;
+        this.picture = picture;
     }
 
     public String getName() {
