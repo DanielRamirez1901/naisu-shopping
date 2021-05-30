@@ -148,6 +148,24 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtFootwearDescription;
 	    
+	    //Clothes shirt Attributes
+	    @FXML
+	    private TextField txtShirtFabricType;
+
+	    @FXML
+	    private TextField txtShirtStyle;
+
+	    @FXML
+	    private TextField txtShirtType;
+	    
+	    //Clothes trousers Attributes
+	    @FXML
+	    private TextField txtTrouserTypeFabric;
+
+	    @FXML
+	    private TextField txtTrouserStyle;
+
+	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -199,11 +217,38 @@ public class NaisuShoppingUI implements Initializable{
 					loadAddClothesShirt(event);
 				}else if(txtClothesType.getText().equalsIgnoreCase("trousers")) {
 					betaVersionAlert(event);
-					loadAddClothesShirt(event);
+					loadAddClothesTrousers(event);
 				}
 			}else {
 				selectCorrectClotheType(event);
 			}
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void addClotheFootwear(ActionEvent event) throws IOException {
+		if(!txtFootwearFabricType.getText().equals("") && !txtFootwearDescription.getText().equals("") && !txtFootwearType.getText().equals("")) {
+			betaVersionAlert(event);
+			loadAddClothes(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void addClotheShirt(ActionEvent event) throws IOException {
+		if(!txtShirtFabricType.getText().equals("") && !txtShirtStyle.getText().equals("") && !txtShirtType.getText().equals("")) {
+			betaVersionAlert(event);
+			loadAddClothes(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void addClotheTrouser(ActionEvent event) throws IOException {
+		if(!txtTrouserStyle.getText().equals("") && !txtTrouserTypeFabric.getText().equals("")) {
+			betaVersionAlert(event);
+			loadAddClothes(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}

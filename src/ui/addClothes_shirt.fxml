@@ -13,13 +13,15 @@
             <Image url="@../../images/addClothes.png" />
          </image>
       </ImageView>
-      <TextField layoutX="374.0" layoutY="315.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the type of fabric" />
-      <TextField layoutX="374.0" layoutY="358.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the shirt style" />
-      <TextField layoutX="374.0" layoutY="402.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the shirt type" />
-      <Button layoutX="466.0" layoutY="459.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="125.0" style="-fx-background-color: #3498db;" text="POST PRODUCT" textFill="WHITE" />
+      <TextField fx:id="txtShirtFabricType" layoutX="374.0" layoutY="315.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the type of fabric" />
+      <TextField fx:id="txtShirtStyle" layoutX="374.0" layoutY="358.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the shirt style" />
+      <TextField fx:id="txtShirtType" layoutX="374.0" layoutY="402.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the shirt type" />
+      <Button layoutX="466.0" layoutY="459.0" mnemonicParsing="false" onAction="#addClotheShirt" prefHeight="47.0" prefWidth="125.0" style="-fx-background-color: #3498db;" text="POST PRODUCT" textFill="WHITE" />
       <ImageView fitHeight="224.0" fitWidth="234.0" layoutX="57.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/notImage.jpg" />
          </image></ImageView>
+      <Button layoutX="14.0" layoutY="532.0" mnemonicParsing="false" onAction="#loadAddClothesFootwear" prefHeight="14.0" prefWidth="52.0" style="-fx-background-color: #3498db;" text="prev" textFill="WHITE" />
+      <Button layoutX="643.0" layoutY="532.0" mnemonicParsing="false" onAction="#loadAddClothesTrousers" prefHeight="14.0" prefWidth="52.0" style="-fx-background-color: #3498db;" text="next" textFill="WHITE" />
    </children>
 </Pane>

@@ -27,5 +27,6 @@
       <TextField fx:id="txtClothesType" layoutX="395.0" layoutY="388.0" prefHeight="30.0" prefWidth="132.0" promptText="Enter the product type" />
       <Button layoutX="311.0" layoutY="522.0" mnemonicParsing="false" onAction="#addClothe" prefHeight="47.0" prefWidth="125.0" style="-fx-background-color: #3498db;" text="SAVE" textFill="WHITE" />
       <Button layoutX="14.0" layoutY="557.0" mnemonicParsing="false" onAction="#loadSelectProductType" prefHeight="18.0" prefWidth="53.0" style="-fx-background-color: #3498db;" text="Home" textFill="WHITE" />
+      <Button layoutX="645.0" layoutY="557.0" mnemonicParsing="false" onAction="#loadAddClothesFootwear" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #3498db;" text="Next" textFill="WHITE" />
    </children>
 </Pane>
