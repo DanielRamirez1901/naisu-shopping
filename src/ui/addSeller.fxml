@@ -75,7 +75,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="txtPathImageSeller" layoutX="189.0" layoutY="372.0" prefHeight="32.0" prefWidth="157.0" promptText="path" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtPathImageSeller" editable="false" layoutX="189.0" layoutY="372.0" prefHeight="32.0" prefWidth="157.0" promptText="path" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>

@@ -20,5 +20,6 @@
       <TextField layoutX="416.0" layoutY="389.0" prefHeight="30.0" prefWidth="187.0" promptText="Enter the price" />
       <TextField layoutX="416.0" layoutY="435.0" prefHeight="30.0" prefWidth="187.0" promptText="Select a photo" />
       <TextField layoutX="416.0" layoutY="484.0" prefHeight="30.0" prefWidth="187.0" promptText="Enter the type of fabric" />
+      <Button layoutX="14.0" layoutY="544.0" mnemonicParsing="false" onAction="#loadSelectProductType" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: #3498db;" text="Home" textFill="WHITE" />
    </children>
 </Pane>

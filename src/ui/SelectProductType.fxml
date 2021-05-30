@@ -13,12 +13,12 @@
             <Image url="@../../images/ProductTypeImage.png" />
          </image>
       </ImageView>
-      <Button layoutX="122.0" layoutY="220.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="ROPA" textFill="WHITE">
+      <Button layoutX="122.0" layoutY="220.0" mnemonicParsing="false" onAction="#loadAddClothes" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="ROPA" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="441.0" layoutY="220.0" mnemonicParsing="false" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="ACCESORIOS" textFill="WHITE">
+      <Button layoutX="441.0" layoutY="220.0" mnemonicParsing="false" onAction="#loadAddAccessories" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="ACCESORIOS" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

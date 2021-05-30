@@ -102,6 +102,40 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtBuyerPasswordLogin;
 	    
+	    //addClothes interface
+	    
+	    @FXML
+	    private TextField txtClothesName;
+
+	    @FXML
+	    private TextField txtClothesCode;
+
+	    @FXML
+	    private TextField txtClothesMark;
+
+	    @FXML
+	    private TextField txtClothesPrice;
+
+	    @FXML
+	    private TextField txtClothesSize;
+
+	    @FXML
+	    private TextField txtClothesQuantity;
+
+	    @FXML
+	    private TextField txtClothesGender;
+
+	    @FXML
+	    private TextField txtClothePathImage;
+
+	    @FXML
+	    private TextField txtClothesDescription;
+
+	    @FXML
+	    private TextField txtClothesType;
+	    
+	    @FXML
+	    private TextField txtClothesColor;
 	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -139,6 +173,14 @@ public class NaisuShoppingUI implements Initializable{
 			}else {
 				areTheSamePassword(event);
 			}
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
+	public void addClothe(ActionEvent event) {
+		if(!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals(event) && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
+			betaVersionAlert(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
@@ -629,6 +671,21 @@ public class NaisuShoppingUI implements Initializable{
     		txtPathImageSeller.setText(fileChooser.showOpenDialog(null).getName());
     	}catch(NullPointerException npe) {
     		txtPathImageSeller.setText("images/icons/people.PNG");
+    	}
+	}
+	
+	@FXML
+    public void browsePathClothesImage(ActionEvent event) {
+		FileChooser fileChooser = new FileChooser();
+    	fileChooser.setTitle("Buscar imagen");
+ 
+    	File theDirectory = new File("images/ClothesImage");
+    	
+    	fileChooser.setInitialDirectory(theDirectory);
+    	try {
+    		txtClothePathImage.setText(fileChooser.showOpenDialog(null).getName());
+    	}catch(NullPointerException npe) {
+    		txtClothePathImage.setText("images/icons/clothe.PNG");
     	}
 	}
 }
