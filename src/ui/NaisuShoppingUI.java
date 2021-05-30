@@ -204,6 +204,14 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtJewelsGender;
 	    
+	    //Login principal attributes
+	    @FXML
+	    private TextField txtUserLoginPrincipal;
+
+	    @FXML
+	    private TextField txtPasswordLoginPrincipal;
+
+	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -215,6 +223,15 @@ public class NaisuShoppingUI implements Initializable{
 		
 	}	
 
+	public void loginPrincipal(ActionEvent event) throws IOException {
+		if(!txtUserLoginPrincipal.getText().equals("") && !txtPasswordLoginPrincipal.getText().equals("")) {
+			betaVersionAlert(event);
+			loadSelectClientType(event);
+		}else {
+			youNeedToFillTextFields(event);
+		}
+		
+	}
 	public void addSeller(ActionEvent event) {
 		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
@@ -868,6 +885,3 @@ public class NaisuShoppingUI implements Initializable{
     	}
 	}
 }
-	
-
-

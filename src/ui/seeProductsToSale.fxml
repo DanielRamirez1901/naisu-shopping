@@ -23,6 +23,6 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #3498db;" text="home" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadWhatDoYouWantToDoBuyer" style="-fx-background-color: #3498db;" text="home" />
    </children>
 </Pane>

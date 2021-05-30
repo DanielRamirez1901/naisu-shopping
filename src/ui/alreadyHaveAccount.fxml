@@ -10,7 +10,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="406.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="552.0" fitWidth="406.0" pickOnBounds="true">
+      <ImageView fitHeight="660.0" fitWidth="406.0" pickOnBounds="true">
          <image>
             <Image url="@../../images/loginImage.jpg" />
          </image>
@@ -20,17 +20,17 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="41.0" layoutY="112.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your user or email" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtUserLoginPrincipal" layoutX="41.0" layoutY="112.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your user or email" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="153.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your password" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtPasswordLoginPrincipal" layoutX="41.0" layoutY="153.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your password" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="152.0" layoutY="293.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
+      <Button layoutX="152.0" layoutY="293.0" mnemonicParsing="false" onAction="#loginPrincipal" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

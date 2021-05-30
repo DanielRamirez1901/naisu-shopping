@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -21,6 +22,6 @@
             <Image url="@../../images/notImage.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="469.0" layoutY="295.0" prefHeight="33.0" prefWidth="46.0" style="-fx-border-color: #3498db;" text="Log out" />
+      <Button layoutX="455.0" layoutY="290.0" mnemonicParsing="false" onAction="#loadWhatDoYouWantToDo" style="-fx-background-color: #3498db;" text="home" textFill="WHITE" />
    </children>
 </Pane>
