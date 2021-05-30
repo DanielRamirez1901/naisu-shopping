@@ -20,42 +20,42 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="41.0" layoutY="88.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your name" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellername" layoutX="41.0" layoutY="88.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your name" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="128.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your lastname" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellerLastname" layoutX="41.0" layoutY="128.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your lastname" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="168.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your document number" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellerDocument" layoutX="41.0" layoutY="168.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your document number" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="210.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your email" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellerEmail" layoutX="41.0" layoutY="210.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your email" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="251.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your password" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellerPassword" layoutX="41.0" layoutY="251.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your password" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="289.0" prefHeight="32.0" prefWidth="325.0" promptText="Re enter the password" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellerRePassword" layoutX="41.0" layoutY="289.0" prefHeight="32.0" prefWidth="325.0" promptText="Re enter the password" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField layoutX="41.0" layoutY="329.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter a user name" style="-fx-border-color: #3498db;">
+      <TextField fx:id="txtSellerUsername" layoutX="41.0" layoutY="329.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter a user name" style="-fx-border-color: #3498db;">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Button layoutX="152.0" layoutY="384.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
+      <Button layoutX="152.0" layoutY="384.0" mnemonicParsing="false" onAction="#addSeller" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

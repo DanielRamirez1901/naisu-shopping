@@ -5,16 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Market;
 import model.NaisuShopping;
 
 public class Main extends Application{
 	
 	private NaisuShoppingUI naisu;
-	private NaisuShopping ns;
+	private Market market;
 	
 	public Main() {
-		ns = new NaisuShopping();
-		naisu = new NaisuShoppingUI(ns);
+		market = new Market();
+		naisu = new NaisuShoppingUI(market);
 	}
 	
 	public static void main(String []args) {

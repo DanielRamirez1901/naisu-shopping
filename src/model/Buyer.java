@@ -5,8 +5,8 @@ public class Buyer extends User {
     private Product history;
     private Product shoppingCart;
 
-    public Buyer(String name, String lastName, String id, String email, String password, String nameUser, String picture) {
-        super(name, lastName, id, email, password, nameUser, picture);
+    public Buyer(String name, String lastName, String id, String email, String password, String nameUser) {
+        super(name, lastName, id, email, password, nameUser);
         history = null;
         shoppingCart = null;
     }

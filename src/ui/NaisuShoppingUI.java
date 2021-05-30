@@ -10,17 +10,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import model.NaisuShopping;
+import model.Seller;
 import model.LoadingBar;
+import model.Market;
 
 public class NaisuShoppingUI implements Initializable{
 	
 	private LoadingBar loadBar;
-	private NaisuShopping ns;
+	private Market market;
+	private Seller seller;
 	//Loading Interface attributes
 	 @FXML
 	    private BorderPane mainBorderPane;
@@ -31,17 +37,59 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private Label txtPercent;
 
+	    
+	    //AddSellerAttributes
+	    @FXML
+	    private TextField txtSellername;
+
+	    @FXML
+	    private TextField txtSellerLastname;
+
+	    @FXML
+	    private TextField txtSellerDocument;
+
+	    @FXML
+	    private TextField txtSellerEmail;
+
+	    @FXML
+	    private TextField txtSellerPassword;
+
+	    @FXML
+	    private TextField txtSellerRePassword;
+
+	    @FXML
+	    private TextField txtSellerUsername;
+
+	    
+	    
+	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public NaisuShoppingUI(NaisuShopping nsh) {
-		ns = nsh;
+	public NaisuShoppingUI(Market mr) {
+		market = mr;
 		loadBar = new LoadingBar();
+		
 	}	
 
+	
+	public void addSeller(ActionEvent event) {
+		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("")) {
+			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
+				seller = new Seller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText());
+				market.addSeller(seller);
+				userSuccesfullyRegistered(event);
+			}else {
+				areTheSamePassword(event);
+			}
+		}else {
+			youNeedToFillTextFields(event);
+		}
+	}
+	
 	public void loadInterface () throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("loadingInterface.fxml"));
 		
@@ -414,6 +462,42 @@ public class NaisuShoppingUI implements Initializable{
     	st.setHeight(620);
     	st.setWidth(455);
 	}
+	
+	@FXML
+    public void betaVersionAlert(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Beta version 1.0");
+        alert.setHeaderText(null);
+        alert.setContentText("This functionality has not yet been implemented since the project is in beta version.");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void userSuccesfullyRegistered(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText(null);
+        alert.setContentText("User successfully registered");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void youNeedToFillTextFields(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("Please fill in all the corresponding fields");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void areTheSamePassword(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("Passwords do not match");
+        alert.showAndWait();
+    }
 }
 	
 
