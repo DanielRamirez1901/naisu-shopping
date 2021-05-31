@@ -13,6 +13,8 @@ class Clothing {
     private String color;//color
     private String gender;//genero
     private String type;//tipo
+    
+    
 
     public Clothing(String name, String code, String brand, double price, String size, String photo, String description, int quantity, String color, String gender, String type) {
         this.name = name;

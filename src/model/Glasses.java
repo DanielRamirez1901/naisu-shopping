@@ -1,20 +1,51 @@
-
 package model;
 
-public class Glasses extends Accessories{
+public class Glasses extends Accessories {
+
     private String color;
     private String size;
-    private double description;//lente
+    private String description;//lente
     private String design;
+    private Glasses left;
+    private Glasses right;
+    private Glasses parent;
 
-    public Glasses(String color, String size, double description, String design, String name, String code, String brand, double price, String photo, String type) {
+    public Glasses(String color, String size, String description, String design, String name, String code, String brand, double price, String photo, String type) {
         super(name, code, brand, price, photo, type);
         this.color = color;
         this.size = size;
         this.description = description;
         this.design = design;
+        left = null;
+        right = null;
+        parent = null;
+    }
+
+    public Glasses getLeft() {
+        return left;
+    }
+
+    public void setLeft(Glasses left) {
+        this.left = left;
+    }
+
+    public Glasses getRight() {
+        return right;
+    }
+
+    public void setRight(Glasses right) {
+        this.right = right;
+    }
+
+    public Glasses getParent() {
+        return parent;
+    }
+
+    public void setParent(Glasses parent) {
+        this.parent = parent;
     }
     
+
     public String getColor() {
         return color;
     }
@@ -31,11 +62,11 @@ public class Glasses extends Accessories{
         this.size = size;
     }
 
-    public double getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(double description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -46,7 +77,5 @@ public class Glasses extends Accessories{
     public void setDesign(String design) {
         this.design = design;
     }
-
-
 
 }
