@@ -2,27 +2,30 @@
 package model;
 
 public class Seller extends User{
-    private Product saleHistory;
-    private Product productsToSale;
+    
+    private Accessories saleHistory;
+    private Clothing productsToSale;
+    
+    
     public Seller(String name, String lastName, String id, String email, String password, String nameUser,String picture) {
         super(name, lastName, id, email, password, nameUser, picture);
         saleHistory = null;
         productsToSale = null;
     }
 
-    public Product getSaleHistory() {
+    public Accessories getSaleHistory() {
         return saleHistory;
     }
 
-    public void setSaleHistory(Product saleHistory) {
+    public void setSaleHistory(Accessories saleHistory) {
         this.saleHistory = saleHistory;
     }
 
-    public Product getProductsToSale() {
+    public Clothing getProductsToSale() {
         return productsToSale;
     }
 
-    public void setProductsToSale(Product productsToSale) {
+    public void setProductsToSale(Clothing productsToSale) {
         this.productsToSale = productsToSale;
     }
     

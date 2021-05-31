@@ -2,29 +2,51 @@ package model;
 
 public class Buyer extends User {
 
-    private Product history;
-    private Product shoppingCart;
+    private Accessories historyAccessories;
+    private Accessories shoppingCartAccessories;
+    private Clothing historyClothing;
+    private Clothing shoppingCartClothing;
 
     public Buyer(String name, String lastName, String id, String email, String password, String nameUser, String picture) {
-        super(name, lastName, id, email, password, nameUser,picture);
-        history = null;
-        shoppingCart = null;
+        super(name, lastName, id, email, password, nameUser, picture);
+        this.historyAccessories = null;
+        this.shoppingCartAccessories = null;
+        this.historyClothing = null;
+        this.shoppingCartClothing = null;
     }
 
-    public Product getHistory() {
-        return history;
+    public Accessories getHistoryAccessories() {
+        return historyAccessories;
     }
 
-    public void setHistory(Product history) {
-        this.history = history;
+    public void setHistoryAccessories(Accessories historyAccessories) {
+        this.historyAccessories = historyAccessories;
     }
 
-    public Product getShoppingCart() {
-        return shoppingCart;
+    public Accessories getShoppingCartAccessories() {
+        return shoppingCartAccessories;
     }
 
-    public void setShoppingCart(Product shoppingCart) {
-        this.shoppingCart = shoppingCart;
+    public void setShoppingCartAccessories(Accessories shoppingCartAccessories) {
+        this.shoppingCartAccessories = shoppingCartAccessories;
     }
+
+    public Clothing getHistoryClothing() {
+        return historyClothing;
+    }
+
+    public void setHistoryClothing(Clothing historyClothing) {
+        this.historyClothing = historyClothing;
+    }
+
+    public Clothing getShoppingCartClothing() {
+        return shoppingCartClothing;
+    }
+
+    public void setShoppingCartClothing(Clothing shoppingCartClothing) {
+        this.shoppingCartClothing = shoppingCartClothing;
+    }
+
+
 
 }
