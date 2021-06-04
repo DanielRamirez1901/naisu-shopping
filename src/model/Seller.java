@@ -4,9 +4,9 @@ package model;
 public class Seller extends User{
     
     private Accessories saleHistory;
-    private Accessories saleHistory;
+ 
     private Clothing productsToSale;
-    private Clothing productsToSale;
+ 
     
     public Seller(String name, String lastName, String id, String email, String password, String nameUser,String picture) {
         super(name, lastName, id, email, password, nameUser, picture);
@@ -31,4 +31,5 @@ public class Seller extends User{
     }
     
     
+
 }

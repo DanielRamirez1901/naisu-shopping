@@ -10,6 +10,7 @@ public class Glasses extends Accessories {
     private Glasses right;
     private Glasses parent;
 
+
     public Glasses(String color, String size, String description, String design, String name, String code, String brand, double price, String photo, String type) {
         super(name, code, brand, price, photo, type);
         this.color = color;
@@ -44,9 +45,8 @@ public class Glasses extends Accessories {
     public void setParent(Glasses parent) {
         this.parent = parent;
     }
-    
 
-    public String getColor() {
+	public String getColor() {
         return color;
     }
 

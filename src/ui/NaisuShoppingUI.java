@@ -232,6 +232,7 @@ public class NaisuShoppingUI implements Initializable{
 		}
 		
 	}
+	
 	public void addSeller(ActionEvent event) {
 		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
@@ -379,7 +380,7 @@ public class NaisuShoppingUI implements Initializable{
 	}
 	
 	public void updateBar() {
-		txtPercent.setText((int)(loadBar.getProgressLevel()/(2.12))+"%");
+		txtPercent.setText((int)(loadBar.getProgressLevel()/2.12)+"%");
 		 loadBarShape.setWidth(loadBar.getProgressLevel());
 		 if(loadBar.isActive()==false) {
 			 try {
