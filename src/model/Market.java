@@ -98,5 +98,31 @@ public class Market {
     	}
     }
     
+   //*********************************************************************
+    
+    //Ordenamiento por insercion
+    //Ordenando usuario por email
+    public void insertionSortByUserEmail() {
+    	User temporal;
+    	for(int i = 1; i<user.size();i++) {
+    		for(int j = 1;j>0 && user.get(j-1).getEmail().charAt(0)>user.get(j).getEmail().charAt(0);j--) {
+    			temporal = user.get(j);
+    			user.set(j, user.get(j-1));
+    			user.set((j-1), temporal);
+    		}
+    	}
+    }
+    
+    //Ordenamiento usuario por nombre
+    public void insertionSortByName() {
+    	User temporal;
+    	for(int i = 1; i<user.size();i++) {
+    		for(int j = 1;j>0 && user.get(j-1).getName().charAt(0)>user.get(j).getName().charAt(0);j--) {
+    			temporal = user.get(j);
+    			user.set(j, user.get(j-1));
+    			user.set((j-1), temporal);
+    		}
+    	}
+    }
     
 }
