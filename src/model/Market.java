@@ -36,8 +36,8 @@ public class Market {
     }
     
     //Ordenamientos burbuja*************************************************
-    //Ordenamiento por nombre usuario
-    public void bubbleSortByUserName() {
+    //Ordenamiento por nombre de persona
+    public void bubbleSortByName() {
     	User userToOrder;
     	for(int i = 0; i<(user.size()-1);i++) {
     		for(int j = 0; j<(user.size()-1);j++) {
@@ -49,8 +49,8 @@ public class Market {
     		}
     	}
     }
-    //Ordenamiento por apellido usuario
-    public void bubbleSortByUserLastname() {
+    //Ordenamiento por apellido de la persona
+    public void bubbleSortByLastname() {
     	User userToOrder;
     	for(int i = 0; i<(user.size()-1);i++) {
     		for(int j = 0; j<(user.size()-1);j++) {
@@ -63,5 +63,40 @@ public class Market {
     	}
     }
   //**********************************************************************
+    
+  //Ordenamiento por seleccion
+  //Ordenamiento por user name
+    public void selectionSortByUserName() {
+    	User aux;
+    	int posMin;
+    	for(int i = 0; i<user.size();i++) {
+    		posMin = i;
+    		for(int j = i;j<user.size();j++) {
+    			if(user.get(j).getNameUser().charAt(0)<user.get(posMin).getNameUser().charAt(0)) {
+    				posMin = j;
+    			}
+    		}
+    		aux = user.get(i);
+    		user.set(i, user.get(posMin));
+    		user.set(posMin, aux);
+    	}
+    }
+    //Ordenamiento por ID
+    public void selectionSortByUserID() {
+    	User aux;
+    	int posMin;
+    	for(int i = 0; i<user.size();i++) {
+    		posMin = i;
+    		for(int j = i;j<user.size();j++) {
+    			if(user.get(j).getId().charAt(0)<user.get(posMin).getId().charAt(0)) {
+    				posMin = j;
+    			}
+    		}
+    		aux = user.get(i);
+    		user.set(i, user.get(posMin));
+    		user.set(posMin, aux);
+    	}
+    }
+    
     
 }
