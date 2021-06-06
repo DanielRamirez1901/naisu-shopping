@@ -124,4 +124,43 @@ public class Market {
     		}
     	}
     } 
+    //Busqueda binaria por nombre de vendedor
+    public int binarySearchBySellerName(ArrayList<Seller> sellerX, String name) {
+        String nameSeller = name.toLowerCase();
+        int pos = -1;
+        int i = 0;
+        int j = sellerX.size() - 1;
+        while (i <= j && pos < 0) {
+            int m = (i + j) / 2;
+            if (sellerX.get(m).getName().equals(nameSeller)) {
+                pos = m;
+            } else if (nameSeller.compareTo(sellerX.get(m).getName()) > 0) {
+                i = m + 1;
+            } else {
+                j = m - 1;
+            }
+        }//End while
+        return pos;
+    }//End binarySearch method
+    
+    //Busqueda binaria por apellido de comprador
+    public int binarySearchByBuyerLastname(ArrayList<Buyer> buyerX, String name) {
+        String buyerName = name.toLowerCase();
+        int pos = -1;
+        int i = 0;
+        int j = buyerX.size() - 1;
+
+        while (i <= j && pos < 0) {
+            int m = (i + j) / 2;
+            if (buyerX.get(m).getName().equals(buyerName)) {
+                pos = m;
+            } else if (buyerName.compareTo(buyerX.get(m).getName()) > 0) {
+                i = m + 1;
+            } else {
+                j = m - 1;
+            }
+        }//End while
+        return pos;
+    }//End binarySearch method
 }
+
