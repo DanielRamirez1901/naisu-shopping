@@ -123,6 +123,5 @@ public class Market {
     			user.set((j-1), temporal);
     		}
     	}
-    }
-    
+    } 
 }

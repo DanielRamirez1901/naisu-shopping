@@ -1,7 +1,10 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
-public class Accessories {
+public class Accessories implements Comparable<Jewelry>{
     private String name;//nombre
     private String code;//codigo
     private String brand;//marca
@@ -12,6 +15,8 @@ public class Accessories {
     private Jewelry jw;
     private Glasses rootG;
     private Glasses gl;
+    private ArrayList<Jewelry>jewelry;
+    private ArrayList<Glasses>glasses;
     public Accessories(String name, String code, String brand, double price, String photo, String type) {
         this.name = name;
         this.code = code;
@@ -19,6 +24,8 @@ public class Accessories {
         this.price = price;
         this.photo = photo;
         this.type = type;
+        jewelry = new ArrayList<>();
+        glasses = new ArrayList<>();
     }
 
     //pre: Esta objeto debe haber sido creado anteriormente
@@ -48,8 +55,8 @@ public class Accessories {
 		}
 	}
 
-  //pre: Esta objeto debe haber sido creado anteriormente
-  //Algoritmo arbol de busqueda binaria insertando con el precio
+//  pre: Esta objeto debe haber sido creado anteriormente
+//  Algoritmo arbol de busqueda binaria insertando con el precio
     public void inssertGlassesByPrice(double glassesPrice) {
     	Glasses glassesToAdd = new Glasses(gl.getColor(), gl.getSize(),gl.getDescription(), gl.getDesign(), name, code, brand, glassesPrice, photo, type);
     		if(rootG == null) {
@@ -58,8 +65,7 @@ public class Accessories {
     			inssertGlassesByPrice(rootG , glassesToAdd);
     		}
     }
-    
-    
+   
 	private void inssertGlassesByPrice(Glasses currentGlasses, Glasses glassesToAdd) {
 		if(currentGlasses.getPrice()<glassesToAdd.getPrice()) {
 			if(currentGlasses.getRight()==null) {
@@ -75,7 +81,7 @@ public class Accessories {
 			}
 		}
 	}
-
+    
 	public Jewelry getRoot() {
 		return rootJ;
 	}
@@ -83,8 +89,6 @@ public class Accessories {
 	public void setRoot(Jewelry root) {
 		this.rootJ = root;
 	}
-
-
 
 	public String getName() {
         return name;
@@ -131,9 +135,47 @@ public class Accessories {
     }
 
     public void setType(String type) {
-        this.type = type;
+    	this.type = type;
     }
     
     
-    
+  //Algoritmos de ordenamientos implementados por java utilizando comparable y clase comparator
+    //Por nombre de accesorio
+    public void sortByJewelryName() {
+    	Collections.sort(jewelry);
+    }
+	@Override
+	public int compareTo(Jewelry o) {
+		return name.compareTo(o.getName());
+	}  
+	//Por codigo de joya
+	public void sortByJewelryCode() {
+		Comparator<Jewelry> accessoriesCodeComparator = new AccessoriesCodeComparator();
+		Collections.sort(jewelry,accessoriesCodeComparator);
+	}
+	
+	//Algoritos de ordenamiento implementatos por java utilizando comparable, comparator y clase anonima
+	
+	public void sortByGlassesBrand() {
+		Comparator<Glasses> brandComparator = new Comparator<Glasses>()	{
+
+			@Override
+			public int compare(Glasses g1, Glasses g2) {
+				return g1.getBrand().compareTo(g2.getBrand());
+			}	
+		};
+		Collections.sort(glasses,brandComparator);
+	}
+	
+	public void sortByGlassesPrice() {
+		Comparator<Glasses> priceComparator = new Comparator<Glasses>() {
+
+			@Override
+			public int compare(Glasses g1, Glasses g2) {
+				return Double.compare(g1.getPrice(), g2.getPrice());
+			}
+			
+		};
+		Collections.sort(glasses,Collections.reverseOrder(priceComparator));
+	}
 }
