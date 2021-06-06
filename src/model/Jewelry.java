@@ -4,7 +4,6 @@ package model;
 public class Jewelry extends Accessories{
     private String material;
     private String gender;
-
     private Jewelry left;
     private Jewelry right;
     private Jewelry parent;
@@ -71,5 +70,6 @@ public class Jewelry extends Accessories{
     public void setGender(String gender) {
         this.gender = gender;
     }
+
     
 }

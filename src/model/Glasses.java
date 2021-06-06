@@ -8,7 +8,8 @@ public class Glasses extends Accessories {
     private String design;
     private Glasses next;
     private Glasses prev;
-    private Glasses currentGlass;
+    private Glasses right;
+    private Glasses left;
     private Glasses parent;
 
 
@@ -21,61 +22,23 @@ public class Glasses extends Accessories {
         parent = null;
     }
 
-    public void addGlasses(Glasses glassesToAdd) {
-    	if(currentGlass==null) {
-    		currentGlass = glassesToAdd;
-    	}else {
-    		addGlasses(currentGlass.getNext(),glassesToAdd,currentGlass);
-    	}
-    }
-
-    private void addGlasses(Glasses current, Glasses glassesToAdd, Glasses prevGlasses) {
-    	if(current==null) {
-    		current = glassesToAdd;
-    		current.setPrev(prevGlasses);
-    		prevGlasses.setNext(current);
-    	}else {
-    		addGlasses(current.getNext(),glassesToAdd,current);
-    	}
-    }
-    
-    public void deleteAGlass(Glasses glassesToDelete) {
-    	Glasses youNeedToGetOut;
-    	if(currentGlass == glassesToDelete) {	
-    		currentGlass = currentGlass.getNext();
-    		if(currentGlass!=null) {
-    			youNeedToGetOut = glassesToDelete;
-    			youNeedToGetOut.setNext(null);
-    		}
-    	}else if (currentGlass!=null) {
-    		deleteAGlass(currentGlass.getNext(),glassesToDelete);
-    	}
-    }
-	
-    private void deleteAGlass(Glasses actual, Glasses glassesToDelete) {
-    	if(actual == glassesToDelete) {
-    		Glasses tempGlassToRemove = actual;
-    		Glasses newNextGlass = actual.getNext();
-    		Glasses newPrevGlass = actual.getPrev();
-    		newPrevGlass.setNext(actual.getNext());
-    		if(newNextGlass!=null) {
-    			newNextGlass.setPrev(actual.getPrev());
-    		}
-    		tempGlassToRemove.setPrev(null);
-    		tempGlassToRemove.setNext(null);
-    	}
-    	else {
-    		deleteAGlass(actual.getNext(),glassesToDelete);
-    	}	
-    }
 
 
-	public Glasses getCurrentGlass() {
-		return currentGlass;
+
+	public Glasses getRight() {
+		return right;
 	}
 
-	public void setCurrentGlass(Glasses currentGlass) {
-		this.currentGlass = currentGlass;
+	public void setRight(Glasses right) {
+		this.right = right;
+	}
+
+	public Glasses getLeft() {
+		return left;
+	}
+
+	public void setLeft(Glasses left) {
+		this.left = left;
 	}
 
 	public Glasses getNext() {
