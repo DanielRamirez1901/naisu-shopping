@@ -40,7 +40,7 @@ public class Market {
         if (buyerToDelete != null) {
             buyer.remove(buyerToDelete);
         }//End if
-    }//End removeProduct method
+    }
     
     public int searchBuyerInt(String name) {
         int position = 0;
@@ -50,7 +50,7 @@ public class Market {
             }//End if
         }//End for
         return position;
-    }//End searchProductInt method
+    }
     
     public Buyer searchBuyer(String name) {
         for (int i = 0; i < buyer.size(); i++) {
@@ -59,10 +59,12 @@ public class Market {
             }//End if
         }//End for
         return null;
-    }//End searchProduct method
+    }
+    
 //*********************************************END BUYER***************************************
     
 //********************************************SELLER*******************************************
+    
     public void addSeller(Seller sellerToAdd){
         seller.add(sellerToAdd);
     }
@@ -72,7 +74,7 @@ public class Market {
         if (sellerToDelete != null) {
             seller.remove(sellerToDelete);
         }//End if
-    }//End removeProduct method
+    }
     
     public int searchSellerInt(String name) {
         int position = 0;
@@ -82,7 +84,7 @@ public class Market {
             }//End if
         }//End for
         return position;
-    }//End searchProductInt method
+    }
     
     public Seller searchSeller(String name) {
         for (int i = 0; i < seller.size(); i++) {
@@ -91,25 +93,77 @@ public class Market {
             }//End if
         }//End for
         return null;
-    }//End searchProduct method
+    }
+    
 //********************************************END SELLER******************************************* 
+ 
+//********************************************ACCESSORIES******************************************
     
     public void addAccesssories(Accessories accs) {
     	acc.add(accs);
     }
     
-    public void deleteAccessories(Accessories accessoryToDelete) {
-    	
+    public void deleteAccessories(String name) {
+        Accessories accessoriesToDelete = searchAccessories(name);
+        if (accessoriesToDelete != null) {
+            acc.remove(accessoriesToDelete);
+        }//End if
     }
+    
+    public int searchAccessoriesInt(String name) {
+        int position = 0;
+        for (int i = 0; i < acc.size(); i++) {
+            if (acc.get(i).getName().compareTo(name) == 0) {
+                position = i;
+            }//End if
+        }//End for
+        return position;
+    }
+    
+    public Accessories searchAccessories(String name) {
+        for (int i = 0; i < acc.size(); i++) {
+            if (acc.get(i).getName().compareTo(name) == 0) {
+                return acc.get(i);
+            }//End if
+        }//End for
+        return null;
+    }
+    
+//********************************************END ACCESSORIES******************************************   
+  
+//********************************************CLOTHING******************************************
     
     public void addClothing(Clothing cloth) {
     	clothing.add(cloth);
     }
     
-    public void deleteClothing(Clothing clothingToDelete) {
-    	
+    public void deleteClothing(String name) {
+        Clothing clothingToDelete = searchClothing(name);
+        if (clothingToDelete != null) {
+            clothing.remove(clothingToDelete);
+        }//End if
     }
     
+    public int searchClothingInt(String name) {
+        int position = 0;
+        for (int i = 0; i < clothing.size(); i++) {
+            if (clothing.get(i).getName().compareTo(name) == 0) {
+                position = i;
+            }//End if
+        }//End for
+        return position;
+    }
+    
+    public Clothing searchClothing(String name) {
+        for (int i = 0; i < clothing.size(); i++) {
+            if (clothing.get(i).getName().compareTo(name) == 0) {
+                return clothing.get(i);
+            }//End if
+        }//End for
+        return null;
+    }
+    
+//********************************************END CLOTHING****************************************** 
     //Ordenamientos burbuja*************************************************
     //Ordenamiento por nombre de persona
     public void bubbleSortByName() {

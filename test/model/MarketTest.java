@@ -66,8 +66,7 @@ class MarketTest {
 	@Test
 	void testDeleteSeller() {
 		Market marketTest = setupStage3();
-		marketTest.deleteSeller(new Seller( "Levi" , "Ackerman" , "9549" , "Ackerman@gmail.com" ,
-										 "5654" , "Levi" , "images/UserImage/Levi.png" ));
+		marketTest.deleteSeller("Levi");
 	}
 		
 	public Market setupStage4() {
@@ -99,17 +98,13 @@ class MarketTest {
 	@Test
 	void testDeleteClothing() {
 		Market marketTest = setupStage5();
-		marketTest.deleteClothing(new Clothing( "Camisa" , "654654" , "Snick" , 50000, 
-											 "L" , "images/ClothesImages/Shirt.png", 
-											 "Camisa unisex, grande y comoda" , 2 , 
-											 "Rojo" , "Unisex" , "Shirts" ));
+		marketTest.deleteClothing( "Camisa" );
 	}
 	
 	@Test
 	void testDeleteAccessories() {
 		Market marketTest = setupStage5();
-		marketTest.deleteAccessories(new Accessories( "Gafas de sol" , "45887" , "glass" , 2260000 ,
-													"images/AccessoriesImages/glasses.png", "glasses" ));
+		marketTest.deleteAccessories("Gafas de sol");
 	}
 
 	
