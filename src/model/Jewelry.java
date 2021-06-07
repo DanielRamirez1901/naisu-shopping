@@ -6,28 +6,16 @@ public class Jewelry extends Accessories{
     private String gender;
     private Jewelry left;
     private Jewelry right;
-    private Jewelry parent;
 
 
-    public Jewelry(String material, String gender, String name, String code, String brand, double price, String photo, String type) {
+
+    public Jewelry(String name, String code, String brand, double price, String photo, String type, String material, String gender) {
         super(name, code, brand, price, photo, type);
         this.material = material;
         this.gender = gender;
         left = null;
-        right = null;
-        parent = null;
-        
+        right = null;      
     }
-
-    
-    public Jewelry getParent() {
-		return parent;
-	}
-
-
-	public void setParent(Jewelry parent) {
-		this.parent = parent;
-	}
 
 
 	public Jewelry getRight() {
@@ -53,11 +41,6 @@ public class Jewelry extends Accessories{
 	public String getMaterial() {
 		return material;
 	}
-
-
-	public String getMateial() {
-        return material;
-    }
 
     public void setMaterial(String material) {
         this.material = material;

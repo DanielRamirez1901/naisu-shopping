@@ -228,7 +228,7 @@ public class Market {
     //pre: Esta objeto debe haber sido creado anteriormente
     //Algoritmo arbol de busqueda binaria insertando con el precio
     public void inssertJewelryByPrice(double priceJewelry) {
-    	Jewelry jewelryToAdd = new Jewelry(jw.getMateial(), jw.getGender() , jw.getName(), jw.getCode(), jw.getBrand(), priceJewelry, jw.getPhoto(), jw.getType());
+    	Jewelry jewelryToAdd = new Jewelry( jw.getName(), jw.getCode(), jw.getBrand(), priceJewelry, jw.getPhoto(), jw.getType(), jw.getMaterial(), jw.getGender());
     		if(rootJ == null) {
     			rootJ = jewelryToAdd;
     		}else {
