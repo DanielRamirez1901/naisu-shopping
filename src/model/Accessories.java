@@ -80,6 +80,15 @@ public class Accessories implements Comparable<Jewelry>{
     public void setType(String type) {
     	this.type = type;
     }
+
+	public ArrayList<Jewelry> getJewelry() {
+		return jewelry;
+	}
+
+	public void setJewelry(ArrayList<Jewelry> jewelry) {
+		this.jewelry = jewelry;
+	}
+    
     
   
 }

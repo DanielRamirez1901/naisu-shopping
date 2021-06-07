@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test;
 
 class PantsTest {
 	
-	public void setuoStage1() {
+	public void setupStage1() {
 		
 	}
 	
 	@Test
 	public void testPants() {
+		setupStage1();
 		Pants pantsTest = new Pants( "Jeans" , "46454" , "BlackJeans" , 110000 , 
 									"M" , "images/ClothesImages/jean.png" , 
 									"Pantalones diseñados para personas delgadas" , 
@@ -37,6 +38,7 @@ class PantsTest {
 	
 	@Test
 	public void testSettersAndGetters() {
+		setupStage1();
 		Pants pantsTest = new Pants( " " , " " , " " , 0 , " " , " " , " " , 0 , " " , " " , " " , " " , " ");
 		
 		pantsTest.setName("Jeans");
