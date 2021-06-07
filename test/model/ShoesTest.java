@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import com.sun.xml.internal.ws.encoding.soap.SOAP12Constants;
 
 class ShoesTest {
 
