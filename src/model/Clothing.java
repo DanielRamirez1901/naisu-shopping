@@ -27,9 +27,10 @@ class Clothing {
         this.quantity = quantity;
         this.color = color;
         this.gender = gender;
-        this.type = type;
+        this.type = type;	
     }
 
+    
     public String getName() {
         return name;
     }
