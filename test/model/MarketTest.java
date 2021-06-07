@@ -25,6 +25,10 @@ class MarketTest {
 		assertTrue(marketTest.getAcc().isEmpty());
 		assertNotNull(marketTest.getClothing());
 		assertTrue(marketTest.getClothing().isEmpty());
+		assertNotNull(marketTest.getBuyer());
+		assertTrue(marketTest.getBuyer().isEmpty());
+		assertNotNull(marketTest.getSeller());
+		assertTrue(marketTest.getSeller().isEmpty());
 	}
 	
 	
@@ -56,8 +60,7 @@ class MarketTest {
 	@Test
 	void testDeleteBuyer() {
 		Market marketTest = setupStage3();
-		marketTest.deleteBuyer(new Buyer("Janna" , "Flitz" , "999" , "Janna999@gmail.com" ,
-				  "ara123" , "Jvna" , "images/UserImage/Janna.png"));
+		marketTest.deleteBuyer("Janna");
 	}
 	
 	@Test

@@ -13,6 +13,8 @@ public class Market {
     private ArrayList<Glasses>glasses;
     private ArrayList<Accessories> acc;
     private ArrayList<Clothing> clothing;
+    private ArrayList<Buyer> buyer;
+    private ArrayList <Seller> seller;
     private Jewelry rootJ;
     private Jewelry jw;
     private Glasses rootG;
@@ -24,31 +26,73 @@ public class Market {
         glasses = new ArrayList<Glasses>();
         acc = new ArrayList<Accessories>();
         clothing = new ArrayList<Clothing>();
+        buyer = new ArrayList<Buyer>();
+        seller = new ArrayList<Seller>();
+    }
+ 
+//**************************************BUYER*************************************************
+    public void addBuyer(Buyer buyerToAdd){
+        buyer.add(buyerToAdd);
     }
     
-    public void addBuyer(Buyer buyer){
-        user.add(buyer);
+    public void deleteBuyer(String name) {
+        Buyer buyerToDelete = searchBuyer(name);
+        if (buyerToDelete != null) {
+            buyer.remove(buyerToDelete);
+        }//End if
+    }//End removeProduct method
+    
+    public int searchBuyerInt(String name) {
+        int position = 0;
+        for (int i = 0; i < buyer.size(); i++) {
+            if (buyer.get(i).getName().compareTo(name) == 0) {
+                position = i;
+            }//End if
+        }//End for
+        return position;
+    }//End searchProductInt method
+    
+    public Buyer searchBuyer(String name) {
+        for (int i = 0; i < buyer.size(); i++) {
+            if (buyer.get(i).getName().compareTo(name) == 0) {
+                return buyer.get(i);
+            }//End if
+        }//End for
+        return null;
+    }//End searchProduct method
+//*********************************************END BUYER***************************************
+    
+//********************************************SELLER*******************************************
+    public void addSeller(Seller sellerToAdd){
+        seller.add(sellerToAdd);
     }
     
-    public void deleteBuyer(Buyer buyer) {
-    	
-    }
+    public void deleteSeller(String name) {
+        Seller sellerToDelete = searchSeller(name);
+        if (sellerToDelete != null) {
+            seller.remove(sellerToDelete);
+        }//End if
+    }//End removeProduct method
     
-    public void searchBuyer(Buyer buyer) {
-    	
-    }
+    public int searchSellerInt(String name) {
+        int position = 0;
+        for (int i = 0; i < seller.size(); i++) {
+            if (seller.get(i).getName().compareTo(name) == 0) {
+                position = i;
+            }//End if
+        }//End for
+        return position;
+    }//End searchProductInt method
     
-    public void addSeller(Seller seller){
-        user.add(seller);
-    }
-    
-    public void deleteSeller(Seller seller) {
-    	
-    }
-    
-    public void searchSeller(Seller seller) {
-    	
-    }
+    public Seller searchSeller(String name) {
+        for (int i = 0; i < seller.size(); i++) {
+            if (seller.get(i).getName().compareTo(name) == 0) {
+                return seller.get(i);
+            }//End if
+        }//End for
+        return null;
+    }//End searchProduct method
+//********************************************END SELLER******************************************* 
     
     public void addAccesssories(Accessories accs) {
     	acc.add(accs);
@@ -409,6 +453,22 @@ public class Market {
 
 		public void setClothing(ArrayList<Clothing> clothing) {
 			this.clothing = clothing;
+		}
+
+		public ArrayList<Buyer> getBuyer() {
+			return buyer;
+		}
+
+		public void setBuyer(ArrayList<Buyer> buyer) {
+			this.buyer = buyer;
+		}
+
+		public ArrayList<Seller> getSeller() {
+			return seller;
+		}
+
+		public void setSeller(ArrayList<Seller> seller) {
+			this.seller = seller;
 		}
 		
 		
