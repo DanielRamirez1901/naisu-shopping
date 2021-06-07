@@ -21,6 +21,7 @@ class BuyerTest {
 		assertEquals("999"  , buyerTest.getId());
 		assertEquals("Janna999@gmail.com", buyerTest.getEmail());
 		assertEquals("ara123", buyerTest.getPassword());
+		assertEquals("Jvna", buyerTest.getNameUser());
 		assertEquals("images/UserImage/Janna.png", buyerTest.getPicture());
 		assertNull(buyerTest.getHistoryAccessories());
 		assertNull(buyerTest.getShoppingCartAccessories());
@@ -50,6 +51,7 @@ class BuyerTest {
 		assertEquals("999"  , buyerTest.getId());
 		assertEquals("Janna999@gmail.com", buyerTest.getEmail());
 		assertEquals("ara123", buyerTest.getPassword());
+		assertEquals("Jvna", buyerTest.getNameUser());
 		assertEquals("images/UserImage/Janna.png", buyerTest.getPicture());
 		assertNull(buyerTest.getHistoryAccessories());
 		assertNull(buyerTest.getShoppingCartAccessories());

@@ -17,8 +17,8 @@ public class Seller extends User{
         super(name, lastName, id, email, password, nameUser, picture);
         saleHistory = null;
         productsToSale = null;
-        glass = new ArrayList<>();
-        jewel = new ArrayList<>();
+        glass = new ArrayList<Glasses>();
+        jewel = new ArrayList<Jewelry>();
     }
 
     
@@ -32,7 +32,27 @@ public class Seller extends User{
 
     
     
-    public Accessories getSaleHistory() {
+    public ArrayList<Glasses> getGlass() {
+		return glass;
+	}
+
+
+	public void setGlass(ArrayList<Glasses> glass) {
+		this.glass = glass;
+	}
+
+
+	public ArrayList<Jewelry> getJewel() {
+		return jewel;
+	}
+
+
+	public void setJewel(ArrayList<Jewelry> jewel) {
+		this.jewel = jewel;
+	}
+
+
+	public Accessories getSaleHistory() {
         return saleHistory;
     }
 
