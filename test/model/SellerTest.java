@@ -58,7 +58,5 @@ class SellerTest {
 		assertTrue(sellerTest.getJewel().isEmpty());
 		assertTrue(sellerTest.getGlass().isEmpty());
 	}
-	
-	
-	
+
 }

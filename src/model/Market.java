@@ -11,6 +11,8 @@ public class Market {
     private Glasses currentGlass;
     private ArrayList<Jewelry>jewelry;
     private ArrayList<Glasses>glasses;
+    private ArrayList<Accessories> acc;
+    private ArrayList<Clothing> clothing;
     private Jewelry rootJ;
     private Jewelry jw;
     private Glasses rootG;
@@ -18,8 +20,10 @@ public class Market {
 
     public Market() {
         user = new ArrayList<User>();
-        jewelry = new ArrayList<>();
-        glasses = new ArrayList<>();
+        jewelry = new ArrayList<Jewelry>();
+        glasses = new ArrayList<Glasses>();
+        acc = new ArrayList<Accessories>();
+        clothing = new ArrayList<Clothing>();
     }
     
     public void addBuyer(Buyer buyer){
@@ -43,6 +47,22 @@ public class Market {
     }
     
     public void searchSeller(Seller seller) {
+    	
+    }
+    
+    public void addAccesssories(Accessories accs) {
+    	acc.add(accs);
+    }
+    
+    public void deleteAccessories(Accessories accessoryToDelete) {
+    	
+    }
+    
+    public void addClothing(Clothing cloth) {
+    	clothing.add(cloth);
+    }
+    
+    public void deleteClothing(Clothing clothingToDelete) {
     	
     }
     
@@ -373,6 +393,22 @@ public class Market {
 
 		public void setGl(Glasses gl) {
 			this.gl = gl;
+		}
+
+		public ArrayList<Accessories> getAcc() {
+			return acc;
+		}
+
+		public void setAcc(ArrayList<Accessories> acc) {
+			this.acc = acc;
+		}
+
+		public ArrayList<Clothing> getClothing() {
+			return clothing;
+		}
+
+		public void setClothing(ArrayList<Clothing> clothing) {
+			this.clothing = clothing;
 		}
 		
 		

@@ -55,5 +55,4 @@ class JewelryTest {
 		assertNull(jewelryTest.getRight());
 		assertNull(jewelryTest.getLeft());
 	}
-
 }
