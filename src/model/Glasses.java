@@ -10,16 +10,19 @@ public class Glasses extends Accessories {
     private Glasses prev;
     private Glasses right;
     private Glasses left;
-    private Glasses parent;
 
 
-    public Glasses(String color, String size, String description, String design, String name, String code, String brand, double price, String photo, String type) {
+
+    public Glasses(String name, String code, String brand, double price, String photo, String type,String color, String size, String description, String design) {
         super(name, code, brand, price, photo, type);
         this.color = color;
         this.size = size;
         this.description = description;
         this.design = design;
-        parent = null;
+        next = null;
+        prev = null;
+        right = null;
+        left = null;
     }
 
 
@@ -59,15 +62,6 @@ public class Glasses extends Accessories {
 	public void setPrev(Glasses prev) {
 		this.prev = prev;
 	}
-
-
-	public Glasses getParent() {
-        return parent;
-    }
-
-    public void setParent(Glasses parent) {
-        this.parent = parent;
-    }
 
 	public String getColor() {
         return color;

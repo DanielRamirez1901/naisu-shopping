@@ -255,7 +255,7 @@ public class Market {
 //  pre: Esta objeto debe haber sido creado anteriormente
 //  Algoritmo arbol de busqueda binaria insertando con el precio
     public void inssertGlassesByPrice(double glassesPrice) {
-    	Glasses glassesToAdd = new Glasses(gl.getColor(), gl.getSize(),gl.getDescription(), gl.getDesign(), gl.getName(), gl.getCode(), gl.getBrand(), glassesPrice, gl.getPhoto(), gl.getType());
+    	Glasses glassesToAdd = new Glasses(gl.getName(), gl.getCode(), gl.getBrand(), glassesPrice, gl.getPhoto(), gl.getType(), gl.getColor(), gl.getSize(),gl.getDescription(), gl.getDesign());
     		if(rootG == null) {
     			rootG = glassesToAdd;
     		}else {
