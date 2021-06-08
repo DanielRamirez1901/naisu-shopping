@@ -30,7 +30,9 @@ class Clothing {
         this.type = type;	
     }
 
-    
+    public void lessQuantity() {
+    	quantity--;
+    }
     public String getName() {
         return name;
     }

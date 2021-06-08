@@ -58,17 +58,21 @@ public class Buyer extends User {
     }
     
     public boolean canYouBuyThatClothing(String name) {
-    	boolean youCanBuyThat = false;
+    	boolean canYouBuyThat = false;
     	if(searchClothingInClothingCart(name)!=null) {
     		Clothing clothingToBuy = searchClothingInClothingCart(name);
-    		historyClothing.add(clothingToBuy);
-    		youCanBuyThat = true;
-    		return youCanBuyThat;
+    		if(clothingToBuy.getQuantity()>0) {
+    			historyClothing.add(clothingToBuy);
+    			clothingToBuy.lessQuantity();
+    			canYouBuyThat = true;
+    			return canYouBuyThat;
+    		}
+    		return canYouBuyThat;
     	}else {
-    		return youCanBuyThat;
+    		return canYouBuyThat;
     	}
     }
-   
+
 //***********************************************************************************************
     
     public ArrayList<Accessories> getHistoryAccessories() {
