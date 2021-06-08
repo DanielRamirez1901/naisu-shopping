@@ -13,8 +13,8 @@ public class Buyer extends User {
         super(name, lastName, id, email, password, nameUser, picture);
         historyAccessories = new ArrayList<Accessories>();
         shoppingCartAccessories = new ArrayList<Accessories>();
-        this.historyClothing = new ArrayList<Clothing>();
-        this.shoppingCartClothing = new ArrayList<Clothing>();
+        historyClothing = new ArrayList<Clothing>();
+        shoppingCartClothing = new ArrayList<Clothing>();
     }
 
 //*************************************ADD TO SHOPPING CAR AND BUY:ACCESSORIES*********************************
