@@ -158,13 +158,25 @@ public class Market {
         return ((searchUser(name) != null) && (searchUser(name).getPassword().compareTo(password) == 0)) ? true : false;
     }
     
-//*********************************************ShoppingCar Buyer & History Accessories Buyer************************************
+//*********************************************ShoppingCar Buyer Accessories************************************
     
     public boolean addThatAccessoryToTheShoppingCart(String name) {
     	boolean uCanAddThat = false;
     	if(searchAccessories(name)!=null) {
     		Accessories accessoryToAdd = searchAccessories(name);
     		isBuyer.addAccessoryToShoppingCart(accessoryToAdd);
+    		uCanAddThat = true;
+    		return uCanAddThat;
+    	}else {
+    		return uCanAddThat;	
+    	}
+    }
+    
+    public boolean addThatClothingToTheShoppingCart(String name) {
+    	boolean uCanAddThat = false;
+    	if(searchClothing(name)!=null) {
+    		Clothing clothingToAdd = searchClothing(name);
+    		isBuyer.addToClothingShoppingCar(clothingToAdd);
     		uCanAddThat = true;
     		return uCanAddThat;
     	}else {

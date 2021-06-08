@@ -23,10 +23,10 @@ class BuyerTest {
 		assertEquals("ara123", buyerTest.getPassword());
 		assertEquals("Jvna", buyerTest.getNameUser());
 		assertEquals("images/UserImage/Janna.png", buyerTest.getPicture());
-		assertNull(buyerTest.getHistoryAccessories());
-		assertNull(buyerTest.getShoppingCartAccessories());
-		assertNull(buyerTest.getHistoryClothing());
-		assertNull(buyerTest.getShoppingCartClothing());
+		assertNotNull(buyerTest.getHistoryAccessories());
+		assertNotNull(buyerTest.getHistoryClothing());
+		assertTrue(buyerTest.getShoppingCartAccessories().isEmpty());
+		assertTrue(buyerTest.getShoppingCartClothing().isEmpty());
 	}	
 
 
@@ -41,10 +41,6 @@ class BuyerTest {
 		buyerTest.setPassword("ara123");
 		buyerTest.setNameUser("Jvna");
 		buyerTest.setPicture("images/UserImage/Janna.png");
-		buyerTest.setHistoryAccessories(null);
-		buyerTest.setShoppingCartAccessories(null);
-		buyerTest.setHistoryAccessories(null);
-		buyerTest.setShoppingCartClothing(null);
 	
 		assertEquals("Janna", buyerTest.getName());
 		assertEquals("Flitz", buyerTest.getLastName());
@@ -53,9 +49,9 @@ class BuyerTest {
 		assertEquals("ara123", buyerTest.getPassword());
 		assertEquals("Jvna", buyerTest.getNameUser());
 		assertEquals("images/UserImage/Janna.png", buyerTest.getPicture());
-		assertNull(buyerTest.getHistoryAccessories());
-		assertNull(buyerTest.getShoppingCartAccessories());
-		assertNull(buyerTest.getHistoryClothing());
-		assertNull(buyerTest.getShoppingCartClothing());
+		assertNotNull(buyerTest.getHistoryAccessories());
+		assertNotNull(buyerTest.getHistoryClothing());
+		assertTrue(buyerTest.getShoppingCartAccessories().isEmpty());
+		assertTrue(buyerTest.getShoppingCartClothing().isEmpty());
 	}
 }

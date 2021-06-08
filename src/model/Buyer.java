@@ -6,18 +6,18 @@ public class Buyer extends User {
 
     private ArrayList <Accessories> historyAccessories;
     private ArrayList <Accessories> shoppingCartAccessories;
-    private Clothing historyClothing;
-    private Clothing shoppingCartClothing;
-    private Market market;
+    private ArrayList <Clothing> historyClothing;
+    private ArrayList <Clothing> shoppingCartClothing;
 
     public Buyer(String name, String lastName, String id, String email, String password, String nameUser, String picture) {
         super(name, lastName, id, email, password, nameUser, picture);
         historyAccessories = new ArrayList<Accessories>();
         shoppingCartAccessories = new ArrayList<Accessories>();
-        this.historyClothing = null;
-        this.shoppingCartClothing = null;
+        this.historyClothing = new ArrayList<Clothing>();
+        this.shoppingCartClothing = new ArrayList<Clothing>();
     }
-    
+
+//*************************************ADD TO SHOPPING CAR AND BUY:ACCESSORIES*********************************
     public void addAccessoryToShoppingCart(Accessories accessoryToAdd) {
     	shoppingCartAccessories.add(accessoryToAdd);
     }
@@ -42,10 +42,34 @@ public class Buyer extends User {
     		return youCanBuyThat;
     	}
     }
- 
-    public void addThatBuyToHistoryAccessories(Accessories accesoryBuyed) {
-    	historyAccessories.add(accesoryBuyed);
+
+//*********************************************ADD TO SHOPPING CAR AND BUY:CLOTHING*******************************
+    public void addToClothingShoppingCar(Clothing clothingToAdd) {
+    	shoppingCartClothing.add(clothingToAdd);
     }
+    
+    public Clothing searchClothingInClothingCart(String name) {
+        for (int i = 0; i < shoppingCartClothing.size(); i++) {
+            if (shoppingCartClothing.get(i).getName().compareTo(name) == 0) {
+                return shoppingCartClothing.get(i);
+            }//End if
+        }//End for
+        return null;
+    }
+    
+    public boolean canYouBuyThatClothing(String name) {
+    	boolean youCanBuyThat = false;
+    	if(searchClothingInClothingCart(name)!=null) {
+    		Clothing clothingToBuy = searchClothingInClothingCart(name);
+    		historyClothing.add(clothingToBuy);
+    		youCanBuyThat = true;
+    		return youCanBuyThat;
+    	}else {
+    		return youCanBuyThat;
+    	}
+    }
+   
+//***********************************************************************************************
     
     public ArrayList<Accessories> getHistoryAccessories() {
 		return historyAccessories;
@@ -63,22 +87,20 @@ public class Buyer extends User {
 		this.shoppingCartAccessories = shoppingCartAccessories;
 	}
 
-	public Clothing getHistoryClothing() {
-        return historyClothing;
-    }
+	public ArrayList<Clothing> getHistoryClothing() {
+		return historyClothing;
+	}
 
-    public void setHistoryClothing(Clothing historyClothing) {
-        this.historyClothing = historyClothing;
-    }
+	public void setHistoryClothing(ArrayList<Clothing> historyClothing) {
+		this.historyClothing = historyClothing;
+	}
 
-    public Clothing getShoppingCartClothing() {
-        return shoppingCartClothing;
-    }
+	public ArrayList<Clothing> getShoppingCartClothing() {
+		return shoppingCartClothing;
+	}
 
-    public void setShoppingCartClothing(Clothing shoppingCartClothing) {
-        this.shoppingCartClothing = shoppingCartClothing;
-    }
-
-
+	public void setShoppingCartClothing(ArrayList<Clothing> shoppingCartClothing) {
+		this.shoppingCartClothing = shoppingCartClothing;
+	}
 
 }
