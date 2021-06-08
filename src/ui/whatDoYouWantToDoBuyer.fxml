@@ -39,7 +39,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="623.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadUserInformationBuyer" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3498db;" text="Info Personal" textFill="WHITE">
+      <Button layoutX="623.0" layoutY="14.0" mnemonicParsing="false" onAction="#loadUserInformationSeller" prefHeight="30.0" prefWidth="114.0" style="-fx-background-color: #3498db;" text="Info Personal" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

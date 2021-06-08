@@ -22,8 +22,8 @@ class SellerTest {
 		assertEquals("leoleo", sellerTest.getPassword());
 		assertEquals("LeoBb", sellerTest.getNameUser());
 		assertEquals("images/UserImage/Leo.png", sellerTest.getPicture());
-		assertNull(sellerTest.getSaleHistory());
-		assertNull(sellerTest.getProductsToSale());
+		assertNotNull(sellerTest.getSaleHistory());
+		assertTrue(sellerTest.getSaleHistory().isEmpty());
 		assertNotNull(sellerTest.getJewel());
 		assertNotNull(sellerTest.getGlass());
 		assertTrue(sellerTest.getJewel().isEmpty());
@@ -41,8 +41,7 @@ class SellerTest {
 		sellerTest.setPassword("leoleo");
 		sellerTest.setNameUser("LeoBb");
 		sellerTest.setPicture("images/UserImage/Leo.png");
-		sellerTest.setSaleHistory(null);
-		sellerTest.setProductsToSale(null);
+		
 		
 		assertEquals("Leo", sellerTest.getName());
 		assertEquals("Brigth", sellerTest.getLastName());
@@ -51,8 +50,8 @@ class SellerTest {
 		assertEquals("leoleo", sellerTest.getPassword());
 		assertEquals("LeoBb", sellerTest.getNameUser());
 		assertEquals("images/UserImage/Leo.png", sellerTest.getPicture());
-		assertNull(sellerTest.getSaleHistory());
-		assertNull(sellerTest.getProductsToSale());
+		assertNotNull(sellerTest.getSaleHistory());
+		assertTrue(sellerTest.getSaleHistory().isEmpty());
 		assertNotNull(sellerTest.getJewel());
 		assertNotNull(sellerTest.getGlass());
 		assertTrue(sellerTest.getJewel().isEmpty());

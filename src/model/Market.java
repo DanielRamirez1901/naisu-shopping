@@ -15,6 +15,7 @@ public class Market {
     private ArrayList<Clothing> clothing;
     private ArrayList<Buyer> buyer;
     private ArrayList <Seller> seller;
+    private Seller sellerToSave;
     private Jewelry rootJ;
     private Jewelry jw;
     private Glasses rootG; 
@@ -83,6 +84,7 @@ public class Market {
     public void deleteAccessories(String name) {
         Accessories accessoriesToDelete = searchAccessories(name);
         if (accessoriesToDelete != null) {
+        	sellerToSave.addAccessoriesToSaleHistory(accessoriesToDelete);
             acc.remove(accessoriesToDelete);
         }//End if
     }

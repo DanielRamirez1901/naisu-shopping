@@ -5,23 +5,21 @@ import java.util.ArrayList;
 
 public class Seller extends User{
     
-    private Accessories saleHistory;
- 
-    private Clothing productsToSale;
-
+    private ArrayList<Accessories> saleHistory;
     private ArrayList<Glasses>glass;
     private ArrayList<Jewelry>jewel;
 //    private Jewelry jw;
     
     public Seller(String name, String lastName, String id, String email, String password, String nameUser,String picture) {
         super(name, lastName, id, email, password, nameUser, picture);
-        saleHistory = null;
-        productsToSale = null;
+        saleHistory = new ArrayList<Accessories>();
         glass = new ArrayList<Glasses>();
         jewel = new ArrayList<Jewelry>();
     }
 
-    
+    public void addAccessoriesToSaleHistory(Accessories accessorieToSave) {
+    	saleHistory.add(accessorieToSave);
+    }
     public void addjewel(Jewelry jewelryToAdd) {
     	jewel.add(jewelryToAdd);
     }
@@ -51,23 +49,13 @@ public class Seller extends User{
 		this.jewel = jewel;
 	}
 
+	public ArrayList<Accessories> getSaleHistory() {
+		return saleHistory;
+	}
 
-	public Accessories getSaleHistory() {
-        return saleHistory;
-    }
-
-    public void setSaleHistory(Accessories saleHistory) {
-        this.saleHistory = saleHistory;
-    }
-
-    public Clothing getProductsToSale() {
-        return productsToSale;
-    }
-
-    public void setProductsToSale(Clothing productsToSale) {
-        this.productsToSale = productsToSale;
-    }
-    
-    
-
+	public void setSaleHistory(ArrayList<Accessories> saleHistory) {
+		this.saleHistory = saleHistory;
+	}
+ 
+	
 }
