@@ -16,6 +16,7 @@ public class Market {
     private ArrayList<Buyer> buyer;
     private ArrayList <Seller> seller;
     private Seller sellerToSave;
+    private Buyer isBuyer;
     private Jewelry rootJ;
     private Jewelry jw;
     private Glasses rootG; 
@@ -152,6 +153,25 @@ public class Market {
         }//End for
         return null;
     }
+    
+    public boolean userLogin(String name, String password) {
+        return ((searchUser(name) != null) && (searchUser(name).getPassword().compareTo(password) == 0)) ? true : false;
+    }
+    
+//*********************************************ShoppingCar Buyer & History Accessories Buyer************************************
+    
+    public boolean addThatAccessoryToTheShoppingCart(String name) {
+    	boolean uCanAddThat = false;
+    	if(searchAccessories(name)!=null) {
+    		Accessories accessoryToAdd = searchAccessories(name);
+    		isBuyer.addAccessoryToShoppingCart(accessoryToAdd);
+    		uCanAddThat = true;
+    		return uCanAddThat;
+    	}else {
+    		return uCanAddThat;	
+    	}
+    }
+    
     
 //********************************************END CLOTHING****************************************** 
     
