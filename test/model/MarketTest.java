@@ -41,15 +41,15 @@ class MarketTest {
 	@Test
 	void testAddBuyer() {
 		Market marketTest = setupStage2();
-		marketTest.addBuyer(new Buyer("Janna" , "Flitz" , "999" , "Janna999@gmail.com" ,
-									  "ara123" , "Jvna" , "images/UserImage/Janna.png"));
+		marketTest.addBuyer("Janna" , "Flitz" , "999" , "Janna999@gmail.com" ,
+									  "ara123" , "Jvna" , "images/UserImage/Janna.png");
 	}
 	
 	@Test
 	void testAddSeller() {
 		Market marketTest = setupStage2();
-		marketTest.addSeller(new Seller( "Levi" , "Ackerman" , "9549" , "Ackerman@gmail.com" ,
-										 "5654" , "Levi" , "images/UserImage/Levi.png" ));
+		marketTest.addSeller("Levi" , "Ackerman" , "9549" , "Ackerman@gmail.com" ,
+										 "5654" , "Levi" , "images/UserImage/Levi.png" );
 	}
 	
 	public Market setupStage3() {
@@ -58,16 +58,11 @@ class MarketTest {
 	}
 	
 	@Test
-	void testDeleteBuyer() {
+	void testDeleteUser() {
 		Market marketTest = setupStage3();
-		marketTest.deleteBuyer("Janna");
+		marketTest.deleteUser("Levi");
 	}
-	
-	@Test
-	void testDeleteSeller() {
-		Market marketTest = setupStage3();
-		marketTest.deleteSeller("Levi");
-	}
+
 		
 	public Market setupStage4() {
 		Market marketTest = new Market();
@@ -75,20 +70,51 @@ class MarketTest {
 	}
 	
 	@Test
-	void testAddCloting() {
+	void testAddClothingShirt() {
 		Market marketTest = setupStage4();
-		marketTest.addClothing(new Clothing( "Camisa" , "654654" , "Snick" , 50000, 
-											 "L" , "images/ClothesImages/Shirt.png", 
-											 "Camisa unisex, grande y comoda" , 2 , 
-											 "Rojo" , "Unisex" , "Shirts" ));
+		marketTest.addClothingShirt( "Suave" , "Para reuniones formales" , "Camisa" ,
+								     "654654" , "Snick" , 50000 , "L" , "images/ClothesImages/Shirt.png",
+								     "Camisa unisex, grande y comoda", 2 , "Rojo" , "Unisex" , "Shirts" );
 	}
 	
 	@Test
-	void testAddAccessories() {
+	void testAddClothingPants() {
 		Market marketTest = setupStage4();
-		marketTest.addAccesssories(new Accessories( "Gafas de sol" , "45887" , "glass" , 2260000 ,
-													"images/AccessoriesImages/glasses.png", "glasses" ));
+		marketTest.addClothingPants("Jeans" , "46454" , "BlackJeans" , 110000 , 
+				"M" , "images/ClothesImages/jean.png" , 
+				"Pantalones diseñados para personas delgadas" , 
+				1 , "Negro" , "Femenino" , "Pants" , "Para reuniones" , 
+				"Cuero");
 	}
+	
+	@Test
+	void testAddClothingShoes() {
+		Market marketTest = setupStage4();
+		marketTest.addClothingShoes("Sandalias" , "6546454" , "Snick" , 60000 , 
+									"42" , "images/ClothesImage/rider.png" , 
+									"Sandalias diseñadas para excesiva comodidad" , 
+									1 , "Negro" , "Femenino" , "Shoes" , "Calzado especializado" , 
+									"Cuero");
+	}
+	
+	@Test
+	void testAddAccessoriesGlasses() {
+		Market marketTest = setupStage4();
+		marketTest.addAccessoriesGlasses("Gafas de sol" , "45887" , "glass" , 2260000 ,
+											"images/AccessoriesImages/glass.png" , "glasses" ,
+											"Rojo" , "3 cm" , "Lente de tamaño normal diseñado"
+											+ " para gente con problemas visuales" , 
+											"Diseño economico");
+	}
+	
+	@Test
+	void testAddAccessoriesJewelry() {
+		Market marketTest = setupStage4();
+		marketTest.addAccesssoriesJewels("Collar" , "4555887" , "sDiamond" , 10260000 , 
+										   "images/AccessoriesImages/diamond.jpg" , 
+										   "jewels" , "Diamante" , "Unisex");
+	}
+	
 	
 	public Market setupStage5() {
 		Market marketTest = new Market();

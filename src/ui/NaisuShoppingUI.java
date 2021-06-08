@@ -27,6 +27,7 @@ public class NaisuShoppingUI implements Initializable{
 	private Market market;
 	private Seller seller;
 	private Buyer buyer;
+	private Jewelry jewelry;
 	
 	//Loading Interface attributes
 	 @FXML
@@ -236,8 +237,7 @@ public class NaisuShoppingUI implements Initializable{
 	public void addSeller(ActionEvent event) {
 		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
-				seller = new Seller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText(),txtPathImageSeller.getText());
-				market.addSeller(seller);
+				market.addSeller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText(),txtPathImageSeller.getText());
 				userSuccesfullyRegistered(event);
 			}else {
 				areTheSamePassword(event);
@@ -251,8 +251,7 @@ public class NaisuShoppingUI implements Initializable{
 	public void addBuyer(ActionEvent event) {
 		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("") && !txtPathImageBuyer.getText().equals("")) {
 			if(txtBuyerPassword.getText().equalsIgnoreCase(txtBuyerRePassword.getText())) {
-				buyer = new Buyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText(),txtPathImageBuyer.getText());
-				market.addBuyer(buyer);
+				market.addBuyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText(),txtPathImageBuyer.getText());
 				userSuccesfullyRegistered(event);
 			}else {
 				areTheSamePassword(event);
@@ -314,6 +313,7 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtAccessoryName.getText().equals("") && !txtAccessoryCode.getText().equals("") && !txtAccessoryMark.getText().equals("") && !txtAccesoryPrice.getText().equals("") && !txtAccessoryPathImage.getText().equals("") && !txtAccessoryType.getText().equals("")) {
 			if(txtAccessoryType.getText().equalsIgnoreCase("glasses") || txtAccessoryType.getText().equalsIgnoreCase("jewels")) {
 				if(txtAccessoryType.getText().equalsIgnoreCase("glasses")) {
+					System.out.println(txtAccessoryName.getText());
 					betaVersionAlert(event);
 					loadAddAccessoriesGlasses(event);
 				}else if(txtAccessoryType.getText().equalsIgnoreCase("jewels")) {
@@ -339,6 +339,9 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void addAccessoriesJewels(ActionEvent event) throws IOException {
 		if(!txtJewelsGender.getText().equals("") && !txtJewelsMaterial.getText().equals("")) {
+			int price = Integer.parseInt(txtAccesoryPrice.getText());
+			System.out.println(txtAccessoryName.getText()+" en joyeria uwu");
+			market.addAccesssoriesJewels(txtAccessoryName.getText(), txtAccessoryCode.getText(), txtAccessoryMark.getText(), price, txtAccessoryPathImage.getText(), txtAccessoryType.getText(), txtJewelsMaterial.getText(), txtJewelsGender.getText());
 			betaVersionAlert(event);
 			loadAddAccessories(event);
 		}else {

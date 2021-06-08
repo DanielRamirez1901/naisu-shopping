@@ -17,7 +17,7 @@ public class Market {
     private ArrayList <Seller> seller;
     private Jewelry rootJ;
     private Jewelry jw;
-    private Glasses rootG;
+    private Glasses rootG; 
     private Glasses gl;
 
     public Market() {
@@ -30,77 +30,54 @@ public class Market {
         seller = new ArrayList<Seller>();
     }
  
-//**************************************BUYER*************************************************
-    public void addBuyer(Buyer buyerToAdd){
-        buyer.add(buyerToAdd);
+//**************************************BUYER & SELLER*************************************************
+    public void addBuyer(String name, String lastname, String id, String email, String password, String nameUser, String picture){
+        User buyerToAdd = (new Buyer(name, lastname, id, email, password, nameUser, picture));
+        user.add(buyerToAdd);
     }
     
-    public void deleteBuyer(String name) {
-        Buyer buyerToDelete = searchBuyer(name);
-        if (buyerToDelete != null) {
-            buyer.remove(buyerToDelete);
+    public void addSeller(String name, String lastname, String id, String email, String password, String nameUser, String picture) {
+    	User sellerToAdd = (new Seller(name, lastname, id, email, password, nameUser, picture));
+    	user.add(sellerToAdd);
+    }
+    public void deleteUser(String name) {
+        User userToDelete = searchUser(name);
+        if (userToDelete != null) {
+            user.remove(userToDelete);
         }//End if
     }
     
-    public int searchBuyerInt(String name) {
+    public int searchUserInt(String name) {
         int position = 0;
-        for (int i = 0; i < buyer.size(); i++) {
-            if (buyer.get(i).getName().compareTo(name) == 0) {
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getName().compareTo(name) == 0) {
                 position = i;
             }//End if
         }//End for
         return position;
     }
     
-    public Buyer searchBuyer(String name) {
-        for (int i = 0; i < buyer.size(); i++) {
-            if (buyer.get(i).getName().compareTo(name) == 0) {
-                return buyer.get(i);
+    public User searchUser(String name) {
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getName().compareTo(name) == 0) {
+                return user.get(i);
             }//End if
         }//End for
         return null;
-    }
-    
-//*********************************************END BUYER***************************************
-    
-//********************************************SELLER*******************************************
-    
-    public void addSeller(Seller sellerToAdd){
-        seller.add(sellerToAdd);
-    }
-    
-    public void deleteSeller(String name) {
-        Seller sellerToDelete = searchSeller(name);
-        if (sellerToDelete != null) {
-            seller.remove(sellerToDelete);
-        }//End if
-    }
-    
-    public int searchSellerInt(String name) {
-        int position = 0;
-        for (int i = 0; i < seller.size(); i++) {
-            if (seller.get(i).getName().compareTo(name) == 0) {
-                position = i;
-            }//End if
-        }//End for
-        return position;
-    }
-    
-    public Seller searchSeller(String name) {
-        for (int i = 0; i < seller.size(); i++) {
-            if (seller.get(i).getName().compareTo(name) == 0) {
-                return seller.get(i);
-            }//End if
-        }//End for
-        return null;
-    }
-    
-//********************************************END SELLER******************************************* 
+    } 
+//*********************************************END BUYER & SELLER***************************************
+     
  
 //********************************************ACCESSORIES******************************************
     
-    public void addAccesssories(Accessories accs) {
-    	acc.add(accs);
+    public void addAccesssoriesJewels(String name, String code, String brand, double price, String photo, String type, String material, String gender) {
+    	Accessories jewelToAdd = (new Jewelry(name,code,brand,price,photo,type,material,gender));
+    	acc.add(jewelToAdd);
+    }
+    
+    public void addAccessoriesGlasses(String name, String code, String brand, double price, String photo, String type,String color, String size, String description, String design) {
+    	Accessories glassesToAdd = (new Glasses(name,code,brand,price,photo,type,color,size,description,design));
+    	acc.add(glassesToAdd);
     }
     
     public void deleteAccessories(String name) {
@@ -133,8 +110,19 @@ public class Market {
   
 //********************************************CLOTHING******************************************
     
-    public void addClothing(Clothing cloth) {
-    	clothing.add(cloth);
+    public void addClothingShoes(String name, String code, String brand, double price, String size, String photo, String description, int quantity, String color, String gender, String type, String typeShoes, String material) {
+    	Clothing shoesToAdd = (new Shoes(name,code,brand,price,size,photo,description,quantity,color,gender,type,typeShoes,material));
+    	clothing.add(shoesToAdd);
+    }
+    
+    public void addClothingPants(String name, String code, String brand, double price, String size, String photo, String description, int quantity, String color, String gender, String type,String tipePant, String material) {
+    	Clothing pantsToAdd = (new Pants(name,code,brand,price,size,photo,description,quantity,color,gender,type,tipePant,material));
+    	clothing.add(pantsToAdd);
+    }
+    
+    public void addClothingShirt(String cloth, String typeShirth, String name, String code, String brand, double price, String size, String photo, String description, int quantity, String color, String gender, String type) {
+    	Clothing shirtToAdd = (new Shirt(cloth,typeShirth,name,code,brand,price,size,photo,description,quantity,color,gender,type));
+    	clothing.add(shirtToAdd);
     }
     
     public void deleteClothing(String name) {
@@ -164,6 +152,7 @@ public class Market {
     }
     
 //********************************************END CLOTHING****************************************** 
+    
     //Ordenamientos burbuja*************************************************
     //Ordenamiento por nombre de persona
     public void bubbleSortByName() {
