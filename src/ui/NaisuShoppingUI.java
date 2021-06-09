@@ -295,15 +295,22 @@ public class NaisuShoppingUI implements Initializable{
 	public void addClothe(ActionEvent event) throws IOException {
 		if(!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals("") && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
 			if(txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("trousers")) {
-				if(txtClothesType.getText().equalsIgnoreCase("footwear")) {
-					betaVersionAlert(event);
-					loadAddClothesFootwear(event);
-				}else if(txtClothesType.getText().equalsIgnoreCase("shirt")) {
-					betaVersionAlert(event);
-					loadAddClothesShirt(event);
-				}else if(txtClothesType.getText().equalsIgnoreCase("trousers")) {
-					betaVersionAlert(event);
-					loadAddClothesTrousers(event);
+				if(market.thatClothingCodeIsAlreadyUsed(txtClothesCode.getText())!=true) {
+					boolean isPriceNumeric = txtClothesPrice.getText().matches("[+-]?\\d*(\\.\\d+)?");
+					boolean isQuantityNumeric = txtClothesQuantity.getText().matches("[+-]?\\d*(\\.\\d+)?");
+					if(isPriceNumeric == true && isQuantityNumeric == true ) {
+						if(txtClothesType.getText().equalsIgnoreCase("footwear")) {
+							loadAddClothesFootwear(event);
+						}else if(txtClothesType.getText().equalsIgnoreCase("shirt")) {
+							loadAddClothesShirt(event);
+						}else if(txtClothesType.getText().equalsIgnoreCase("trousers")) {
+							loadAddClothesTrousers(event);
+						}
+					}else {
+						verifyPriceOrQuantityIsNumeric(event);
+					}
+				}else {
+					changeYourClothingCode(event);
 				}
 			}else {
 				selectCorrectClotheType(event);
@@ -315,11 +322,36 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void addClotheFootwear(ActionEvent event) throws IOException {
 		if(!txtFootwearFabricType.getText().equals("") && !txtFootwearDescription.getText().equals("") && !txtFootwearType.getText().equals("")) {
-			betaVersionAlert(event);
+			int price = Integer.parseInt(txtClothesPrice.getText());
+			int quantity = Integer.parseInt(txtClothesQuantity.getText());
+			System.out.println(" : "+txtClothesName.getText()+" : " +txtClothesCode.getText()+ " : " +txtClothesMark.getText()+ " : "+ price + " : "+ txtClothesSize.getText() + " : " + txtClothePathImage.getText() + " : " + txtClothesDescription.getText() + " : " +quantity + " : "  + txtClothesColor.getText()  + " : " + txtClothesGender.getText() + " : "  +txtClothesType.getText() +" : "+ txtFootwearType.getText() +" : "+ txtFootwearFabricType.getText());
+			market.addClothingShoes(txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText(), txtFootwearType.getText(), txtFootwearFabricType.getText());
+			clothingCorrectlyCreated(event);
+			emptyFieldsAddFootwear();
+			emptyFieldsClothing();
 			loadAddClothes(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void emptyFieldsAddFootwear() {
+		txtFootwearType.setText("");
+		txtFootwearFabricType.setText("");
+		txtFootwearDescription.setText("");
+	}
+	public void emptyFieldsClothing() {
+		txtClothesName.setText("");
+		txtClothesCode.setText("");
+		txtClothesMark.setText("");
+		txtClothesPrice.setText("");
+		txtClothesSize.setText("");
+		txtClothePathImage.setText("");
+		txtClothesDescription.setText("");
+		txtClothesQuantity.setText("");
+		txtClothesColor.setText("");
+		txtClothesGender.setText("");
+		txtClothesType.setText("");
 	}
 	
 	public void addClotheShirt(ActionEvent event) throws IOException {
@@ -873,6 +905,34 @@ public class NaisuShoppingUI implements Initializable{
         alert.setContentText("A user with that nickname already exists, please choose another");
         alert.showAndWait();
     }
+	
+	@FXML
+    public void changeYourClothingCode(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("A clothing with this code is already created, please choose another code");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void clothingCorrectlyCreated(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("Clothe correctly added");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void verifyPriceOrQuantityIsNumeric(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("ERROR");
+        alert.setHeaderText(null);
+        alert.setContentText("Please verify that the price or quantity are numerical values");
+        alert.showAndWait();
+    }
+	
 	
 	
 	@FXML

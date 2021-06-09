@@ -84,6 +84,17 @@ public class Market {
  
 //********************************************ACCESSORIES******************************************
     
+    public boolean thatAccessoryCodeIsAlreadyUsed(String code) {
+    	boolean changeYourAccessoryCode = false;
+    	for(int i = 0; i<acc.size(); i++) {
+    		if(code.compareToIgnoreCase(acc.get(i).getCode())==0) {
+    			changeYourAccessoryCode = true;
+    			return changeYourAccessoryCode;
+    		}
+    	}
+    	return changeYourAccessoryCode;
+    }
+    
     public void addAccesssoriesJewels(String name, String code, String brand, double price, String photo, String type, String material, String gender) {
     	Accessories jewelToAdd = (new Jewelry(name,code,brand,price,photo,type,material,gender));
     	acc.add(jewelToAdd);
@@ -124,6 +135,17 @@ public class Market {
 //********************************************END ACCESSORIES******************************************   
   
 //********************************************CLOTHING******************************************
+    
+    public boolean thatClothingCodeIsAlreadyUsed(String code) {
+    	boolean changeYourClothingCode = false;
+    	for(int i = 0; i<clothing.size(); i++) {
+    		if(code.compareToIgnoreCase(clothing.get(i).getCode())==0) {
+    			changeYourClothingCode = true;
+    			return changeYourClothingCode;
+    		}
+    	}
+    	return changeYourClothingCode;
+    }
     
     public void addClothingShoes(String name, String code, String brand, double price, String size, String photo, String description, int quantity, String color, String gender, String type, String typeShoes, String material) {
     	Clothing shoesToAdd = (new Shoes(name,code,brand,price,size,photo,description,quantity,color,gender,type,typeShoes,material));
