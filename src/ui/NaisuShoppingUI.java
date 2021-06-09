@@ -382,8 +382,13 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void loginSeller(ActionEvent event) throws IOException {
 		if(!txtSellerUsernameLogin.getText().equals("") && !txtSellerPasswordLogin.getText().equals("")) {
-			betaVersionAlert(event);
+			if(market.userLogin(txtSellerUsernameLogin.getText(), txtSellerPasswordLogin.getText())!=false) {
+			userCanLogin(event);
 			loadWhatDoYouWantToDoBuyer(event);
+			}else {
+				userCantLogin(event);
+				txtSellerPasswordLogin.setText("");
+			}
 		}else {
 			youNeedToFillTextFields(event);
 		}
@@ -391,8 +396,13 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void loginBuyer(ActionEvent event) throws IOException {
 		if(!txtBuyerUserLogin.getText().equals("") && !txtBuyerPasswordLogin.getText().equals("")) {
-			betaVersionAlert(event);
+			if(market.userLogin(txtBuyerUserLogin.getText(), txtBuyerPasswordLogin.getText())!=false) {
+			userCanLogin(event);
 			loadWhatDoYouWantToDo(event);
+			}else {
+				userCantLogin(event);
+				txtBuyerPasswordLogin.setText("");
+			}
 		}else {
 			youNeedToFillTextFields(event);
 		}
@@ -834,6 +844,24 @@ public class NaisuShoppingUI implements Initializable{
         alert.setTitle("Alert");
         alert.setHeaderText(null);
         alert.setContentText("Passwords do not match");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void userCanLogin(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("successful login");
+        alert.showAndWait();
+    }
+	
+	@FXML
+    public void userCantLogin(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Wrong login");
+        alert.setHeaderText(null);
+        alert.setContentText("Please check if password or username is correct");
         alert.showAndWait();
     }
 	
