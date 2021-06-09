@@ -33,6 +33,18 @@ public class Market {
     }
  
 //**************************************BUYER & SELLER*************************************************
+   
+    public boolean thatNickIsUsed(String name) {
+    	boolean changeYourNick = false;
+    	for(int i = 0; i<user.size(); i++) {
+    		if(name.compareToIgnoreCase(user.get(i).getName())==0) {
+    			changeYourNick = true;
+    			return changeYourNick;
+    		}
+    	}
+    	return changeYourNick;
+    }
+    
     public void addBuyer(String name, String lastname, String id, String email, String password, String nameUser, String picture){
         User buyerToAdd = (new Buyer(name, lastname, id, email, password, nameUser, picture));
         user.add(buyerToAdd);

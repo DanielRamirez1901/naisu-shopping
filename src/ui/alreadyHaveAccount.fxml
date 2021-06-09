@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -10,34 +9,9 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="406.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="660.0" fitWidth="406.0" pickOnBounds="true">
+      <ImageView fitHeight="583.0" fitWidth="413.0" pickOnBounds="true">
          <image>
-            <Image url="@../../images/loginImage.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="177.0" layoutY="39.0" text="LOGIN">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtUserLoginPrincipal" layoutX="41.0" layoutY="112.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your user or email" style="-fx-border-color: #3498db;">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="txtPasswordLoginPrincipal" layoutX="41.0" layoutY="153.0" prefHeight="32.0" prefWidth="325.0" promptText="Enter your password" style="-fx-border-color: #3498db;">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Button layoutX="152.0" layoutY="293.0" mnemonicParsing="false" onAction="#loginPrincipal" prefHeight="43.0" prefWidth="103.0" style="-fx-background-color: #3498db;" text="Sing in" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="128.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../Downloads/HatchfulExport-All/logo_transparent.png" />
+            <Image url="@../../images/LoadingInterfaceImage.png" />
          </image>
       </ImageView>
       <Button layoutX="6.0" layoutY="9.0" mnemonicParsing="false" onAction="#loadSecondaryCreateAccountInterface" prefHeight="27.0" prefWidth="61.0" style="-fx-background-color: #3498db;" text="home" textFill="WHITE">
@@ -45,19 +19,19 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="41.0" layoutY="210.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="75.0" style="-fx-background-color: #3498db;" text="Buyer" textFill="WHITE">
+      <Button layoutX="67.0" layoutY="310.0" mnemonicParsing="false" onAction="#loadLoginWithPasswordBuyer" prefHeight="13.0" prefWidth="75.0" style="-fx-background-color: #3498db;" text="Buyer" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="128.0" layoutY="210.0" mnemonicParsing="false" prefHeight="11.0" prefWidth="75.0" style="-fx-background-color: #3498db;" text="Seller" textFill="WHITE">
+      <Button layoutX="257.0" layoutY="310.0" mnemonicParsing="false" onAction="#loadLoginWithPasswordSeller" prefHeight="11.0" prefWidth="75.0" style="-fx-background-color: #3498db;" text="Seller" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="41.0" layoutY="190.0" text="Select your client type">
+      <Label layoutX="119.0" layoutY="257.0" text="Select your client type" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font size="18.0" />
          </font>
       </Label>
    </children>

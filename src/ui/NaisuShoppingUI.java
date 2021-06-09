@@ -237,28 +237,59 @@ public class NaisuShoppingUI implements Initializable{
 	public void addSeller(ActionEvent event) {
 		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
+				if(market.thatNickIsUsed(txtSellerUsername.getText())==false) {
 				market.addSeller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText(),txtPathImageSeller.getText());
 				userSuccesfullyRegistered(event);
+				emptyFieldsOfAddSeller();
+				}else {
+					changeYourUserNick(event);
+				}
 			}else {
 				areTheSamePassword(event);
 			}
 		}else {
 			youNeedToFillTextFields(event);
 		}
-		
+	}
+	
+	public void emptyFieldsOfAddSeller() {
+		txtSellername.setText("");
+		txtSellerLastname.setText("");
+		txtSellerDocument.setText("");
+		txtSellerEmail.setText("");
+		txtSellerPassword.setText("");
+		txtSellerRePassword.setText("");
+		txtSellerUsername.setText("");
+		txtPathImageSeller.setText("");
 	}
 	
 	public void addBuyer(ActionEvent event) {
 		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("") && !txtPathImageBuyer.getText().equals("")) {
 			if(txtBuyerPassword.getText().equalsIgnoreCase(txtBuyerRePassword.getText())) {
+				if(market.thatNickIsUsed(txtBuyerUser.getText())==false) {
 				market.addBuyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText(),txtPathImageBuyer.getText());
 				userSuccesfullyRegistered(event);
+				emptyFieldsOfAddBuyer();
+				}else {
+					changeYourUserNick(event);
+				}
 			}else {
 				areTheSamePassword(event);
 			}
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void emptyFieldsOfAddBuyer() {
+		txtBuyerName.setText("");
+		txtBuyerLastname.setText("");
+		txtBuyerDocument.setText("");
+		txtBuyerEmail.setText("");
+		txtBuyerPassword.setText("");
+		txtBuyerRePassword.setText("");
+		txtBuyerUser.setText("");
+		txtPathImageBuyer.setText("");
 	}
 	
 	public void addClothe(ActionEvent event) throws IOException {
@@ -805,6 +836,16 @@ public class NaisuShoppingUI implements Initializable{
         alert.setContentText("Passwords do not match");
         alert.showAndWait();
     }
+	
+	@FXML
+    public void changeYourUserNick(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("A user with that nickname already exists, please choose another");
+        alert.showAndWait();
+    }
+	
 	
 	@FXML
     public void selectCorrectClotheType(ActionEvent event) {
