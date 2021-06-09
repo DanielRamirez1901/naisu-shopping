@@ -177,6 +177,9 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtTrouserStyle;
 
+	    @FXML
+	    private ImageView imageTrousers;
+	    
 	    //Accessories attributes
 	    @FXML
 	    private TextField txtAccessoryName;
@@ -305,16 +308,16 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void addClothe(ActionEvent event) throws IOException {
 		if(!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals("") && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
-			if(txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("trousers")) {
+			if(txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("trousers") || txtClothesType.getText().equalsIgnoreCase("footwears") ||  txtClothesType.getText().equalsIgnoreCase("shirts") || txtClothesType.getText().equalsIgnoreCase("trouser")) {
 				if(market.thatClothingCodeIsAlreadyUsed(txtClothesCode.getText())!=true) {
 					boolean isPriceNumeric = txtClothesPrice.getText().matches("[+-]?\\d*(\\.\\d+)?");
 					boolean isQuantityNumeric = txtClothesQuantity.getText().matches("[+-]?\\d*(\\.\\d+)?");
 					if(isPriceNumeric == true && isQuantityNumeric == true ) {
-						if(txtClothesType.getText().equalsIgnoreCase("footwear")) {
+						if(txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("footwears")) {
 							loadAddClothesFootwear(event);
-						}else if(txtClothesType.getText().equalsIgnoreCase("shirt")) {
+						}else if(txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("shirts")) {
 							loadAddClothesShirt(event);
-						}else if(txtClothesType.getText().equalsIgnoreCase("trousers")) {
+						}else if(txtClothesType.getText().equalsIgnoreCase("trousers") || txtClothesType.getText().equalsIgnoreCase("trouser")) {
 							loadAddClothesTrousers(event);
 						}
 					}else {
@@ -389,11 +392,21 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void addClotheTrouser(ActionEvent event) throws IOException {
 		if(!txtTrouserStyle.getText().equals("") && !txtTrouserTypeFabric.getText().equals("")) {
-			betaVersionAlert(event);
+			int price = Integer.parseInt(txtClothesPrice.getText());
+			int quantity = Integer.parseInt(txtClothesQuantity.getText());
+			market.addClothingPants( txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText(),txtTrouserStyle.getText(),txtTrouserTypeFabric.getText());
+			clothingCorrectlyCreated(event);
+			emptyFieldsTrouser();
+			emptyFieldsClothing();
 			loadAddClothes(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void emptyFieldsTrouser() {
+		txtTrouserStyle.setText("");
+		txtTrouserTypeFabric.setText("");
 	}
 	
 	public void addAccessory(ActionEvent event) throws IOException {
@@ -652,20 +665,16 @@ public class NaisuShoppingUI implements Initializable{
 		if(txtClothePathImage.getText()!=null && !txtClothePathImage.getText().equals("")) {
 			if(number == 1) {
 				String path = PATH_PICTURE_CLOTHESIMAGE + txtClothePathImage.getText();
-
-				System.out.println(path);
-
 				Image newImage = new Image( new FileInputStream(path));
-
 				imageFootWear.setImage(newImage);
 			}else if(number == 2) {
 				String path = PATH_PICTURE_CLOTHESIMAGE + txtClothePathImage.getText();
-
-				System.out.println(path);
-
 				Image newImage = new Image( new FileInputStream(path));
-				
 				imageShirt.setImage(newImage);
+			}else if(number == 3) {
+				String path = PATH_PICTURE_CLOTHESIMAGE + txtClothePathImage.getText();
+				Image newImage = new Image( new FileInputStream(path));
+				imageTrousers.setImage(newImage);
 			}
 		}
 	}
