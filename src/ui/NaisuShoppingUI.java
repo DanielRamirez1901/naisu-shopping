@@ -1,6 +1,8 @@
 package ui;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,6 +17,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
@@ -23,11 +27,12 @@ import model.*;
 
 public class NaisuShoppingUI implements Initializable{
 	
+	private static final String PATH_PICTURE_CLOTHESIMAGE = "images/ClothesImage/";
+	
+	
 	private LoadingBar loadBar;
 	private Market market;
-	private Seller seller;
-	private Buyer buyer;
-	private Jewelry jewelry;
+
 	
 	//Loading Interface attributes
 	 @FXML
@@ -149,6 +154,9 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtFootwearDescription;
 	    
+	    @FXML
+	    private ImageView imageFootWear;
+	    
 	    //Clothes shirt Attributes
 	    @FXML
 	    private TextField txtShirtFabricType;
@@ -158,6 +166,9 @@ public class NaisuShoppingUI implements Initializable{
 
 	    @FXML
 	    private TextField txtShirtType;
+	    
+	    @FXML
+	    private ImageView imageShirt;
 	    
 	    //Clothes trousers Attributes
 	    @FXML
@@ -320,10 +331,24 @@ public class NaisuShoppingUI implements Initializable{
 		}
 	}
 	
+	public void emptyFieldsClothing() {
+		txtClothesName.setText("");
+		txtClothesCode.setText("");
+		txtClothesMark.setText("");
+		txtClothesPrice.setText("");
+		txtClothesSize.setText("");
+		txtClothePathImage.setText("");
+		txtClothesDescription.setText("");
+		txtClothesQuantity.setText("");
+		txtClothesColor.setText("");
+		txtClothesGender.setText("");
+		txtClothesType.setText("");
+	}
+	
 	public void addClotheFootwear(ActionEvent event) throws IOException {
 		if(!txtFootwearFabricType.getText().equals("") && !txtFootwearDescription.getText().equals("") && !txtFootwearType.getText().equals("")) {
 			int price = Integer.parseInt(txtClothesPrice.getText());
-			int quantity = Integer.parseInt(txtClothesQuantity.getText());
+			int quantity = Integer.parseInt(txtClothesQuantity.getText());			
 			System.out.println(" : "+txtClothesName.getText()+" : " +txtClothesCode.getText()+ " : " +txtClothesMark.getText()+ " : "+ price + " : "+ txtClothesSize.getText() + " : " + txtClothePathImage.getText() + " : " + txtClothesDescription.getText() + " : " +quantity + " : "  + txtClothesColor.getText()  + " : " + txtClothesGender.getText() + " : "  +txtClothesType.getText() +" : "+ txtFootwearType.getText() +" : "+ txtFootwearFabricType.getText());
 			market.addClothingShoes(txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText(), txtFootwearType.getText(), txtFootwearFabricType.getText());
 			clothingCorrectlyCreated(event);
@@ -340,27 +365,26 @@ public class NaisuShoppingUI implements Initializable{
 		txtFootwearFabricType.setText("");
 		txtFootwearDescription.setText("");
 	}
-	public void emptyFieldsClothing() {
-		txtClothesName.setText("");
-		txtClothesCode.setText("");
-		txtClothesMark.setText("");
-		txtClothesPrice.setText("");
-		txtClothesSize.setText("");
-		txtClothePathImage.setText("");
-		txtClothesDescription.setText("");
-		txtClothesQuantity.setText("");
-		txtClothesColor.setText("");
-		txtClothesGender.setText("");
-		txtClothesType.setText("");
-	}
+
 	
 	public void addClotheShirt(ActionEvent event) throws IOException {
 		if(!txtShirtFabricType.getText().equals("") && !txtShirtStyle.getText().equals("") && !txtShirtType.getText().equals("")) {
-			betaVersionAlert(event);
+			int price = Integer.parseInt(txtClothesPrice.getText());
+			int quantity = Integer.parseInt(txtClothesQuantity.getText());
+			market.addClothingShirt(txtShirtFabricType.getText(), txtShirtType.getText(), txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText());
+			clothingCorrectlyCreated(event);
+			emptyFieldsClothing();
+			emptyFieldsShirt();
 			loadAddClothes(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void emptyFieldsShirt() {
+		txtShirtFabricType.setText("");
+		txtShirtStyle.setText("");
+		txtShirtType.setText("");
 	}
 	
 	public void addClotheTrouser(ActionEvent event) throws IOException {
@@ -586,6 +610,8 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(640);
     	st.setWidth(756);
+    	int isFootwearImage = 1;
+    	showImageInClothing(isFootwearImage);
 	}
 	
 	public void loadAddClothesShirt(ActionEvent event) throws IOException {
@@ -601,6 +627,8 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(640);
     	st.setWidth(756);
+    	int isShirtImage = 2;
+    	showImageInClothing(isShirtImage);
 	}
 	
 	public void loadAddClothesTrousers(ActionEvent event) throws IOException {
@@ -616,6 +644,30 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(640);
     	st.setWidth(756);
+    	int isTrousersImage = 3;
+    	showImageInClothing(isTrousersImage);
+	}
+	
+	public void showImageInClothing(int number) throws FileNotFoundException {
+		if(txtClothePathImage.getText()!=null && !txtClothePathImage.getText().equals("")) {
+			if(number == 1) {
+				String path = PATH_PICTURE_CLOTHESIMAGE + txtClothePathImage.getText();
+
+				System.out.println(path);
+
+				Image newImage = new Image( new FileInputStream(path));
+
+				imageFootWear.setImage(newImage);
+			}else if(number == 2) {
+				String path = PATH_PICTURE_CLOTHESIMAGE + txtClothePathImage.getText();
+
+				System.out.println(path);
+
+				Image newImage = new Image( new FileInputStream(path));
+				
+				imageShirt.setImage(newImage);
+			}
+		}
 	}
 	
 	public void loadSeeProductsOffered(ActionEvent event) throws IOException {

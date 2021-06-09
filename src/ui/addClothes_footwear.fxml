@@ -16,7 +16,7 @@
       <TextField fx:id="txtFootwearFabricType" layoutX="374.0" layoutY="315.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the type of fabric" />
       <TextField fx:id="txtFootwearType" layoutX="374.0" layoutY="432.0" prefHeight="30.0" prefWidth="309.0" promptText="Enter the type of footwear" />
       <Button layoutX="466.0" layoutY="480.0" mnemonicParsing="false" onAction="#addClotheFootwear" prefHeight="47.0" prefWidth="125.0" style="-fx-background-color: #3498db;" text="POST PRODUCT" textFill="WHITE" />
-      <ImageView fitHeight="224.0" fitWidth="234.0" layoutX="57.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageFootWear" fitHeight="224.0" fitWidth="234.0" focusTraversable="true" layoutX="57.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/notImage.jpg" />
          </image></ImageView>
