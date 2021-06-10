@@ -29,6 +29,7 @@ public class NaisuShoppingUI implements Initializable{
 	
 	private static final String PATH_PICTURE_CLOTHESIMAGE = "images/ClothesImage/";
 	private static final String PATH_PICTURE_ACCESSORIESIMAGE = "images/AccessoriesImages/";
+	private static final String PATH_PICTURE_USERS = "images/UsersImage/";
 	
 	private LoadingBar loadBar;
 	private Market market;
@@ -248,6 +249,24 @@ public class NaisuShoppingUI implements Initializable{
 
 	    @FXML
 	    private ImageView imageBuyer;
+	    
+	    //show Seller attributes
+	    String nameSeller = "";
+	    String lastNameSeller = "";
+	    String emailSeller = "";
+	    String pictureSeller = "";
+	    
+	    @FXML
+	    private Label lblNameSeller;
+
+	    @FXML
+	    private Label lblLastNameSeller;
+
+	    @FXML
+	    private Label lblEmailSeller;
+
+	    @FXML
+	    private ImageView imageSeller;
 
 	    
 	@Override
@@ -275,6 +294,10 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
 				if(market.thatNickIsUsed(txtSellerUsername.getText())==false) {
+				nameSeller = txtSellername.getText();
+				lastNameSeller = txtSellerLastname.getText();
+				emailSeller = txtSellerEmail.getText();
+				pictureSeller = txtPathImageSeller.getText();
 				market.addSeller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText(),txtPathImageSeller.getText());
 				userSuccesfullyRegistered(event);
 				emptyFieldsOfAddSeller();
@@ -864,6 +887,8 @@ public class NaisuShoppingUI implements Initializable{
     	lblNameBuyer.setText(nameBuyer);
     	lblLastNameBuyer.setText(lastNameBuyer);
     	lblEmailBuyer.setText(emailBuyer);
+    	int isBuyerImage = 1;
+    	showImageInUser(isBuyerImage);
 	}
 	
 	public void loadUserInformationSeller(ActionEvent event) throws IOException {
@@ -879,7 +904,32 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(420);
     	st.setWidth(575);
+    	
+    	lblNameSeller.setText(nameSeller);
+    	lblLastNameSeller.setText(lastNameSeller);
+    	lblEmailSeller.setText(emailSeller);
+    	int isSellerImage = 2;
+    	showImageInUser(isSellerImage);
 	}
+	
+	public void showImageInUser(int number) throws FileNotFoundException {
+		if(pictureBuyer!=null && !pictureBuyer.equals("")) {
+			if(number == 1) {
+				String path = PATH_PICTURE_USERS + pictureBuyer;
+				Image newImage = new Image( new FileInputStream(path));
+				imageBuyer.setImage(newImage);
+			}
+		}else {
+			if(pictureSeller!=null && !pictureSeller.equals("")) {
+				if(number == 2) {
+					String path = PATH_PICTURE_USERS + pictureSeller;
+					Image newImage = new Image( new FileInputStream(path));
+					imageSeller.setImage(newImage);
+				}
+			}
+		}
+	}
+	
 	
 	public void loadWhatDoYouWantToDoBuyer(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDoBuyer.fxml"));
