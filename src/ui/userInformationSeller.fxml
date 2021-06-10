@@ -22,6 +22,6 @@
             <Image url="@../../images/notImage.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="455.0" layoutY="290.0" mnemonicParsing="false" onAction="#loadWhatDoYouWantToDo" style="-fx-background-color: #3498db;" text="home" textFill="WHITE" />
+      <Button layoutX="455.0" layoutY="290.0" mnemonicParsing="false" onAction="#loadWhatDoYouWantToDoSeller" style="-fx-background-color: #3498db;" text="home" textFill="WHITE" />
    </children>
 </Pane>

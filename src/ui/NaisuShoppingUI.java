@@ -232,6 +232,23 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtPasswordLoginPrincipal;
 
+	    //show Buyer attributes
+	    String nameBuyer = "";
+	    String lastNameBuyer = "";
+	    String emailBuyer = "";
+	    String pictureBuyer = "";
+	    @FXML
+	    private Label lblNameBuyer;
+
+	    @FXML
+	    private Label lblLastNameBuyer;
+
+	    @FXML
+	    private Label lblEmailBuyer;
+
+	    @FXML
+	    private ImageView imageBuyer;
+
 	    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -287,6 +304,10 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("") && !txtPathImageBuyer.getText().equals("")) {
 			if(txtBuyerPassword.getText().equalsIgnoreCase(txtBuyerRePassword.getText())) {
 				if(market.thatNickIsUsed(txtBuyerUser.getText())==false) {
+				nameBuyer = txtBuyerName.getText();
+				lastNameBuyer = txtBuyerLastname.getText();
+				emailBuyer = txtBuyerEmail.getText();
+				pictureBuyer = txtPathImageBuyer.getText();
 				market.addBuyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText(),txtPathImageBuyer.getText());
 				userSuccesfullyRegistered(event);
 				emptyFieldsOfAddBuyer();
@@ -492,7 +513,7 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtSellerUsernameLogin.getText().equals("") && !txtSellerPasswordLogin.getText().equals("")) {
 			if(market.userLogin(txtSellerUsernameLogin.getText(), txtSellerPasswordLogin.getText())!=false) {
 			userCanLogin(event);
-			loadWhatDoYouWantToDoBuyer(event);
+			loadWhatDoYouWantToDoSeller(event);
 			}else {
 				userCantLogin(event);
 				txtSellerPasswordLogin.setText("");
@@ -506,7 +527,7 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtBuyerUserLogin.getText().equals("") && !txtBuyerPasswordLogin.getText().equals("")) {
 			if(market.userLogin(txtBuyerUserLogin.getText(), txtBuyerPasswordLogin.getText())!=false) {
 			userCanLogin(event);
-			loadWhatDoYouWantToDo(event);
+			loadWhatDoYouWantToDoBuyer(event);
 			}else {
 				userCantLogin(event);
 				txtBuyerPasswordLogin.setText("");
@@ -827,21 +848,6 @@ public class NaisuShoppingUI implements Initializable{
 	}
 	
 	public void loadUserInformationBuyer(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userInformation.fxml"));
-		
-		fxmlLoader.setController(this);
-		
-		Parent loginPane = fxmlLoader.load();
-		
-		mainBorderPane.getChildren().clear();
-    	mainBorderPane.setCenter(loginPane);
-    	Stage st = (Stage)
-    	loginPane.getScene().getWindow();
-    	st.setHeight(420);
-    	st.setWidth(575);
-	}
-	
-	public void loadUserInformationSeller(ActionEvent event) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userInformationBuyer.fxml"));
 		
 		fxmlLoader.setController(this);
@@ -854,10 +860,29 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(420);
     	st.setWidth(575);
+    	
+    	lblNameBuyer.setText(nameBuyer);
+    	lblLastNameBuyer.setText(lastNameBuyer);
+    	lblEmailBuyer.setText(emailBuyer);
 	}
 	
-	public void loadWhatDoYouWantToDo(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDo.fxml"));
+	public void loadUserInformationSeller(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userInformationSeller.fxml"));
+		
+		fxmlLoader.setController(this);
+		
+		Parent loginPane = fxmlLoader.load();
+		
+		mainBorderPane.getChildren().clear();
+    	mainBorderPane.setCenter(loginPane);
+    	Stage st = (Stage)
+    	loginPane.getScene().getWindow();
+    	st.setHeight(420);
+    	st.setWidth(575);
+	}
+	
+	public void loadWhatDoYouWantToDoBuyer(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDoBuyer.fxml"));
 		
 		fxmlLoader.setController(this);
 		
@@ -871,8 +896,8 @@ public class NaisuShoppingUI implements Initializable{
     	st.setWidth(805);
 	}
 	
-	public void loadWhatDoYouWantToDoBuyer(ActionEvent event) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDoBuyer.fxml"));
+	public void loadWhatDoYouWantToDoSeller(ActionEvent event) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("whatDoYouWantToDoSeller.fxml"));
 		
 		fxmlLoader.setController(this);
 		

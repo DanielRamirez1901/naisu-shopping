@@ -14,10 +14,10 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="274.0" layoutY="114.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Name" />
-      <Label layoutX="274.0" layoutY="164.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Lastname" />
-      <Label layoutX="274.0" layoutY="216.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Email" />
-      <ImageView fitHeight="187.0" fitWidth="167.0" layoutX="47.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <Label fx:id="lblNameBuyer" layoutX="274.0" layoutY="114.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Name" />
+      <Label fx:id="lblLastNameBuyer" layoutX="274.0" layoutY="164.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Lastname" />
+      <Label fx:id="lblEmailBuyer" layoutX="274.0" layoutY="216.0" prefHeight="33.0" prefWidth="181.0" style="-fx-border-color: #3498db;" text="Email" />
+      <ImageView fx:id="imageBuyer" fitHeight="187.0" fitWidth="167.0" layoutX="47.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../images/notImage.jpg" />
          </image>
