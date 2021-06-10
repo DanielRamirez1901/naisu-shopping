@@ -535,8 +535,13 @@ public class NaisuShoppingUI implements Initializable{
 	public void loginSeller(ActionEvent event) throws IOException {
 		if(!txtSellerUsernameLogin.getText().equals("") && !txtSellerPasswordLogin.getText().equals("")) {
 			if(market.userLogin(txtSellerUsernameLogin.getText(), txtSellerPasswordLogin.getText())!=false) {
-			userCanLogin(event);
-			loadWhatDoYouWantToDoSeller(event);
+				if(market.identifyWhatTypeOfClientYouAre(txtSellerUsernameLogin.getText())==2) {
+					userCanLogin(event);
+					loadWhatDoYouWantToDoSeller(event);
+				}else {
+					userCanLogin(event);
+					loadWhatDoYouWantToDoBuyer(event);
+				}
 			}else {
 				userCantLogin(event);
 				txtSellerPasswordLogin.setText("");
@@ -549,8 +554,13 @@ public class NaisuShoppingUI implements Initializable{
 	public void loginBuyer(ActionEvent event) throws IOException {
 		if(!txtBuyerUserLogin.getText().equals("") && !txtBuyerPasswordLogin.getText().equals("")) {
 			if(market.userLogin(txtBuyerUserLogin.getText(), txtBuyerPasswordLogin.getText())!=false) {
-			userCanLogin(event);
-			loadWhatDoYouWantToDoBuyer(event);
+				if(market.identifyWhatTypeOfClientYouAre(txtBuyerUserLogin.getText()) == 1) {
+					userCanLogin(event);
+					loadWhatDoYouWantToDoBuyer(event);
+				}else {
+					userCanLogin(event);
+					loadWhatDoYouWantToDoSeller(event);
+				}
 			}else {
 				userCantLogin(event);
 				txtBuyerPasswordLogin.setText("");

@@ -192,6 +192,14 @@ public class Market {
         return ((searchUser(name) != null) && (searchUser(name).getPassword().compareTo(password) == 0)) ? true : false;
     }
     
+    public int identifyWhatTypeOfClientYouAre(String name) {
+    	User userToIdentify = searchUser(name);
+    	if(userToIdentify instanceof Buyer) {
+    		return 1;
+    	}else {
+    		return 2;
+    	}
+    }
 //*********************************************ShoppingCar Buyer Accessories************************************
     
     public boolean addThatAccessoryToTheShoppingCart(String name) {
