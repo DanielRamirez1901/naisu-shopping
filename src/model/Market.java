@@ -79,6 +79,15 @@ public class Market {
         }//End for
         return null;
     } 
+    
+    public User searchNickUser(String nameUser) {
+        for (int i = 0; i < user.size(); i++) {
+            if (user.get(i).getNameUser().compareTo(nameUser) == 0) {
+                return user.get(i);
+            }//End if
+        }//End for
+        return null;
+    } 
 //*********************************************END BUYER & SELLER***************************************
      
  

@@ -234,10 +234,6 @@ public class NaisuShoppingUI implements Initializable{
 	    private TextField txtPasswordLoginPrincipal;
 
 	    //show Buyer attributes
-	    String nameBuyer = "";
-	    String lastNameBuyer = "";
-	    String emailBuyer = "";
-	    String pictureBuyer = "";
 	    @FXML
 	    private Label lblNameBuyer;
 
@@ -251,10 +247,6 @@ public class NaisuShoppingUI implements Initializable{
 	    private ImageView imageBuyer;
 	    
 	    //show Seller attributes
-	    String nameSeller = "";
-	    String lastNameSeller = "";
-	    String emailSeller = "";
-	    String pictureSeller = "";
 	    
 	    @FXML
 	    private Label lblNameSeller;
@@ -268,7 +260,7 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private ImageView imageSeller;
 
-	    
+	    String thisIsTheUser = "";
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
@@ -294,10 +286,6 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
 			if(txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
 				if(market.thatNickIsUsed(txtSellerUsername.getText())==false) {
-				nameSeller = txtSellername.getText();
-				lastNameSeller = txtSellerLastname.getText();
-				emailSeller = txtSellerEmail.getText();
-				pictureSeller = txtPathImageSeller.getText();
 				market.addSeller(txtSellername.getText(),txtSellerLastname.getText(),txtSellerDocument.getText(),txtSellerEmail.getText(),txtSellerPassword.getText(),txtSellerUsername.getText(),txtPathImageSeller.getText());
 				userSuccesfullyRegistered(event);
 				emptyFieldsOfAddSeller();
@@ -327,10 +315,6 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("") && !txtPathImageBuyer.getText().equals("")) {
 			if(txtBuyerPassword.getText().equalsIgnoreCase(txtBuyerRePassword.getText())) {
 				if(market.thatNickIsUsed(txtBuyerUser.getText())==false) {
-				nameBuyer = txtBuyerName.getText();
-				lastNameBuyer = txtBuyerLastname.getText();
-				emailBuyer = txtBuyerEmail.getText();
-				pictureBuyer = txtPathImageBuyer.getText();
 				market.addBuyer(txtBuyerName.getText(),txtBuyerLastname.getText(),txtBuyerDocument.getText(),txtBuyerEmail.getText(),txtBuyerPassword.getText(),txtBuyerUser.getText(),txtPathImageBuyer.getText());
 				userSuccesfullyRegistered(event);
 				emptyFieldsOfAddBuyer();
@@ -536,9 +520,11 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtSellerUsernameLogin.getText().equals("") && !txtSellerPasswordLogin.getText().equals("")) {
 			if(market.userLogin(txtSellerUsernameLogin.getText(), txtSellerPasswordLogin.getText())!=false) {
 				if(market.identifyWhatTypeOfClientYouAre(txtSellerUsernameLogin.getText())==2) {
+					thisIsTheUser = txtSellerUsernameLogin.getText();
 					userCanLogin(event);
 					loadWhatDoYouWantToDoSeller(event);
 				}else {
+					thisIsTheUser = txtSellerUsernameLogin.getText();
 					userCanLogin(event);
 					loadWhatDoYouWantToDoBuyer(event);
 				}
@@ -555,9 +541,11 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtBuyerUserLogin.getText().equals("") && !txtBuyerPasswordLogin.getText().equals("")) {
 			if(market.userLogin(txtBuyerUserLogin.getText(), txtBuyerPasswordLogin.getText())!=false) {
 				if(market.identifyWhatTypeOfClientYouAre(txtBuyerUserLogin.getText()) == 1) {
+					thisIsTheUser = txtBuyerUserLogin.getText();
 					userCanLogin(event);
 					loadWhatDoYouWantToDoBuyer(event);
 				}else {
+					thisIsTheUser = txtBuyerUserLogin.getText();
 					userCanLogin(event);
 					loadWhatDoYouWantToDoSeller(event);
 				}
@@ -894,11 +882,12 @@ public class NaisuShoppingUI implements Initializable{
     	st.setHeight(420);
     	st.setWidth(575);
     	
-    	lblNameBuyer.setText(nameBuyer);
-    	lblLastNameBuyer.setText(lastNameBuyer);
-    	lblEmailBuyer.setText(emailBuyer);
-    	int isBuyerImage = 1;
-    	showImageInUser(isBuyerImage);
+    	showInformationOfUser();
+//    	lblNameBuyer.setText(nameBuyer);
+//    	lblLastNameBuyer.setText(lastNameBuyer);
+//    	lblEmailBuyer.setText(emailBuyer);
+//    	int isBuyerImage = 1;
+//    	showImageInUser(isBuyerImage);
 	}
 	
 	public void loadUserInformationSeller(ActionEvent event) throws IOException {
@@ -915,30 +904,51 @@ public class NaisuShoppingUI implements Initializable{
     	st.setHeight(420);
     	st.setWidth(575);
     	
-    	lblNameSeller.setText(nameSeller);
-    	lblLastNameSeller.setText(lastNameSeller);
-    	lblEmailSeller.setText(emailSeller);
-    	int isSellerImage = 2;
-    	showImageInUser(isSellerImage);
+    	showInformationOfUser();
+//    	lblNameSeller.setText(nameSeller);
+//    	lblLastNameSeller.setText(lastNameSeller);
+//    	lblEmailSeller.setText(emailSeller);
+//    	int isSellerImage = 2;
+//    	showImageInUser(isSellerImage);
 	}
-	
-	public void showImageInUser(int number) throws FileNotFoundException {
-		if(pictureBuyer!=null && !pictureBuyer.equals("")) {
-			if(number == 1) {
-				String path = PATH_PICTURE_USERS + pictureBuyer;
+	public void showInformationOfUser() throws FileNotFoundException {
+		User user = market.searchNickUser(thisIsTheUser);
+    	if(user!=null) {
+    		if(market.identifyWhatTypeOfClientYouAre(user.getName())==1) {
+    			lblNameBuyer.setText(user.getName());
+    			lblLastNameBuyer.setText(user.getLastName());
+    			lblEmailBuyer.setText(user.getEmail());
+    			String path = PATH_PICTURE_USERS + user.getPicture();
 				Image newImage = new Image( new FileInputStream(path));
 				imageBuyer.setImage(newImage);
-			}
-		}else {
-			if(pictureSeller!=null && !pictureSeller.equals("")) {
-				if(number == 2) {
-					String path = PATH_PICTURE_USERS + pictureSeller;
-					Image newImage = new Image( new FileInputStream(path));
-					imageSeller.setImage(newImage);
-				}
-			}
-		}
+    		}else if(market.identifyWhatTypeOfClientYouAre(user.getName())==2){
+    			lblNameSeller.setText(user.getName());
+    			lblLastNameSeller.setText(user.getLastName());
+    			lblEmailSeller.setText(user.getEmail());
+    			String path = PATH_PICTURE_USERS + user.getPicture();
+				Image newImage = new Image( new FileInputStream(path));
+				imageSeller.setImage(newImage);
+    		}
+    	}
 	}
+	
+//	public void showImageInUser(int number) throws FileNotFoundException {
+//		if(pictureBuyer!=null && !pictureBuyer.equals("")) {
+//			if(number == 1) {
+//				String path = PATH_PICTURE_USERS + pictureBuyer;
+//				Image newImage = new Image( new FileInputStream(path));
+//				imageBuyer.setImage(newImage);
+//			}
+//		}else {
+//			if(pictureSeller!=null && !pictureSeller.equals("")) {
+//				if(number == 2) {
+//					String path = PATH_PICTURE_USERS + pictureSeller;
+//					Image newImage = new Image( new FileInputStream(path));
+//					imageSeller.setImage(newImage);
+//				}
+//			}
+//		}
+//	}
 	
 	
 	public void loadWhatDoYouWantToDoBuyer(ActionEvent event) throws IOException {
