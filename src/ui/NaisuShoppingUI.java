@@ -28,7 +28,7 @@ import model.*;
 public class NaisuShoppingUI implements Initializable{
 	
 	private static final String PATH_PICTURE_CLOTHESIMAGE = "images/ClothesImage/";
-	
+	private static final String PATH_PICTURE_ACCESSORIESIMAGE = "images/AccessoriesImages/";
 	
 	private LoadingBar loadBar;
 	private Market market;
@@ -211,6 +211,9 @@ public class NaisuShoppingUI implements Initializable{
 
 	    @FXML
 	    private TextField txtGlassesLens;
+	    
+	    @FXML
+	    private ImageView imageGlasses;
 
 	    //Jewels Attributes
 	    @FXML
@@ -411,14 +414,20 @@ public class NaisuShoppingUI implements Initializable{
 	
 	public void addAccessory(ActionEvent event) throws IOException {
 		if(!txtAccessoryName.getText().equals("") && !txtAccessoryCode.getText().equals("") && !txtAccessoryMark.getText().equals("") && !txtAccesoryPrice.getText().equals("") && !txtAccessoryPathImage.getText().equals("") && !txtAccessoryType.getText().equals("")) {
-			if(txtAccessoryType.getText().equalsIgnoreCase("glasses") || txtAccessoryType.getText().equalsIgnoreCase("jewels")) {
-				if(txtAccessoryType.getText().equalsIgnoreCase("glasses")) {
-					System.out.println(txtAccessoryName.getText());
-					betaVersionAlert(event);
-					loadAddAccessoriesGlasses(event);
-				}else if(txtAccessoryType.getText().equalsIgnoreCase("jewels")) {
-					betaVersionAlert(event);
-					loadAddAccessoriesJewels(event);
+			if(txtAccessoryType.getText().equalsIgnoreCase("glasses") || txtAccessoryType.getText().equalsIgnoreCase("jewels") || txtAccessoryType.getText().equalsIgnoreCase("glasse") || txtAccessoryType.getText().equalsIgnoreCase("jewel")) {
+				if(market.thatAccessoryCodeIsAlreadyUsed(txtAccessoryCode.getText())!=true) {
+					boolean isPriceNumeric = txtAccesoryPrice.getText().matches("[+-]?\\d*(\\.\\d+)?");
+					if(isPriceNumeric==true) {
+						if(txtAccessoryType.getText().equalsIgnoreCase("glasses") || txtAccessoryType.getText().equalsIgnoreCase("glasse")) {
+							loadAddAccessoriesGlasses(event);
+						}else if(txtAccessoryType.getText().equalsIgnoreCase("jewels") || txtAccessoryType.getText().equalsIgnoreCase("jewel")) {
+							loadAddAccessoriesJewels(event);
+						}
+					}else {
+						verifyPriceIsNumeric(event);
+					}
+				}else {
+					changeYourAccesoryCode(event);
 				}
 			}else {
 				selectCorrectAccesoryType(event);
@@ -428,13 +437,33 @@ public class NaisuShoppingUI implements Initializable{
 		}
 	}
 	
+	public void emptyFieldsAccessory() {
+		txtAccessoryName.setText("");
+		txtAccessoryCode.setText("");
+		txtAccesoryPrice.setText("");
+		txtAccessoryMark.setText("");
+		txtAccessoryPathImage.setText("");
+		txtAccessoryType.setText("");
+	}
+	
 	public void addAccesoryGlasses(ActionEvent event) throws IOException {
 		if(!txtGlassesColor.getText().equals("") && !txtGlassesSize.getText().equals("") && !txtGlassesFrame.getText().equals("") && !txtGlassesLens.getText().equals("")) {
-			betaVersionAlert(event);
+			int price = Integer.parseInt(txtAccesoryPrice.getText());
+			market.addAccessoriesGlasses(txtAccessoryName.getText(),txtAccessoryCode.getText(),txtAccessoryMark.getText(),price,txtAccessoryPathImage.getText(),txtAccessoryType.getText(),txtGlassesColor.getText(),txtGlassesSize.getText(),txtGlassesLens.getText(),txtGlassesFrame.getText());
+			accessoryCorrectlyCreated(event);
+			emptyFieldsAccessory();
+			emptyFieldsGlasses();
 			loadAddAccessories(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void emptyFieldsGlasses() {
+		txtGlassesColor.setText("");
+		txtGlassesSize.setText("");
+		txtGlassesFrame.setText("");
+		txtGlassesLens.setText("");
 	}
 	
 	public void addAccessoriesJewels(ActionEvent event) throws IOException {
@@ -578,6 +607,8 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(640);
     	st.setWidth(760);
+    	int isAGlassImage = 1;
+    	showImageInAccessory(isAGlassImage);
 	}
 	
 	public void loadAddAccessoriesJewels(ActionEvent event) throws IOException {
@@ -593,6 +624,23 @@ public class NaisuShoppingUI implements Initializable{
     	loginPane.getScene().getWindow();
     	st.setHeight(640);
     	st.setWidth(760);
+    	int isAJewelImage = 2;
+    	showImageInAccessory(isAJewelImage);
+	}
+	
+	public void showImageInAccessory(int number) throws FileNotFoundException {
+		if(txtAccessoryPathImage.getText()!=null && !txtAccessoryPathImage.getText().equals("")) {
+			if(number == 1) {
+				String path = PATH_PICTURE_ACCESSORIESIMAGE + txtAccessoryPathImage.getText();
+				Image newImage = new Image( new FileInputStream(path));
+				imageGlasses.setImage(newImage);
+			}
+//			}else if(number == 2) {
+//				String path = PATH_PICTURE_ACCESSORIESIMAGE + txtClothePathImage.getText();
+//				Image newImage = new Image( new FileInputStream(path));
+//				imageShirt.setImage(newImage);
+//			}
+		}
 	}
 	
 	public void loadAddClothes(ActionEvent event) throws IOException {
@@ -977,6 +1025,15 @@ public class NaisuShoppingUI implements Initializable{
     }
 	
 	@FXML
+    public void changeYourAccesoryCode(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("An accessory with this code is already created, please choose another code");
+        alert.showAndWait();
+    }
+	
+	@FXML
     public void clothingCorrectlyCreated(ActionEvent event) {
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Alert");
@@ -986,14 +1043,31 @@ public class NaisuShoppingUI implements Initializable{
     }
 	
 	@FXML
+    public void accessoryCorrectlyCreated(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("Accessory correctly added");
+        alert.showAndWait();
+    }
+	
+	@FXML
     public void verifyPriceOrQuantityIsNumeric(ActionEvent event) {
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("ERROR");
+        alert.setTitle("Alert");
         alert.setHeaderText(null);
         alert.setContentText("Please verify that the price or quantity are numerical values");
         alert.showAndWait();
     }
 	
+	@FXML
+    public void verifyPriceIsNumeric(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Alert");
+        alert.setHeaderText(null);
+        alert.setContentText("Please verify that the price is a numerical value");
+        alert.showAndWait();
+    }
 	
 	
 	@FXML

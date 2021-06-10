@@ -581,7 +581,5 @@ public class Market {
 		public void setSeller(ArrayList<Seller> seller) {
 			this.seller = seller;
 		}
-		
-		
 }
 
