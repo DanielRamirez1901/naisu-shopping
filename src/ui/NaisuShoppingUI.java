@@ -222,6 +222,9 @@ public class NaisuShoppingUI implements Initializable{
 	    @FXML
 	    private TextField txtJewelsGender;
 	    
+	    @FXML
+	    private ImageView imageJewel;
+	    
 	    //Login principal attributes
 	    @FXML
 	    private TextField txtUserLoginPrincipal;
@@ -471,11 +474,18 @@ public class NaisuShoppingUI implements Initializable{
 			int price = Integer.parseInt(txtAccesoryPrice.getText());
 			System.out.println(txtAccessoryName.getText()+" en joyeria uwu");
 			market.addAccesssoriesJewels(txtAccessoryName.getText(), txtAccessoryCode.getText(), txtAccessoryMark.getText(), price, txtAccessoryPathImage.getText(), txtAccessoryType.getText(), txtJewelsMaterial.getText(), txtJewelsGender.getText());
-			betaVersionAlert(event);
+			accessoryCorrectlyCreated(event);
+			emptyFieldsAccessory();
+			emptyFieldsJewels();
 			loadAddAccessories(event);
 		}else {
 			youNeedToFillTextFields(event);
 		}
+	}
+	
+	public void emptyFieldsJewels() {
+		txtJewelsGender.setText("");
+		txtJewelsMaterial.setText("");
 	}
 	
 	public void loginSeller(ActionEvent event) throws IOException {
@@ -634,12 +644,11 @@ public class NaisuShoppingUI implements Initializable{
 				String path = PATH_PICTURE_ACCESSORIESIMAGE + txtAccessoryPathImage.getText();
 				Image newImage = new Image( new FileInputStream(path));
 				imageGlasses.setImage(newImage);
+			}else if(number == 2) {
+				String path = PATH_PICTURE_ACCESSORIESIMAGE + txtAccessoryPathImage.getText();
+				Image newImage = new Image( new FileInputStream(path));
+				imageJewel.setImage(newImage);
 			}
-//			}else if(number == 2) {
-//				String path = PATH_PICTURE_ACCESSORIESIMAGE + txtClothePathImage.getText();
-//				Image newImage = new Image( new FileInputStream(path));
-//				imageShirt.setImage(newImage);
-//			}
 		}
 	}
 	
