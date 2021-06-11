@@ -48,11 +48,22 @@ public class Market {
     public void addBuyer(String name, String lastname, String id, String email, String password, String nameUser, String picture){
         User buyerToAdd = (new Buyer(name, lastname, id, email, password, nameUser, picture));
         user.add(buyerToAdd);
+        insertionSortByUserEmail();
+        insertionSortByName();
+        bubbleSortByName();
+    	bubbleSortByLastname();
+    	selectionSortByUserID();
+    	selectionSortByUserName();
     }
     
     public void addSeller(String name, String lastname, String id, String email, String password, String nameUser, String picture) {
     	User sellerToAdd = (new Seller(name, lastname, id, email, password, nameUser, picture));
     	user.add(sellerToAdd);
+    	insertionSortByUserEmail();
+    	insertionSortByName();
+    	bubbleSortByName();
+    	bubbleSortByLastname();
+    	selectionSortByUserName();
     }
     public void deleteUser(String name) {
         User userToDelete = searchUser(name);
@@ -208,6 +219,22 @@ public class Market {
     	}else {
     		return 2;
     	}
+    }
+    
+    public Glasses convertThatInGlass(Accessories accessory, String color, String size, String lens, String design) {
+    	if(accessory!=null) {
+    		Glasses glass = new Glasses (accessory.getName(),accessory.getCode(),accessory.getBrand(),accessory.getPrice(),accessory.getPhoto(),accessory.getType(),color,size,lens,design);
+    		return glass;
+    	}
+    	return null;
+    }
+    
+    public Jewelry converThatInJewelry(Accessories accessory,String material, String gender) {
+    	if(accessory!=null) {
+    		Jewelry jewel = new Jewelry(accessory.getName(),accessory.getCode(),accessory.getBrand(),accessory.getPrice(),accessory.getPhoto(),accessory.getType(),material,gender);
+    		return jewel;
+    	}
+    	return null;
     }
 //*********************************************ShoppingCar Buyer Accessories************************************
     
@@ -419,8 +446,7 @@ public class Market {
     
     //pre: Esta objeto debe haber sido creado anteriormente
     //Algoritmo arbol de busqueda binaria insertando con el precio
-    public void inssertJewelryByPrice(double priceJewelry) {
-    	Jewelry jewelryToAdd = new Jewelry( jw.getName(), jw.getCode(), jw.getBrand(), priceJewelry, jw.getPhoto(), jw.getType(), jw.getMaterial(), jw.getGender());
+    public void inssertJewelryByPrice(Jewelry jewelryToAdd) {
     		if(rootJ == null) {
     			rootJ = jewelryToAdd;
     		}else {
@@ -446,8 +472,7 @@ public class Market {
 
 //  pre: Esta objeto debe haber sido creado anteriormente
 //  Algoritmo arbol de busqueda binaria insertando con el precio
-    public void inssertGlassesByPrice(double glassesPrice) {
-    	Glasses glassesToAdd = new Glasses(gl.getName(), gl.getCode(), gl.getBrand(), glassesPrice, gl.getPhoto(), gl.getType(), gl.getColor(), gl.getSize(),gl.getDescription(), gl.getDesign());
+    public void inssertGlassesByPrice(Glasses glassesToAdd) {
     		if(rootG == null) {
     			rootG = glassesToAdd;
     		}else {

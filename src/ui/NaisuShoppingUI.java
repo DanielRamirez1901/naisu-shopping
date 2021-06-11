@@ -481,6 +481,11 @@ public class NaisuShoppingUI implements Initializable{
 		if(!txtGlassesColor.getText().equals("") && !txtGlassesSize.getText().equals("") && !txtGlassesFrame.getText().equals("") && !txtGlassesLens.getText().equals("")) {
 			int price = Integer.parseInt(txtAccesoryPrice.getText());
 			market.addAccessoriesGlasses(txtAccessoryName.getText(),txtAccessoryCode.getText(),txtAccessoryMark.getText(),price,txtAccessoryPathImage.getText(),txtAccessoryType.getText(),txtGlassesColor.getText(),txtGlassesSize.getText(),txtGlassesLens.getText(),txtGlassesFrame.getText());
+			Accessories newGlassToAdd = market.searchAccessories(txtAccessoryName.getText());
+			market.addGlasses(market.convertThatInGlass(newGlassToAdd,txtGlassesColor.getText(),txtGlassesSize.getText(),txtGlassesLens.getText(),txtGlassesFrame.getText()));
+			if(market.convertThatInGlass(newGlassToAdd, txtGlassesColor.getText(),txtGlassesSize.getText(),txtGlassesLens.getText(),txtGlassesFrame.getText())!=null) {
+				market.inssertGlassesByPrice(market.convertThatInGlass(newGlassToAdd,txtGlassesColor.getText(),txtGlassesSize.getText(),txtGlassesLens.getText(),txtGlassesFrame.getText()));
+			}
 			accessoryCorrectlyCreated(event);
 			emptyFieldsAccessory();
 			emptyFieldsGlasses();
@@ -500,8 +505,11 @@ public class NaisuShoppingUI implements Initializable{
 	public void addAccessoriesJewels(ActionEvent event) throws IOException {
 		if(!txtJewelsGender.getText().equals("") && !txtJewelsMaterial.getText().equals("")) {
 			int price = Integer.parseInt(txtAccesoryPrice.getText());
-			System.out.println(txtAccessoryName.getText()+" en joyeria uwu");
+			Accessories accessoryToAdd = market.searchAccessories(txtAccessoryName.getText());
 			market.addAccesssoriesJewels(txtAccessoryName.getText(), txtAccessoryCode.getText(), txtAccessoryMark.getText(), price, txtAccessoryPathImage.getText(), txtAccessoryType.getText(), txtJewelsMaterial.getText(), txtJewelsGender.getText());
+			if(market.converThatInJewelry(accessoryToAdd, txtJewelsMaterial.getText(), txtJewelsGender.getText())!=null) {
+				market.inssertJewelryByPrice(market.converThatInJewelry(accessoryToAdd, txtJewelsMaterial.getText(), txtJewelsGender.getText()));
+			}
 			accessoryCorrectlyCreated(event);
 			emptyFieldsAccessory();
 			emptyFieldsJewels();
