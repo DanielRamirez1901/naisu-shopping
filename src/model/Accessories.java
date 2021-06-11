@@ -21,7 +21,7 @@ public class Accessories implements Comparable<Jewelry>{
         this.price = price;
         this.photo = photo;
         this.type = type;
-        jewelry = new ArrayList<>();
+        jewelry = new ArrayList<Jewelry>();
     }
 
     //Por nombre de accesorio

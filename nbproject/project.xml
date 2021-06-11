@@ -6,6 +6,7 @@
             <name>naisu-shopping</name>
             <source-roots>
                 <root id="src.images.dir"/>
+                <root id="src.data.dir"/>
                 <root id="src.dir" name="src"/>
             </source-roots>
             <test-roots/>

@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 import Thread.ProgressBarThread;
 import exceptions.PasswordNotEqualsException;
 import exceptions.UsernameRepeatException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -271,6 +273,33 @@ public class NaisuShoppingUI implements Initializable {
 
     }
 
+    public void serializeData() {
+
+        try {
+            market.loadDataClients();
+        } catch (IOException ex) {
+            serializableAlert();
+        } catch (ClassNotFoundException ex) {
+            serializableAlert();
+        }
+        try {
+            market.loadDataAccessories();
+        } catch (ClassNotFoundException ex) {
+            serializableAlert();
+        } catch (IOException ex) {
+            serializableAlert();
+        }
+    }
+
+    
+
+    public void serializableAlert() {
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setHeaderText("Imposible serializar la informacion");
+        alert.setContentText("Este error puede ocurrir debido a que no existe un archivo para serializar");
+        alert.showAndWait();
+    }
+
     public void loginPrincipal(ActionEvent event) throws IOException {
         if (!txtUserLoginPrincipal.getText().equals("") && !txtPasswordLoginPrincipal.getText().equals("")) {
             betaVersionAlert(event);
@@ -292,9 +321,9 @@ public class NaisuShoppingUI implements Initializable {
                     } else {
                     }
                 } else {
-                    
+
                 }
-            }else{
+            } else {
                 youNeedToFillTextFields(event);
             }
         } catch (UsernameRepeatException e) {
