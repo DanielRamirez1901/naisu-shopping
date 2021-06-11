@@ -282,21 +282,26 @@ public class NaisuShoppingUI implements Initializable {
     }
 
     public void addSeller(ActionEvent event) {
-//        if (!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
-//            if (txtSellerPassword.getText().equalsIgnoreCase(txtSellerRePassword.getText())) {
-//                if (market.thatNickIsUsed(txtSellerUsername.getText()) == false) {
-//                    market.addSeller(txtSellername.getText(), txtSellerLastname.getText(), txtSellerDocument.getText(), txtSellerEmail.getText(), txtSellerPassword.getText(), txtSellerUsername.getText(), txtPathImageSeller.getText());
-//                    userSuccesfullyRegistered(event);
-//                    emptyFieldsOfAddSeller();
-//                } else {
-//                    changeYourUserNick(event);
-//                }
-//            } else {
-//                areTheSamePassword(event);
-//            }
-//        } else {
-//            youNeedToFillTextFields(event);
-//        }
+        try {
+            if (!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
+                if (market.verificationPasswords(txtSellerPassword.getText(), txtSellerRePassword.getText()) == false) {
+                    if (market.thatNickIsUsed(txtSellerUsername.getText()) == false) {
+                        market.addSeller(txtSellername.getText(), txtSellerLastname.getText(), txtSellerDocument.getText(), txtSellerEmail.getText(), txtSellerPassword.getText(), txtSellerUsername.getText(), txtPathImageSeller.getText());
+                        userSuccesfullyRegistered(event);
+                        emptyFieldsOfAddSeller();
+                    } else {
+                    }
+                } else {
+                    
+                }
+            }else{
+                youNeedToFillTextFields(event);
+            }
+        } catch (UsernameRepeatException e) {
+            changeYourUserNick(event);
+        } catch (PasswordNotEqualsException e) {
+            areTheSamePassword(event);
+        }
     }
 
     public void emptyFieldsOfAddSeller() {
