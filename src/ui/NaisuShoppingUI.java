@@ -270,32 +270,21 @@ public class NaisuShoppingUI implements Initializable {
     public NaisuShoppingUI(Market mr) {
         market = mr;
         loadBar = new LoadingBar();
-
+        serializeData();
     }
 
     public void serializeData() {
 
         try {
             market.loadDataClients();
-        } catch (IOException ex) {
-            serializableAlert();
-        } catch (ClassNotFoundException ex) {
-            serializableAlert();
-        }
-        try {
             market.loadDataAccessories();
-        } catch (ClassNotFoundException ex) {
-            serializableAlert();
-        } catch (IOException ex) {
-            serializableAlert();
-        }
-        try {
             market.loadDataClothings();
+        } catch (IOException ex) {
+            
         } catch (ClassNotFoundException ex) {
             serializableAlert();
-        } catch (IOException ex) {
-            serializableAlert();
         }
+
     }
 
     
