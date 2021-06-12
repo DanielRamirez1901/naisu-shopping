@@ -436,6 +436,7 @@ public class NaisuShoppingUI implements Initializable {
             int quantity = Integer.parseInt(txtClothesQuantity.getText());
             System.out.println(" : " + txtClothesName.getText() + " : " + txtClothesCode.getText() + " : " + txtClothesMark.getText() + " : " + price + " : " + txtClothesSize.getText() + " : " + txtClothePathImage.getText() + " : " + txtClothesDescription.getText() + " : " + quantity + " : " + txtClothesColor.getText() + " : " + txtClothesGender.getText() + " : " + txtClothesType.getText() + " : " + txtFootwearType.getText() + " : " + txtFootwearFabricType.getText());
             market.addClothingShoes(txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText(), txtFootwearType.getText(), txtFootwearFabricType.getText());
+            market.saveDataClothings();
             clothingCorrectlyCreated(event);
             emptyFieldsAddFootwear();
             emptyFieldsClothing();
@@ -456,6 +457,7 @@ public class NaisuShoppingUI implements Initializable {
             int price = Integer.parseInt(txtClothesPrice.getText());
             int quantity = Integer.parseInt(txtClothesQuantity.getText());
             market.addClothingShirt(txtShirtFabricType.getText(), txtShirtType.getText(), txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText());
+            market.saveDataClothings();
             clothingCorrectlyCreated(event);
             emptyFieldsClothing();
             emptyFieldsShirt();
@@ -476,6 +478,7 @@ public class NaisuShoppingUI implements Initializable {
             int price = Integer.parseInt(txtClothesPrice.getText());
             int quantity = Integer.parseInt(txtClothesQuantity.getText());
             market.addClothingPants(txtClothesName.getText(), txtClothesCode.getText(), txtClothesMark.getText(), price, txtClothesSize.getText(), txtClothePathImage.getText(), txtClothesDescription.getText(), quantity, txtClothesColor.getText(), txtClothesGender.getText(), txtClothesType.getText(), txtTrouserStyle.getText(), txtTrouserTypeFabric.getText());
+            market.saveDataClothings();
             clothingCorrectlyCreated(event);
             emptyFieldsTrouser();
             emptyFieldsClothing();
@@ -534,6 +537,7 @@ public class NaisuShoppingUI implements Initializable {
                 market.inssertGlassesByPrice(market.convertThatInGlass(newGlassToAdd, txtGlassesColor.getText(), txtGlassesSize.getText(), txtGlassesLens.getText(), txtGlassesFrame.getText()));
             }
             accessoryCorrectlyCreated(event);
+            market.saveDataAccessories();
             emptyFieldsAccessory();
             emptyFieldsGlasses();
             loadAddAccessories(event);
@@ -558,6 +562,7 @@ public class NaisuShoppingUI implements Initializable {
                 market.inssertJewelryByPrice(market.converThatInJewelry(accessoryToAdd, txtJewelsMaterial.getText(), txtJewelsGender.getText()));
             }
             accessoryCorrectlyCreated(event);
+            market.saveDataAccessories();
             emptyFieldsAccessory();
             emptyFieldsJewels();
             loadAddAccessories(event);
