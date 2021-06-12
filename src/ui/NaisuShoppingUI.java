@@ -5,15 +5,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Observable;
 import java.util.ResourceBundle;
 
 import Thread.ProgressBarThread;
 import exceptions.PasswordNotEqualsException;
 import exceptions.UsernameRepeatException;
 import exceptions.expressionInvalidExeption;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -930,6 +927,8 @@ public class NaisuShoppingUI implements Initializable {
         Stage st = (Stage) loginPane.getScene().getWindow();
         st.setHeight(450);
         st.setWidth(640);
+        market.sortByGlassesBrand();
+        market.sortByGlassesPrice();
         initializeTabbleViewAccessories();
     }
 
@@ -959,6 +958,8 @@ public class NaisuShoppingUI implements Initializable {
         Stage st = (Stage) loginPane.getScene().getWindow();
         st.setHeight(450);
         st.setWidth(640);
+        market.sortByGlassesBrand();
+        market.sortByGlassesPrice();
         initializeTabbleViewAccessoriesBuyer();
     }
 

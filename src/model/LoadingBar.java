@@ -5,6 +5,10 @@ import java.io.Serializable;
 public class LoadingBar implements Serializable{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public final static int MAXSYZE = 212;
 	private int progressLevel;
 	private boolean active;
