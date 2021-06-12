@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Observable;
 import java.util.ResourceBundle;
 
 import Thread.ProgressBarThread;
@@ -12,6 +13,9 @@ import exceptions.PasswordNotEqualsException;
 import exceptions.UsernameRepeatException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +23,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -261,7 +268,83 @@ public class NaisuShoppingUI implements Initializable {
     private ImageView imageSeller;
 
     String thisIsTheUser = "";
+    
+    //show accessories published attributes Seller
+    @FXML
+    private TableView<Accessories> tableAccessoriesSeller;
 
+    @FXML
+    private TableColumn<Accessories, String> tcNameAccessoriesSeller;
+
+    @FXML
+    private TableColumn<Accessories, String> tcCodeAccessoriesSeller;
+
+    @FXML
+    private TableColumn<Accessories, Double> tcPriceAccessoriesSeller;
+
+    @FXML
+    private TableColumn<Accessories, String> tcBrandAccessoriesSeller;
+
+    @FXML
+    private TableColumn<Accessories, String> tcTypeAccessoriesSeller;
+
+    //show clothing published attributes Seller
+    @FXML
+    private TableView<Clothing> tabbleClothesSeller;
+
+    @FXML
+    private TableColumn<Clothing, String> tcNameClothesSeller;
+
+    @FXML
+    private TableColumn<Clothing, String> tcCodeClothingSeller;
+
+    @FXML
+    private TableColumn<Clothing, Double> tcPriceClothingSeller;
+
+    @FXML
+    private TableColumn<Clothing, String> tcBrandClothingSeller;
+
+    @FXML
+    private TableColumn<Clothing, Integer> tcQuantityClothingSeller;
+    
+    //show accessories for sale Buyer
+    @FXML
+    private TableView<Accessories> tableViewAccessoriesBuyer;
+
+    @FXML
+    private TableColumn<Accessories, String> tcNameAccessoriesBuyer;
+
+    @FXML
+    private TableColumn<Accessories, String> tcCodeAccessoriesBuyer;
+
+    @FXML
+    private TableColumn<Accessories, Double> tcPriceAccessoriesBuyer;
+
+    @FXML
+    private TableColumn<Accessories, String> tcBrandAccessoriesBuyer;
+    
+    @FXML
+    private TableColumn<Accessories, String> tcTypeAccessoriesBuyer;
+    
+    //show clothes for sale Buyer
+    @FXML
+    private TableView<Clothing> tableViewClothesBuyer;
+
+    @FXML
+    private TableColumn<Clothing, String> tcNameClothesBuyer;
+
+    @FXML
+    private TableColumn<Clothing, String> tcCodeClothesBuyer;
+
+    @FXML
+    private TableColumn<Clothing, Double> tcPriceClothesBuyer;
+
+    @FXML
+    private TableColumn<Clothing, String> tcBrandClothesBuyer;
+
+    @FXML
+    private TableColumn<Clothing, Integer> tcQuantityClothesBuyer;
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -828,6 +911,7 @@ public class NaisuShoppingUI implements Initializable {
         Stage st = (Stage) loginPane.getScene().getWindow();
         st.setHeight(450);
         st.setWidth(640);
+        initializeTabbleViewClothingBuyer();
     }
 
     public void loadSeeProductsToSale(ActionEvent event) throws IOException {
@@ -842,6 +926,7 @@ public class NaisuShoppingUI implements Initializable {
         Stage st = (Stage) loginPane.getScene().getWindow();
         st.setHeight(450);
         st.setWidth(640);
+        initializeTabbleViewAccessories();
     }
 
     public void loadSeeShoppingCart(ActionEvent event) throws IOException {
@@ -870,6 +955,7 @@ public class NaisuShoppingUI implements Initializable {
         Stage st = (Stage) loginPane.getScene().getWindow();
         st.setHeight(450);
         st.setWidth(640);
+        initializeTabbleViewAccessoriesBuyer();
     }
 
     public void loadSeeSoldProducts(ActionEvent event) throws IOException {
@@ -884,6 +970,7 @@ public class NaisuShoppingUI implements Initializable {
         Stage st = (Stage) loginPane.getScene().getWindow();
         st.setHeight(450);
         st.setWidth(640);
+        initializeTabbleViewClothing();
     }
 
     public void loadSelectProductType(ActionEvent event) throws IOException {
@@ -1276,5 +1363,57 @@ public class NaisuShoppingUI implements Initializable {
         } catch (NullPointerException npe) {
             txtAccessoryPathImage.setText("images/icons/accessory.PNG");
         }
+    }
+    
+    @FXML
+    public void initializeTabbleViewAccessories() {
+    	ObservableList<Accessories> observableList;
+    	observableList =  FXCollections.observableArrayList(market.getAcc());
+    	
+    	tableAccessoriesSeller.setItems(observableList);
+    	tcNameAccessoriesSeller.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Name"));
+    	tcCodeAccessoriesSeller.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Code"));
+    	tcPriceAccessoriesSeller.setCellValueFactory(new PropertyValueFactory<Accessories,Double>("Price"));
+    	tcBrandAccessoriesSeller.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Brand"));
+    	tcTypeAccessoriesSeller.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Type"));
+    }
+    
+    @FXML
+    public void initializeTabbleViewClothing() {
+    	ObservableList<Clothing> observableList;
+    	observableList =  FXCollections.observableArrayList(market.getClothing());
+    	
+    	tabbleClothesSeller.setItems(observableList);
+    	tcNameClothesSeller.setCellValueFactory(new PropertyValueFactory<Clothing,String>("Name"));
+    	tcCodeClothingSeller.setCellValueFactory(new PropertyValueFactory<Clothing,String>("Code"));
+    	tcPriceClothingSeller.setCellValueFactory(new PropertyValueFactory<Clothing,Double>("Price"));
+    	tcBrandClothingSeller.setCellValueFactory(new PropertyValueFactory<Clothing,String>("Brand"));
+    	tcQuantityClothingSeller.setCellValueFactory(new PropertyValueFactory<Clothing,Integer>("Quantity"));  	
+    }
+    
+    @FXML
+    public void initializeTabbleViewAccessoriesBuyer() {
+    	ObservableList<Accessories> observableList;
+    	observableList =  FXCollections.observableArrayList(market.getAcc());
+    	
+    	tableViewAccessoriesBuyer.setItems(observableList);
+    	tcNameAccessoriesBuyer.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Name"));
+    	tcCodeAccessoriesBuyer.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Code"));
+    	tcPriceAccessoriesBuyer.setCellValueFactory(new PropertyValueFactory<Accessories,Double>("Price"));
+    	tcBrandAccessoriesBuyer.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Brand"));
+    	tcTypeAccessoriesBuyer.setCellValueFactory(new PropertyValueFactory<Accessories,String>("Type"));
+    }
+    
+    @FXML
+    public void initializeTabbleViewClothingBuyer() {
+    	ObservableList<Clothing> observableList;
+    	observableList =  FXCollections.observableArrayList(market.getClothing());
+    	
+    	tableViewClothesBuyer.setItems(observableList);
+    	tcNameClothesBuyer.setCellValueFactory(new PropertyValueFactory<Clothing,String>("Name"));
+    	tcCodeClothesBuyer.setCellValueFactory(new PropertyValueFactory<Clothing,String>("Code"));
+    	tcPriceClothesBuyer.setCellValueFactory(new PropertyValueFactory<Clothing,Double>("Price"));
+    	tcBrandClothesBuyer.setCellValueFactory(new PropertyValueFactory<Clothing,String>("Brand"));
+    	tcQuantityClothesBuyer.setCellValueFactory(new PropertyValueFactory<Clothing,Integer>("Quantity"));  
     }
 }

@@ -14,22 +14,22 @@
             <Image url="@../../images/whatDoYouWantToDoImage.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="53.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeShoppingCart" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Shopping Cart" textFill="WHITE">
+      <Button layoutX="53.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeShoppingCart" opacity="0.0" prefHeight="63.0" prefWidth="7.0" style="-fx-background-color: #3498db;" text="Shopping Cart" textFill="WHITE" visible="false">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="283.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeShoppingHistory" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Shopping History" textFill="WHITE">
+      <Button layoutX="128.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeShoppingHistory" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Accessories for sale" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="186.0" layoutY="78.0" text="¿ What do you want to do ?" textFill="#f5f5f5">
+      <Label layoutX="186.0" layoutY="77.0" text="¿ What do you want to do ?" textFill="#f5f5f5">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Button layoutX="515.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeProductsOffered" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Products for sale" textFill="WHITE">
+      <Button layoutX="469.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeProductsOffered" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Clothes for sale" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

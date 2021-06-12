@@ -9,16 +9,16 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="373.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView layoutX="85.0" layoutY="67.0" prefHeight="284.0" prefWidth="430.0" style="-fx-background-color: white; -fx-border-color: #3498db;">
+      <TableView fx:id="tabbleClothesSeller" layoutX="85.0" layoutY="67.0" prefHeight="284.0" prefWidth="430.0" style="-fx-background-color: white; -fx-border-color: #3498db;">
         <columns>
-          <TableColumn prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Name" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Code" />
-            <TableColumn prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Price" />
-            <TableColumn prefWidth="104.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Description" />
-            <TableColumn prefWidth="99.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Quantity" />
+          <TableColumn fx:id="tcNameClothesSeller" prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Name" />
+            <TableColumn fx:id="tcCodeClothingSeller" prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Code" />
+            <TableColumn fx:id="tcPriceClothingSeller" prefWidth="75.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Price" />
+            <TableColumn fx:id="tcBrandClothingSeller" prefWidth="104.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Brand" />
+            <TableColumn fx:id="tcQuantityClothingSeller" prefWidth="99.0" style="-fx-background-color: white; -fx-border-color: #3498db;" text="Quantity" />
         </columns>
       </TableView>
-      <Label contentDisplay="CENTER" layoutX="233.0" layoutY="14.0" prefHeight="43.0" prefWidth="135.0" style="-fx-background-color: #3498db; -fx-border-color: #3498db;" text="Sold products" textAlignment="CENTER" textFill="WHITE">
+      <Label contentDisplay="CENTER" layoutX="210.0" layoutY="18.0" prefHeight="43.0" prefWidth="181.0" style="-fx-background-color: #3498db; -fx-border-color: #3498db;" text="Published clothing" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

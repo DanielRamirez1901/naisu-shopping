@@ -19,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="283.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeProductsToSale" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Products for sale" textFill="WHITE">
+      <Button layoutX="274.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeProductsToSale" prefHeight="63.0" prefWidth="214.0" style="-fx-background-color: #3498db;" text="Published Accessories" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -29,7 +29,7 @@
             <Font size="32.0" />
          </font>
       </Label>
-      <Button layoutX="515.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeSoldProducts" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Sale history" textFill="WHITE">
+      <Button layoutX="515.0" layoutY="190.0" mnemonicParsing="false" onAction="#loadSeeSoldProducts" prefHeight="63.0" prefWidth="184.0" style="-fx-background-color: #3498db;" text="Published clothing" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

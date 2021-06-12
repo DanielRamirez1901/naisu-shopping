@@ -2,7 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-class Clothing implements Serializable{
+public class Clothing implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String name;//nombre
