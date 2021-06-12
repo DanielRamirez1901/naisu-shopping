@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import Thread.ProgressBarThread;
 import exceptions.PasswordNotEqualsException;
 import exceptions.UsernameRepeatException;
+import exceptions.expressionInvalidExeption;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -363,14 +364,12 @@ public class NaisuShoppingUI implements Initializable {
             market.loadDataAccessories();
             market.loadDataClothings();
         } catch (IOException ex) {
-            
+
         } catch (ClassNotFoundException ex) {
             serializableAlert();
         }
 
     }
-
-    
 
     public void serializableAlert() {
         Alert alert = new Alert(AlertType.ERROR);
@@ -461,12 +460,13 @@ public class NaisuShoppingUI implements Initializable {
     }
 
     public void addClothe(ActionEvent event) throws IOException {
-        if (!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals("") && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
-            if (txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("trousers") || txtClothesType.getText().equalsIgnoreCase("footwears") || txtClothesType.getText().equalsIgnoreCase("shirts") || txtClothesType.getText().equalsIgnoreCase("trouser")) {
-                if (market.thatClothingCodeIsAlreadyUsed(txtClothesCode.getText()) != true) {
-                    boolean isPriceNumeric = txtClothesPrice.getText().matches("[+-]?\\d*(\\.\\d+)?");
-                    boolean isQuantityNumeric = txtClothesQuantity.getText().matches("[+-]?\\d*(\\.\\d+)?");
-                    if (isPriceNumeric == true && isQuantityNumeric == true) {
+        try {
+            if (!txtClothesName.getText().equals("") && !txtClothesCode.getText().equals("") && !txtClothesMark.getText().equals("") && !txtClothesPrice.getText().equals("") && !txtClothesSize.getText().equals("") && !txtClothesQuantity.getText().equals("") && !txtClothesColor.getText().equals("") && !txtClothesGender.getText().equals("") && !txtClothesType.getText().equals("") && !txtClothesDescription.getText().equals("") && !txtClothePathImage.getText().equals("")) {
+                if (market.typesClothing(txtClothesType.getText())==true) {
+                    if (market.thatClothingCodeIsAlreadyUsed(txtClothesCode.getText()) != true) {
+                        boolean isPriceNumeric = txtClothesPrice.getText().matches("[+-]?\\d*(\\.\\d+)?");
+                        boolean isQuantityNumeric = txtClothesQuantity.getText().matches("[+-]?\\d*(\\.\\d+)?");
+                        if (isPriceNumeric == true && isQuantityNumeric == true) {
                         if (txtClothesType.getText().equalsIgnoreCase("footwear") || txtClothesType.getText().equalsIgnoreCase("footwears")) {
                             loadAddClothesFootwear(event);
                         } else if (txtClothesType.getText().equalsIgnoreCase("shirt") || txtClothesType.getText().equalsIgnoreCase("shirts")) {
@@ -474,18 +474,22 @@ public class NaisuShoppingUI implements Initializable {
                         } else if (txtClothesType.getText().equalsIgnoreCase("trousers") || txtClothesType.getText().equalsIgnoreCase("trouser")) {
                             loadAddClothesTrousers(event);
                         }
+                        } else {
+                            verifyPriceOrQuantityIsNumeric(event);
+                        }
                     } else {
-                        verifyPriceOrQuantityIsNumeric(event);
+                        changeYourClothingCode(event);
                     }
                 } else {
-                    changeYourClothingCode(event);
+
                 }
             } else {
-                selectCorrectClotheType(event);
+                youNeedToFillTextFields(event);
             }
-        } else {
-            youNeedToFillTextFields(event);
+        } catch (expressionInvalidExeption e) {
+            selectCorrectClotheType(event);
         }
+
     }
 
     public void emptyFieldsClothing() {
