@@ -8,6 +8,7 @@ _Program to buy and sell clothes or accessories_
 ## Assignments
 * [File with Milestone 1](https://github.com/DanielRamirez1901/naisu-shopping/blob/main/docs/Daniel%20Ramirez%20Amilcar%20Rodriguez.pdf "File with Milestone 1")
 * [File with Milestone 2](https://github.com/DanielRamirez1901/naisu-shopping/blob/main/docs/DocMilestone2_.pdf "File with Milestone 2")
+* [Video explanation of the project](https://youtu.be/458o0e4nbk0)
 ## Technical specifications
 * [JDK 8.](https://www.oracle.com/co/java/technologies/javase/javase-jdk8-downloads.html "JDK 8.")
 * [Scene Builder.](https://gluonhq.com/products/scene-builder/ "Scene Builder.")
