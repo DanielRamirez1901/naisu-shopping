@@ -2,6 +2,7 @@ package model;
 
 import exceptions.UsernameRepeatException;
 import exceptions.PasswordNotEqualsException;
+import exceptions.expressionInvalidExeption;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
+import javafx.event.ActionEvent;
+import ui.NaisuShoppingUI;
 
 public class Market {
 
@@ -18,7 +21,6 @@ public class Market {
     public final static String FILE_SERIALIZABLE_ACCESORIES = "data/serializableData/accessoriesData.ap2";
     public final static String FILE_SERIALIZABLE_CLOTHINGS = "data/serializableData/clothingData.ap2";
     //---------------------------------------------------------------------------------------------------
-
 
     private ArrayList<User> user;
     private Glasses currentGlass;
@@ -43,6 +45,7 @@ public class Market {
         clothing = new ArrayList<Clothing>();
         buyer = new ArrayList<Buyer>();
         seller = new ArrayList<Seller>();
+        
     }
 //**************************************BUYER & SELLER*************************************************
 
@@ -652,33 +655,49 @@ public class Market {
         user = (ArrayList<User>) ois.readObject();
         ois.close();
     }
+
     public void saveDataClients() throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_SERIALIZABLE_USERS));
         oos.writeObject(user);
         oos.close();
     }
-    
+
     @SuppressWarnings("unchecked")
     public void loadDataAccessories() throws ClassNotFoundException, IOException {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_SERIALIZABLE_ACCESORIES));
         acc = (ArrayList<Accessories>) ois.readObject();
         ois.close();
     }
+
     public void saveDataAccessories() throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_SERIALIZABLE_ACCESORIES));
         oos.writeObject(acc);
         oos.close();
     }
-    
+
     @SuppressWarnings("unchecked")
     public void loadDataClothings() throws ClassNotFoundException, IOException {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(FILE_SERIALIZABLE_CLOTHINGS));
         clothing = (ArrayList<Clothing>) ois.readObject();
         ois.close();
     }
+
     public void saveDataClothings() throws IOException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILE_SERIALIZABLE_CLOTHINGS));
         oos.writeObject(clothing);
         oos.close();
     }
+
+    public boolean typesClothing(String txt) throws expressionInvalidExeption{
+        
+        if (txt.equalsIgnoreCase("footwear") || txt.equalsIgnoreCase("trouser")|| txt.equalsIgnoreCase("shirt") || txt.equalsIgnoreCase("footwears") || txt.equalsIgnoreCase("trousers")|| txt.equalsIgnoreCase("shirts")) {
+
+            return true;
+        }
+        else{
+            throw new expressionInvalidExeption();
+        }
+        
+    }
+
 }
