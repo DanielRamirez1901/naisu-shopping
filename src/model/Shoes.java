@@ -1,7 +1,10 @@
 
 package model;
 
-public class Shoes extends Clothing{
+import java.io.Serializable;
+
+public class Shoes extends Clothing implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String typeShoes;//tipo de calzado
     private String material;//material de fabricacion
     private Shoes left;

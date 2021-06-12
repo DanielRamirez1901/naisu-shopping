@@ -1,6 +1,8 @@
 package model;
 
-public class LoadingBar {
+import java.io.Serializable;
+
+public class LoadingBar implements Serializable{
 	
 	
 	public final static int MAXSYZE = 212;

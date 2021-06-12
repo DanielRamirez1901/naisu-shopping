@@ -1,9 +1,11 @@
 
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Seller extends User{
+public class Seller extends User implements Serializable{
+    private static final long serialVersionUID = 1L;
     
     private ArrayList<Accessories> saleHistory;
     private ArrayList<Glasses>glass;

@@ -1,10 +1,12 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class Accessories implements Comparable<Jewelry>{
+public class Accessories implements Comparable<Jewelry>,Serializable{
+    private static final long serialVersionUID = 1L;
     private String name;//nombre
     private String code;//codigo
     private String brand;//marca

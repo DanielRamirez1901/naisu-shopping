@@ -1,7 +1,10 @@
 
 package model;
 
-public class Jewelry extends Accessories{
+import java.io.Serializable;
+
+public class Jewelry extends Accessories implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String material;
     private String gender;
     private Jewelry left;

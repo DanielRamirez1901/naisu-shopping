@@ -1,7 +1,9 @@
 package model;
 
-public class Glasses extends Accessories {
+import java.io.Serializable;
 
+public class Glasses extends Accessories implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String color;
     private String size;
     private String description;//lente

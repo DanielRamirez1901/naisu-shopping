@@ -15,13 +15,10 @@ import java.util.LinkedList;
 public class Market {
 
     public final static String FILE_SERIALIZABLE_USERS = "data/serializableData/clientsData.ap2";
-    public final static String FILE_SERIALIZABLE_ACCESORIES = "data/serializableData/articlesData.ap2";
-    public final static String FILE_SERIALIZABLE_CLOTHINGS = "data/serializableData/articlesData.ap2";
+    public final static String FILE_SERIALIZABLE_ACCESORIES = "data/serializableData/accessoriesData.ap2";
+    public final static String FILE_SERIALIZABLE_CLOTHINGS = "data/serializableData/clothingData.ap2";
     //---------------------------------------------------------------------------------------------------
-    public final static String FILE_DATA_EXPORT_USERS = "data/exportData/usersData.csv";
-    public final static String FILE_DATA_EXPORT_ARTICLES = "data/exportData/articlesData.csv";
-    public final static String FILE_DATA_IMPORT_CLIENTS = "data/importData/clientsData.csv";
-    public final static String FILE_DATA_IMPORT_ARTICLES = "data/importData/articlesData.csv";
+
 
     private ArrayList<User> user;
     private Glasses currentGlass;
@@ -647,6 +644,7 @@ public class Market {
         }
         return false;
     }
+    //---------------------------------------------------------------------------------------------------------------------
 
     @SuppressWarnings("unchecked")
     public void loadDataClients() throws IOException, ClassNotFoundException {
@@ -683,7 +681,4 @@ public class Market {
         oos.writeObject(clothing);
         oos.close();
     }
-
-    
-
 }

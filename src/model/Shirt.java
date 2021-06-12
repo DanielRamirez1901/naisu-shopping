@@ -1,7 +1,10 @@
 
 package model;
 
-public class Shirt extends Clothing{
+import java.io.Serializable;
+
+public class Shirt extends Clothing implements Serializable{
+    private static final long serialVersionUID = 1L;
     
     private String cloth;//tipo de tela
     private String typeShirt;//tipo de camisa

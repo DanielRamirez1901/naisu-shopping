@@ -1,6 +1,9 @@
 package model;
 
-class Clothing {
+import java.io.Serializable;
+
+class Clothing implements Serializable{
+    private static final long serialVersionUID = 1L;
 
     private String name;//nombre
     private String code;//codigo

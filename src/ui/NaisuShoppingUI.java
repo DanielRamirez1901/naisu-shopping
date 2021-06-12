@@ -289,6 +289,13 @@ public class NaisuShoppingUI implements Initializable {
         } catch (IOException ex) {
             serializableAlert();
         }
+        try {
+            market.loadDataClothings();
+        } catch (ClassNotFoundException ex) {
+            serializableAlert();
+        } catch (IOException ex) {
+            serializableAlert();
+        }
     }
 
     
@@ -310,13 +317,14 @@ public class NaisuShoppingUI implements Initializable {
 
     }
 
-    public void addSeller(ActionEvent event) {
+    public void addSeller(ActionEvent event) throws IOException {
         try {
             if (!txtSellername.getText().equals("") && !txtSellerLastname.getText().equals("") && !txtSellerDocument.getText().equals("") && !txtSellerEmail.getText().equals("") && !txtSellerPassword.getText().equals("") && !txtSellerRePassword.getText().equals("") && !txtSellerUsername.getText().equals("") && !txtPathImageSeller.getText().equals("")) {
                 if (market.verificationPasswords(txtSellerPassword.getText(), txtSellerRePassword.getText()) == false) {
                     if (market.thatNickIsUsed(txtSellerUsername.getText()) == false) {
                         market.addSeller(txtSellername.getText(), txtSellerLastname.getText(), txtSellerDocument.getText(), txtSellerEmail.getText(), txtSellerPassword.getText(), txtSellerUsername.getText(), txtPathImageSeller.getText());
                         userSuccesfullyRegistered(event);
+                        market.saveDataClients();
                         emptyFieldsOfAddSeller();
                     } else {
                     }
@@ -344,13 +352,14 @@ public class NaisuShoppingUI implements Initializable {
         txtPathImageSeller.setText("");
     }
 
-    public void addBuyer(ActionEvent event) {
+    public void addBuyer(ActionEvent event) throws IOException {
         try {
             if (!txtBuyerName.getText().equals("") && !txtBuyerLastname.getText().equals("") && !txtBuyerDocument.getText().equals("") && !txtBuyerEmail.getText().equals("") && !txtBuyerPassword.getText().equals("") && !txtBuyerRePassword.getText().equals("") && !txtBuyerUser.getText().equals("") && !txtPathImageBuyer.getText().equals("")) {
                 if (market.verificationPasswords(txtBuyerPassword.getText(), txtBuyerRePassword.getText()) == false) {
                     if (market.thatNickIsUsed(txtBuyerUser.getText()) == false) {
                         market.addBuyer(txtBuyerName.getText(), txtBuyerLastname.getText(), txtBuyerDocument.getText(), txtBuyerEmail.getText(), txtBuyerPassword.getText(), txtBuyerUser.getText(), txtPathImageBuyer.getText());
                         userSuccesfullyRegistered(event);
+                        market.saveDataClients();
                         emptyFieldsOfAddBuyer();
                     } else {
 
