@@ -1,20 +1,19 @@
 # Naisu Shopping
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-![pinterest_profile_image](https://user-images.githubusercontent.com/73015055/118428698-aa641480-b695-11eb-846b-3d811c318a5d.png)
+![pinterest_profile_image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepng.es%2Fpng-pzmt5q%2F&psig=AOvVaw1p-5OtnIao3_qbqXMLS3Kt&ust=1634514735011000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCLCtyoOQ0PMCFQAAAAAdAAAAABAD)
 
-_Program to buy and sell clothes or accessories_
+_Program to manage databases of basketball players_
 
 
 ## Assignments
-* [File with Milestone 1](https://github.com/DanielRamirez1901/naisu-shopping/blob/main/docs/Daniel%20Ramirez%20Amilcar%20Rodriguez.pdf "File with Milestone 1")
-* [File with Milestone 2](https://github.com/DanielRamirez1901/naisu-shopping/blob/main/docs/DocMilestone2_.pdf "File with Milestone 2")
-* [Video explanation of the project](https://youtu.be/458o0e4nbk0)
+
 ## Technical specifications
 * [JDK 8.](https://www.oracle.com/co/java/technologies/javase/javase-jdk8-downloads.html "JDK 8.")
 * [Scene Builder.](https://gluonhq.com/products/scene-builder/ "Scene Builder.")
 * [Windows 10.](https://www.microsoft.com/es-es/software-download/windows10 "Windows 10.")
-* [Eclipse.](https://www.eclipse.org/downloads/ "Eclipse.")
+* [IntelliJ IDEA.](https://www.jetbrains.com/es-es/idea/ "IntelliJ IDEA.")
 
 ## Authors
+* Brian Stiven. [GitHub profile.](https://github.com/BrianR18 "GitHub profile.")
+* Sebastian Navia. [GitHub profile.](https://github.com/Sebastianavia "GitHub profile.")
 * Daniel Ramirez Gomez. [GitHub profile.](https://github.com/DanielRamirez1901 "GitHub profile.")
-* Amilcar Steban. [GitHub profile.](https://github.com/Amilcar-Steban "GitHub profile.")
