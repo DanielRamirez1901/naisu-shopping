@@ -1,8 +1,8 @@
 # Naisu Shopping
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-![pinterest_profile_image](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepng.es%2Fpng-pzmt5q%2F&psig=AOvVaw1p-5OtnIao3_qbqXMLS3Kt&ust=1634514735011000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCLCtyoOQ0PMCFQAAAAAdAAAAABAD)
+![pinterest_profile_image](https://github.com/DanielRamirez1901/naisu-shopping/blob/main/images/LoadingInterfaceImage.png)
 
-_Program to manage databases of basketball players_
+_Programa en el que se pueden comprar productos de una tienda de ropa, interfaz creada con scene builder_
 
 
 ## Assignments
@@ -14,6 +14,5 @@ _Program to manage databases of basketball players_
 * [IntelliJ IDEA.](https://www.jetbrains.com/es-es/idea/ "IntelliJ IDEA.")
 
 ## Authors
-* Brian Stiven. [GitHub profile.](https://github.com/BrianR18 "GitHub profile.")
-* Sebastian Navia. [GitHub profile.](https://github.com/Sebastianavia "GitHub profile.")
+* Amilcar Rodriguez. [GitHub profile.](https://github.com/Amilcar-Steban")
 * Daniel Ramirez Gomez. [GitHub profile.](https://github.com/DanielRamirez1901 "GitHub profile.")
